@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8"/>
+
+<title>Universal Images</title>
+
+</head>
+
+<body>
+	<header>
+		<a href="index.html">Inicio</a>
+
+		<h3>UNIVERSAL IMAGES</h3>
+		<form action="inicio_sesion.php">
+			Nombre:<br>
+			<input type="text" name="nombre">
+			<br>
+			Contraseña:<br>
+			<input type="password" name="password">
+			<input type="submit" value="Iniciar sesion">
+		</form>
+		¿No estás registrado?
+		<a href="registro.html"> Regístrate</a>
+
+	</header>
+	<hr>
+	<main>
+		<form action="registro.php">
+			<fieldset>
+				<legend> Formulario de registro </legend>	
+				<b>Nombre de usuario</b>
+				<input type="text" name="Nombre de usuario">
+				<b>Contraseña</b>
+				<input type="password" name="Contraseña">
+				<b>Repetir Contraseña</b>
+				<input type="password" name="rep-contraseña">
+				<b>e-mail</b>
+				<input type="email" name="Correo">
+				<b>sexo</b>
+				<input type="radio" name="sexo" value="male" checked> Hombre<br>
+				<input type="radio" name="sexo" value="female"> Mujer<br>
+				<input type="radio" name="sexo" value="other"> Otro
+				<b>fecha de nacimiento</b>
+				<input type="date" name="fecha">
+				<b>Ciudad</b>
+				<input type="text" name="pais">
+				<b>País de residencia</b>
+				<select>
+					<option value="spain">España</option>
+					<option value="spain">Inglaterra</option>
+					<option value="spain">Francia</option>
+					<option value="spain">Argentina</option>
+					<option value="spain">Chile</option>
+					<option value="spain">Portugal</option>
+					<option value="spain">Andorra</option>
+					<option value="spain">Otro</option>
+				</select>
+				<b>Foto</b>
+				<input type="file" name="foto-usuario">
+				<button type="button"><a href="result-busqueda.html">Registrarse</a></button>
+			</fieldset>
+		</form>
+	</main>
+
+	<footer>
+
+	</footer>
+
+</body>
+</html>

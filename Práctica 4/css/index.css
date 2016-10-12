@@ -1,0 +1,70 @@
+/*Etiquetas*/
+h3{ 
+    padding:5px;
+    
+	border-radius:10px;
+    
+    color:blueviolet;
+    font-size:1vw;
+    font-weight: bolder;
+    text-decoration:none;
+    text-transform:capitalize;
+    
+    width:20%;
+    position: relative;
+    float:left;
+    
+}
+
+/*clases*/
+.boton-menu{
+    
+    background:linear-gradient(#9F0AFB, #480075);
+    
+    padding:5px;
+    
+	border-radius:10px;
+    border-width:2px;
+	border-style:solid;
+	border-color: #A889BB;
+    
+    color:aliceblue;
+    font-size:1vw;
+    font-weight: bolder;
+    text-decoration:none;
+    text-transform:capitalize;
+    
+    position:relative;
+    float:left;
+    vertical-align: middle;
+}
+
+/*ids*/
+#logo-U{ 
+    padding:20px;
+    width:0px;
+    position:relative;
+    float:left;
+    z-index:-2;
+    
+    border-top-color:blueviolet;
+    border-left-color:mediumpurple;
+    border-right-color:mediumpurple;
+    border-bottom-color:blueviolet;
+	border-radius:50%;
+    border-width:10px;
+    border-style: solid;
+    
+    color:aliceblue;
+    font-size:2vw;
+    font-weight: bolder;
+    text-decoration:none;
+    text-transform:capitalize;
+    
+    animation: giroLogo 20s linear infinite;
+}
+
+@keyframes giroLogo{
+    from{ transform: rotate(0deg)}
+    to{transform:rotate(360deg)}
+}

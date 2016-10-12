@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8"/>
+
+<title>Universal Images</title>
+
+</head>
+
+<body>
+	<header>
+		<a href="index.html">Inicio</a>
+
+		<h3>UNIVERSAL IMAGES</h3>
+		<form action="inicio_sesion.php">
+			Nombre:<br>
+			<input type="text" name="nombre">
+			<br>
+			Contraseña:<br>
+			<input type="password" name="password">
+			<a href="index2.html"><button type="button" name="Iniciar sesion">Iniciar sesion</button></a>
+		</form>
+		¿No estás registrado?
+		<a href="registro.html"> Regístrate</a>
+
+	</header>
+	<hr>
+	<main>
+		<form action="registro.php">
+			<fieldset>
+				<legend> Formulario de registro </legend>	
+				<label for="nom-user"></label>
+				<input type="text" name="nom-user">
+				<label for="Contraseña">Contraseña</label>
+				<input type="password" name="Contraseña">
+				<label for="rep-contraseña">Repetir contraseña</label>
+				<input type="password" name="rep-contraseña">
+				<label for="Correo">Correo electrónico</label>
+				<input type="email" name="Correo">
+				<label for="sexo">Sexo</label>
+				<input type="radio" name="sexo" value="male" checked> Hombre<br>
+				<input type="radio" name="sexo" value="female"> Mujer<br>
+				<input type="radio" name="sexo" value="other"> Otro
+				<label for="fecha">Fecha</label>
+				<input type="date" name="fecha">
+				<label for="pais">País</label>
+				<input type="text" name="pais">
+				<select>
+					<option value="spain">España</option>
+					<option value="spain">Inglaterra</option>
+					<option value="spain">Francia</option>
+					<option value="spain">Argentina</option>
+					<option value="spain">Chile</option>
+					<option value="spain">Portugal</option>
+					<option value="spain">Andorra</option>
+					<option value="spain">Otro</option>
+				</select>
+				<label for="foto-usuario">Foto de perfil</label>
+				<input type="file" name="foto-usuario">
+				<button type="button"><a href="result-busqueda.html">Registrarse</a></button>
+			</fieldset>
+		</form>
+	</main>
+
+	<footer>
+
+	</footer>
+
+</body>
+</html>

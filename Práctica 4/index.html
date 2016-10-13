@@ -12,40 +12,59 @@
 	<header>
 		<ol>
 			<li>
-		<a href="index.html" class="boton-menu">Inicio</a>
+				<a href="index.html" class="boton-menu" >Inicio</a>
 			</li>
 			<li>
-		<p class="logo">
-			<div id="logo-U">
-			</div>
-			UNIVERSAL IMAGES
-		<p>
+				<div id="logo-U">
+				</div>
+				<img class="logo" alt="logo" src="img/logo.png">
 			</li>
 			<li>
-		<form action="inicio_sesion.php">
-			<label for="nombre">Nombre:</label>
-			<input type="text" name="nombre">
-			
-			<label for="password">Contraseña:</label>
-			<input type="password" name="password">
-            <a href="index2.html" class="boton-menu">Iniciar sesión</a>
-		</form>
-			</li>
-			<li>
-		¿No estás registrado?
-		<a href="registro.html"> Regístrate</a>
+				<div class="boton-ini" >¿Identificarse?
+					<form action="index2.html" class="ini-form">
+					  <input type="text" name="nombre" placeholder="Nombre"/>
+					  <input type="password" name="password" placeholder="contraseña"/>
+					  <button>Iniciar sesión</button>
+					  <p class="mensaje">¿No está registrado? <a href="#">¡Regístrate!</a></p>
+					</form>
+				</div>
 			</li>
 		</ol>
+			<!--<form action="inicio_sesion.php" class="ini-sesion">
+				<ol>
+					<li>
+						<ol>
+							<li>
+								<label for="nombre">Nombre:</label>
+								<input type="text" name="nombre">
+							</li>
+							<li>
+								<label for="password">Contraseña:</label>
+								<input type="password" name="password">
+							</li>
+						</ol>
+					</li>
+					<li>
+						¿No estás registrado?
+						<a href="registro.html"> Regístrate</a>
+					</li>
+				</ol>
+				<button type="submit" href="index2.html" class="boton-menu" >Iniciar sesión</button>
+			</form>-->
+
 	</header>
 	<main>
-		<input type="text" name="buscar" class="buscador"><a href="result-busqueda.html" class="boton-menu">Buscar</a>
+		<form action="result-busqueda.html" class="bus-form">
+			<input type="text" name="buscar" class="buscador" placeholder="Buscar...">
+			<button  class="boton-buscar">Buscar</button>
+		</form>
+		
 		<br>
-		<a href="form-busqueda.html" target="frame1">Busqueda avanzada</a>
-		<iframe width="600" src="none.html" name="frame1"></iframe>
+		<a href="form-busqueda.html">Busqueda avanzada</a>
 		<br>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/te_fo.jpg" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-1" src="img/te_fo.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Selfie</b>
@@ -65,7 +84,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/si_o_que.jpg" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-1" src="img/si_o_que.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Party with my work mates!</b>
@@ -85,7 +104,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/tio_maquina.jpg" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-1" src="img/tio_maquina.jpg" /></a>
             </figure>
 			<p>
 				<b>Titulo: Yo guapo</b>
@@ -105,7 +124,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/lacara.png" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-1" src="img/lacara.png"/></a>
             </figure>
 			<p>
 				<b>Titulo: My son's first draw</b>
@@ -125,7 +144,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/soy_guapa.jpeg" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-1" src="img/soy_guapa.jpeg"/></a>
             </figure>
 			<p>
 				<b>Titulo: I'm pretty!</b>

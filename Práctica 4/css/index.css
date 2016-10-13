@@ -1,10 +1,10 @@
 /*Etiquetas*/
-body {
-    background: #fff;
+body{
+    background:#fff;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1.2em;
     line-height: 1.5;
     margin: 0 auto;
     max-width: 65%;
@@ -18,64 +18,206 @@ header{
 	
 	position: static;
 	
-	height:20%;
+	height:5em;
 	width:100%;
+	
+	display:inline-block;
 	
 	border-bottom:dotted;
 	border-bottom-color:rgba(66,176,244,0.3);
+	background:#e6e6ff;
+}
+ol{
+	width:100%;
+	list-style-type:none;
+	display:inline-block;
+}
+ol li{
+	width:33%;
+	float:left;
+}
+article{
+	text-align:justify;
+	text-indent:1em;
+	font-size:0.5em;
+	
+	border:solid green 2px;
+	border-width:1px;
+	border-radius:2px;
+	
+	width:20%;
+	float:left;
+	margin:2em;
+	padding:0 auto;
+}
+article img{
+	width:100%;
+	height:auto;
+	margin:0 auto;
+	margin-left:-15px;
+	padding:0 auto;
+}
+article a{
+	margin:1em;
+	
+	color:green;
+	text-decoration:none;
 }
 
-
-
+footer{;
+	height:auto;
+	width:100%;
+	float:right;
+}
 /*clases*/
+/*iniciar sesion*/
+.ini-form {
+	display:none;
+	float:bottom;
+	z-index: 3;
+	background: #FFFFFF;
+	max-width: 360px;
+	position:relative;
+	margin: 0 auto;
+	padding: 2em;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.ini-form input {
+	font-family: "Roboto", sans-serif;
+	outline: 0;
+	background: #ddccff;
+	color:#4CAF50;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 1em;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+::-webkit-input-placeholder {
+	color: #4CAF50;
+}
+.ini-form button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+.ini-form button:hover,.form button:active,.form button:focus {
+	background: #43A047;
+}
+.ini-form .mensaje {
+	margin: 15px 0 0;
+	color: #9966ff;
+	font-size: 12px;
+}
+.ini-form .mensaje a {
+	color: #4CAF50;
+	text-decoration: none;
+}
+.boton-ini:hover .ini-form{
+	display:block;
+}
 
+.boton-ini{
+	background:linear-gradient(#9F0AFB, #480075);
+	margin:0 auto;
+	margin-right:20%;
+	margin-top:5%;
+	padding: 0.2em 0 0.2em 0;
+	color:white;
+}
+/*buscador*/
+.bus-form {
+	float:bottom;
+	z-index: 3;
+	background: #FFFFFF;
+	max-width: 360px;
+	position:relative;
+	margin: 0 auto;
+	margin-top:2.5%;
+	padding: 0.5em;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.bus-form input {
+	font-family: "Roboto", sans-serif;
+	outline: 0;
+	background: #ddccff;
+	color:#4CAF50;
+	width: 66%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 1em;
+	box-sizing: border-box;
+	font-size: 14px;
+	float:left;
+	margin-top:1px;
+}
+.bus-form button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 33%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+.bus-form button:hover,.form button:active,.form button:focus {
+	background: #43A047;
+}
+
+/*resto*/
 .boton-menu{
     
     background:linear-gradient(#9F0AFB, #480075);
     
-    padding:5px;
-    
-	border-radius:10px;
-    border-width:2px;
-	border-style:solid;
+    padding:0.2em 1em 0.2em 1em ;
+	float:left;
+	margin:0 auto;
+	margin-top:10px;
+	width:30%;
+	
 	border-color: #A889BB;
-    
+	
     color:aliceblue;
 	text-decoration:none;
-	font-size:1.5vw;
-	
-	height:100%;
-	position:static;
-}
-.buscador{
-		border-radius:10px;
-		padding:1vw;
-}
+	font-size:1.2em;
 
+}
 .logo{ 
-    width:20%;
-	margin:0px;
-    padding:5px;
-    
-	border-radius:10px;
-    
-    color:blueviolet;
-    font-size:1.8em;
-	
-
-    
+   position:relative;
+   width:50%;
+   float:left;
 }
+
 /*ids*/
-#logo-U{ 
-    padding:20px;
-    width:0px;
-    z-index:-2;
-    
-    border-top-color:blueviolet;
+#logo-U{
+	width:30px;
+	height:30px;
+	margin:0 auto;
+	margin-top:10px;
+	position:relative;
+	float:left;
+    border-top-color:#4CAF50;
     border-left-color:mediumpurple;
     border-right-color:mediumpurple;
-    border-bottom-color:blueviolet;
-	border-radius:50%;
+    border-bottom-color:#4CAF50;
+	border-radius:100%;
     border-width:10px;
     border-style: solid;
     

@@ -195,10 +195,33 @@ footer{;
 	font-size:1.2em;
 
 }
+
 .logo{ 
    position:relative;
    width:50%;
    float:left;
+}
+
+
+.boton-menu2{
+    
+    background:linear-gradient(#9F0AFB, #480075);
+    
+	float:left;
+	margin:0 auto;
+	margin-top:10px;
+	width:auto;
+	
+	border-color: #A889BB;
+	
+    color:aliceblue;
+	text-decoration:none;
+	font-size:1.2em;
+
+}
+.li2{
+	width:auto;
+	margin:5px;
 }
 
 /*ids*/

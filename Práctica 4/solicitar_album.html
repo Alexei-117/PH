@@ -9,20 +9,35 @@
 
 <body>
 	<header>
-        <a href="index.html" class="boton-menu">Inicio</a>
-        <img hspace="40" align="right" src="img/lacara.png" style="width:160px;height:90px;">
-		<h3>
-			<div id="logo-U">
-			</div>
-			UNIVERSAL IMAGES
-		</h3>
-        <a href="perfil.html" class="boton-menu"> Subir foto</a>
-        <a href="index.html" class="boton-menu">Mis albumes</a>
-        <a href="solicitar_album.html" class="boton-menu">Crear album</a>
-        <a href="perfil.html" class="boton-menu"> Ir a perfil</a>
-        <a href="index.html" class="boton-menu">Cerrar sesión</a>
-        <a href="solicitar_album.html" class="boton-menu">Solicitar album</a>
-    
+        <ol>
+			<li class="li2">
+				<a href="index.html" class="boton-menu2" >Inicio</a>
+			</li>
+			<li class="li2">
+				<a alt="subir foto" href="perfil.html" class="boton-menu2">Subir foto</a>
+			</li>
+			<li class="li2">
+				<a alt="mis álbumes" href="index2.html" class="boton-menu2">Mis álbumes</a>
+			</li >
+			<li class="li2">
+				<a alt="crear álbum" href="index2.html" class="boton-menu2">Crear álbum</a>
+			</li>
+			<li class="li2">
+				<a alt="solicitar álbum" href="solicitar_album.html" class="boton-menu2">Cerrar sesión</a>
+			</li>
+			<li class="li2">
+				<div id="logo-U">
+				</div>
+				<img class="logo" alt="logo" src="img/logo.png">
+			</li>
+
+			<li class="li2">
+				<a alt="perfil" href="perfil.html" class="boton-menu2">Ir a perfil</a>
+			</li>
+			<li class="li2">
+				<a alt="cerrar sesión" href="index.html" class="boton-menu2">Cerrar sesión</a>
+			</li>
+		</ol>
 	</header>
     <main>
     <p>En esta página puedes solicitar un álbum para que te lo envíen a tu dirección. Solo has de rellenar este formulario</p>
@@ -78,8 +93,9 @@
             </tr>
         </tbody>
         </table>
+		
     <p><b>Formulario de solicitud</b></p>
-    <form action="." oninput="range_control_value.value = range_control.valueAsNumber" class="bus-form">
+    <form action="confirmar.html" oninput="range_control_value.value = range_control.valueAsNumber" class="bus-form">
     <label for="name_control"> Nombre:</label><input type="text" name="name_control" max="3" autofocus required />(*)
     <br />
     <label for="title_control"> Título de album:</label><input type="text" name="title_control" required />(*)
@@ -119,7 +135,7 @@
             <input type="radio" name="color_control2" />Blanco y negro
         </form>
         <label for="submit_control"></label>
-    <a href="confirmar.html"><input type="submit" name="submit_control" value="Submit!" required/></a>
+    <input type="submit" name="submit_control" value="Confirmar" required/>
     </form>
 
 

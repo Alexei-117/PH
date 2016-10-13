@@ -2,24 +2,25 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8"/>
-
-<title>Universal Images</title>
-
+	<meta charset="UTF-8"/>
+	<title>Universal Images</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
 <body>
 	<main>
-		<b>Titulo</b>
-		<input type="text" name="Titulo">
-		<br>
-		<b>Fecha entre</b>
-		<input type="date" name="Fecha inicio"><b>y</b><input type="date" name="Fecha final">
-		<br>
-		<b>Pais</b>
-		<input type="text" name="Pais">
-		<br>
-		<input type="submit" value="Buscar">
+		<form action="result-busqueda.html">
+			<label for="Titulo">Titulo</label>
+			<input type="text" name="Titulo">
+			<br>
+			<label for="Fecha_inicio">Fecha entre</label>
+			<input type="date" name="Fecha_inicio"><b>y</b><input type="date" name="Fecha_final">
+			<br>
+			<label for="Pais">País:</label>
+			<input type="text" name="Pais">
+			<br>
+			<input type="submit" value="Buscar">
+		</form>
 	</main>
 </body>
 </html>

@@ -10,24 +10,26 @@
 
 <body>
 	<header>
-		<a href="index.html" class="boton-menu">Inicio</a>
-
-		<h3>
-			<div id="logo-U">
-			</div>
-			UNIVERSAL IMAGES
-		</h3>
-		<form action="inicio_sesion.php">
-			Nombre:<br>
-			<input type="text" name="nombre">
-			<br>
-			Contraseña:<br>
-			<input type="password" name="password">
-            <a href="index2.html" type="submit" class="boton-menu">Iniciar sesión</a>
-		</form>
-		¿No estás registrado?
-		<a href="registro.html"> Regístrate</a>
-
+		<ol>
+			<li>
+				<a href="index.html" class="boton-menu" >Inicio</a>
+			</li>
+			<li>
+				<div id="logo-U">
+				</div>
+				<img class="logo" alt="logo" src="img/logo.png">
+			</li>
+			<li>
+				<div class="boton-ini" >¿Identificarse?
+					<form action="index2.html" class="ini-form">
+					  <input type="text" name="nombre" placeholder="Nombre"/>
+					  <input type="password" name="password" placeholder="contraseña"/>
+					  <button>Iniciar sesión</button>
+					  <p class="mensaje">¿No está registrado? <a href="#">¡Regístrate!</a></p>
+					</form>
+				</div>
+			</li>
+		</ol>
 	</header>
 	<hr>
 	<main>

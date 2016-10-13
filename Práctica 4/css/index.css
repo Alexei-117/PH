@@ -48,14 +48,14 @@ article{
 	width:20%;
 	float:left;
 	margin:2em;
-	padding:0 auto;
+	padding:0;
 }
 article img{
 	width:100%;
 	height:auto;
 	margin:0 auto;
 	margin-left:-15px;
-	padding:0 auto;
+	padding:0;
 }
 article a{
 	margin:1em;
@@ -108,8 +108,6 @@ footer{;
 	padding: 15px;
 	color: #FFFFFF;
 	font-size: 14px;
-	-webkit-transition: all 0.3 ease;
-	transition: all 0.3 ease;
 	cursor: pointer;
 }
 .ini-form button:hover,.form button:active,.form button:focus {
@@ -173,8 +171,6 @@ footer{;
 	padding: 15px;
 	color: #FFFFFF;
 	font-size: 14px;
-	-webkit-transition: all 0.3 ease;
-	transition: all 0.3 ease;
 	cursor: pointer;
 }
 .bus-form button:hover,.form button:active,.form button:focus {

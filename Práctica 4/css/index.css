@@ -36,18 +36,27 @@ ol li{
 	width:33%;
 	float:left;
 }
+
+main{
+	text-align:center;
+}
+
 article{
 	text-align:justify;
-	text-indent:1em;
-	font-size:0.5em;
+	font-size:0.7em;
 	
-	border:solid green 2px;
-	border-width:1px;
-	border-radius:2px;
+	border:solid green;
+	border-width:2px;
+	border-radius:10px 0px 0px 0px;
 	
 	width:20%;
+	min-width:250px;
+	height:320px;
+	
+	position:relative;
 	float:left;
-	margin:2em;
+	margin:1.5em 1em;
+	display:block;
 	padding:0;
 }
 article img{
@@ -60,8 +69,15 @@ article img{
 article a{
 	margin:1em;
 	
+	padding:2px;
+	border-radius:10px 0px 10px 0px;
+	background-color:rgba(76,175,80,0.1);
+	
 	color:green;
 	text-decoration:none;
+}
+article p{
+	text-indent:1em;
 }
 
 footer{;
@@ -205,11 +221,14 @@ legend {
 }
 
 .boton-ini{
+	position:absolute;
+	top:0px;
+	
 	background:linear-gradient(#9F0AFB, #480075);
 	margin:0 auto;
 	margin-right:20%;
 	margin-top:5%;
-	padding: 0.2em 0 0.2em 0;
+	padding: 0.2em 0.1em 0.2em 0.1em;
 	color:white;
 }
 /*buscador*/

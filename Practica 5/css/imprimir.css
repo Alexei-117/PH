@@ -24,3 +24,6 @@ footer{
 #buscarAvanzada{
     display: none;
 }
+article{
+    border: 0;
+}

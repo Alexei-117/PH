@@ -42,8 +42,9 @@
     <main>
     <p >En esta página puedes solicitar un álbum para que te lo envíen a tu dirección. Solo has de rellenar este formulario</p>
     <form action="confirmar.html" oninput="range_control_value.value = range_control.valueAsNumber" class="album-form">
-        <p ><b>Formulario de solicitud</b></p>
+        
         <fieldset>
+        <legend>Formulario de solicitud</legend>
         <label id="nameLabel" class="labelForm" for="name_control">Nombre:</label><input class="formInput" type="text" name="name_control" max="Z3" autofocus required />
         <br>
         <label id="titleLabe" class="labelForm" for="title_control">Título de album:</label><input class="formInput" type="text" name="title_control" required />

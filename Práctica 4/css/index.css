@@ -219,6 +219,13 @@ legend {
 .boton-ini:hover .ini-form{
 	display:block;
 }
+.boton-ini:hover {
+	display:block;
+	width:200px;
+	padding: 0.4em 0em 0.4em 0em;
+	z-index:5;
+}
+
 
 .boton-ini{
 	position:absolute;

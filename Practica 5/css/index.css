@@ -70,6 +70,63 @@ footer{;
 	float:right;
 }
 /*clases*/
+/*FORMULARIO_ALBUM*/
+.album-form {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+	float:bottom;
+	z-index: 3;
+	background: #FFFFFF;
+	max-width: 380px;
+    min-width: 380px;
+	position:relative;
+	margin: 0 auto;
+	margin-top:2.5%;
+	padding: 0.5em;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.labelForm{
+    font-weight: bold;
+    line-height: normal;
+    text-align: right;
+    margin-right: 10px;
+    position: relative;
+    display: block;
+    float: left;
+    width: 125px;
+    padding:1em;
+}
+.formInput{
+    min-width: 180px;
+	background: #ddccff;
+	color:#4CAF50;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 1em;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+.formInputColor{
+    height: 40px;
+    width: 100px;
+	border: 0;
+	margin: 0 0 15px;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+.bus-form button:hover,.form button:active,.form button:focus {
+	background: #43A047;
+}
+.formSubmit{
+	background:linear-gradient(#9F0AFB, #480075);
+	margin:0 auto;
+	margin-top:5%;
+	color:white;
+    padding: 1em;
+}
 /*iniciar sesion*/
 .ini-form {
 	display:none;

@@ -33,44 +33,43 @@
 	</header>
 	<hr>
 	<main>
-		<form action="registro.php">
-			<fieldset>
-				<legend> Formulario de registro </legend>	
-				<label for="nom-user"></label>
-				<input type="text" name="nom-user">
-				<label for="Contraseña">Contraseña</label>
-				<input type="password" name="Contraseña">
-				<label for="rep-contraseña">Repetir contraseña</label>
-				<input type="password" name="rep-contraseña">
-				<label for="Correo">Correo electrónico</label>
-				<input type="email" name="Correo">
-				<label for="sexo">Sexo</label>
-				<input type="radio" name="sexo" value="male" checked> Hombre<br>
-				<input type="radio" name="sexo" value="female"> Mujer<br>
-				<input type="radio" name="sexo" value="other"> Otro
-				<label for="fecha">Fecha</label>
-				<input type="date" name="fecha">
-				<label for="pais">País</label>
-				<input type="text" name="pais">
-				<select>
-					<option value="spain">España</option>
-					<option value="spain">Inglaterra</option>
-					<option value="spain">Francia</option>
-					<option value="spain">Argentina</option>
-					<option value="spain">Chile</option>
-					<option value="spain">Portugal</option>
-					<option value="spain">Andorra</option>
-					<option value="spain">Otro</option>
-				</select>
-				<label for="foto-usuario">Foto de perfil</label>
-				<input type="file" name="foto-usuario">
-				<button type="button"><a href="result-busqueda.html">Registrarse</a></button>
-			</fieldset>
+		<form class="album-form" action="registro.php">
+                <p><b>Formulario de registro </b></p>
+                <fieldset>
+                <label id="nomReg" class="labelForm" for="nom-user">Usuario</label><input class="formInput" type="text" name="nom-user" required>
+                <br>
+                <label id="passReg" class="labelForm" for="Contraseña">Contraseña</label><input class="formInput" type="password" name="Contraseña" required>
+                <br>
+                <label id="passReg2" class="labelForm" for="rep-contraseña">Repetir contraseña</label><input class="formInput" type="password" name="rep-contraseña" required>
+                <br>
+                <label id="emailReg" class="labelForm" for="Correo">Correo electrónico</label><input class="formInput" type="email" name="Correo" required>
+                <br>
+                <label id="sexReg" class="labelForm" for="sexo">Sexo</label>
+                <input type="radio" name="sexo" value="male" checked> Hombre<br>
+                <input type="radio" name="sexo" value="female"> Mujer<br>
+                <label id="naciReg" class="labelForm" for="fecha">Fecha de nacimiento</label><input class="formInput" type="date" name="fecha" required>
+				<label id="paisReg" class="labelForm" for="pais">País</label>
+                <select class="formInput" name="pais_regis">
+				    <option value="spain">España</option>
+				    <option value="spain">Inglaterra</option>
+				    <option value="spain">Francia</option>
+                    <option value="spain">Argentina</option>
+				    <option value="spain">Chile</option>
+				    <option value="spain">Portugal</option>
+                    <option value="spain">Andorra</option>
+				    <option value="spain">Otro</option>
+                </select>
+                <label id="fotoReg" class="labelForm" for="foto-usuario">Foto de perfil</label><input class="formFile" type="file" name="foto-usuario">
+                </fieldset>
+			 	<input class="formSubmit" type="submit" name="submit_control" value="Registrarse" required/>
+                
 		</form>
 	</main>
 
 	<footer>
-
+		<a href="">Contacto</a>
+		<a href="">Ayuda</a>
+		<a href="">Idioma</a>
 	</footer>
 
 </body>

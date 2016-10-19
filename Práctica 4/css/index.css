@@ -72,7 +72,6 @@ footer{;
 /*clases*/
 /*FORMULARIO_ALBUM*/
 .album-form {
-    font-family: "Roboto", sans-serif;
     font-size: 14px;
 	float:bottom;
 	z-index: 3;

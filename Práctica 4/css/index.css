@@ -92,8 +92,8 @@ footer{;
 	float:bottom;
 	z-index: 3;
 	background: #FFFFFF;
-	max-width: 400px;
-    min-width: 400px;
+    max-width:420px;
+    min-width: 420px;
 	position:relative;
 	margin: 0 auto;
 	margin-top:2.5%;
@@ -158,7 +158,7 @@ legend {
     color:white;
     padding: 1em;
     font-size:90%;
-    text-align:right;
+    text-align:left;
   }
 
 .radioLabel{

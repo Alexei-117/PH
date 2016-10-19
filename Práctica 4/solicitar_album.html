@@ -58,6 +58,7 @@
         <label id="telLabel" class="labelForm" for="tel_control">Teléfono:</label><input class="formInput" type="tel" name="tel_control" pattern="(+[0-9]{2} [0-9]{9})"/>
         <br>
         <label id="colorLabel" class="labelForm" for="color_control">Color de portada:</label><input class="formInputColor" type="color" name="color_control"/>
+        
         <br>
         <label id="numberLabel"class="labelForm" for="number_control">Nº de copias:</label><input class="formInput" type="number" name="number_control" min="1" max="100000" value="1" required/>
         <br>
@@ -71,7 +72,12 @@
             <option value="album3">album 3</option>
         </select>
         <br>
-        <label id="colorLabel" class="labelForm" for="color_control">A color:</label><input class="formInput" type="checkbox" name="color_control"/><br>
+            <!--<label id="sexReg" class="labelForm" for="sexo">Sexo</label>
+                <input type="radio" name="sexo" value="male" checked> Hombre<br>
+                <input type="radio" name="sexo" value="female"> Mujer<br>-->
+        <label id="colorLabel" class="labelForm" for="color_control">A color:</label>
+            <input type="radio" name="color_control" value="blanconegro"/>blanco y negro<br>
+            <input type="radio" name="color_control" value="wcolor"/>con color<br>
         <br>
         <label id="subLabel" class="labelForm" for="submit_control"></label>
         </fieldset>

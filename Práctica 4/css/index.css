@@ -109,7 +109,16 @@ footer{;
 }
 .formInputColor{
     height: 40px;
-    width: 100px;
+    width: 180px;
+	border: 0;
+	margin: 0 0 15px;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+.formInputRadio{
+    height: 40px;
+    width: 180px;
 	border: 0;
 	margin: 0 0 15px;
 	box-sizing: border-box;

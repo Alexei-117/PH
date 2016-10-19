@@ -8,14 +8,19 @@ header{
     display:none;
 }
 body { 
-
     color: #000; 
     font: 12px Georgia, "Times New Roman", Times, serif;
 }
 img{
     max-width: 500px;
-    
+    max-height: auto;
 }
 .fotoLink{
+    display: none;
+}
+footer{
+    display: none;
+}
+#buscarAvanzada{
     display: none;
 }

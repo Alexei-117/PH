@@ -36,18 +36,29 @@ ol li{
 	width:33%;
 	float:left;
 }
+
+main{
+	text-align:center;
+	margin-left:0%;
+}
+
 article{
-	text-align:justify;
-	text-indent:1em;
-	font-size:0.5em;
+	text-align:center;
+	font-size:0.7em;
+	text-overflow:hidden;
 	
-	border:solid green 2px;
-	border-width:1px;
-	border-radius:2px;
+	border:solid green;
+	border-width:2px;
+	border-radius:10px 0px 0px 0px;
 	
 	width:20%;
+	min-width:220px;
+	height:320px;
+	
+	position:relative;
 	float:left;
-	margin:2em;
+	margin:1.5em 0.5%;
+	display:block;
 	padding:0;
 }
 article img{
@@ -60,25 +71,33 @@ article img{
 article a{
 	margin:1em;
 	
+	padding:2px;
+	border-radius:10px 0px 10px 0px;
+	background-color:rgba(76,175,80,0.1);
+	
 	color:green;
 	text-decoration:none;
+}
+article p{
+	text-align:left;
+	text-indent:1em;
+	width:90%;
 }
 
 footer{;
 	height:auto;
 	width:100%;
+	margin-top:20px;
 	float:right;
 }
 /*clases*/
-/*FORMULARIO_ALBUM*/
+/*FORMULARIO_ALBUM_y_REGISTRO*/
 .album-form {
-    font-family: "Roboto", sans-serif;
     font-size: 14px;
 	float:bottom;
 	z-index: 3;
 	background: #FFFFFF;
-	max-width: 380px;
-    min-width: 380px;
+    width:420px;
 	position:relative;
 	margin: 0 auto;
 	margin-top:2.5%;
@@ -94,11 +113,11 @@ footer{;
     position: relative;
     display: block;
     float: left;
-    width: 125px;
+    width: 150px;
     padding:1em;
 }
 .formInput{
-    min-width: 180px;
+    min-width: 200px;
 	background: #ddccff;
 	color:#4CAF50;
 	border: 0;
@@ -109,24 +128,42 @@ footer{;
     display:block;
 }
 .formInputColor{
-    height: 40px;
-    width: 100px;
+    height: 45px;
+    min-width: 200px;
 	border: 0;
 	margin: 0 0 15px;
 	box-sizing: border-box;
 	float:left;
     display:block;
 }
+
 .bus-form button:hover,.form button:active,.form button:focus {
 	background: #43A047;
 }
 .formSubmit{
+    font-weight:bold;
 	background:linear-gradient(#9F0AFB, #480075);
 	margin:0 auto;
-	margin-top:5%;
+	margin-top:2%;
 	color:white;
+    border:0;
+    min-width: 400px;
     padding: 1em;
 }
+.formFile{
+    display: block !important;
+    width: 180px !important;
+    height: 40px !important;
+    opacity: 0 !important;
+}
+legend {
+    font-weight:bold;
+    background:linear-gradient(#9F0AFB, #480075);
+    color:white;
+    padding: 1em;
+    font-size:90%;
+    text-align:left;
+  }
 /*iniciar sesion*/
 .ini-form {
 	display:none;
@@ -136,7 +173,7 @@ footer{;
 	max-width: 360px;
 	position:relative;
 	margin: 0 auto;
-	padding: 2em;
+	padding: 0.8em;
 	text-align: center;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -148,7 +185,7 @@ footer{;
 	width: 100%;
 	border: 0;
 	margin: 0 0 15px;
-	padding: 1em;
+	padding: 0.4em;
 	box-sizing: border-box;
 	font-size: 14px;
 }
@@ -162,7 +199,7 @@ footer{;
 	background: #4CAF50;
 	width: 100%;
 	border: 0;
-	padding: 15px;
+	padding: 10px;
 	color: #FFFFFF;
 	font-size: 14px;
 	cursor: pointer;
@@ -184,11 +221,14 @@ footer{;
 }
 
 .boton-ini{
+	position:absolute;
+	top:0px;
+	
+	right:20%;
+	top:68px;
+	
 	background:linear-gradient(#9F0AFB, #480075);
-	margin:0 auto;
-	margin-right:20%;
-	margin-top:5%;
-	padding: 0.2em 0 0.2em 0;
+	padding: 0.4em 2% 0.4em 2%;
 	color:white;
 }
 /*buscador*/
@@ -200,7 +240,7 @@ footer{;
 	position:relative;
 	margin: 0 auto;
 	margin-top:2.5%;
-	padding: 0.5em;
+	padding: 0.3em;
 	text-align: center;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -223,9 +263,9 @@ footer{;
 	text-transform: uppercase;
 	outline: 0;
 	background: #4CAF50;
-	width: 33%;
+	width: 30%;
 	border: 0;
-	padding: 15px;
+	padding: 15px 5px;
 	color: #FFFFFF;
 	font-size: 14px;
 	cursor: pointer;
@@ -239,11 +279,11 @@ footer{;
     
     background:linear-gradient(#9F0AFB, #480075);
     
-    padding:0.2em 1em 0.2em 1em ;
+    padding:0.2em 0.2em 0.2em 0.2em ;
 	float:left;
 	margin:0 auto;
 	margin-top:10px;
-	width:30%;
+	margin-left:-20px;
 	
 	border-color: #A889BB;
 	
@@ -287,6 +327,7 @@ footer{;
 	height:30px;
 	margin:0 auto;
 	margin-top:10px;
+	margin-left:-20px;
 	position:relative;
 	float:left;
     border-top-color:#4CAF50;

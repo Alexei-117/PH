@@ -39,18 +39,20 @@ ol li{
 
 main{
 	text-align:center;
+	margin-left:0%;
 }
 
 article{
 	text-align:justify;
 	font-size:0.7em;
+	text-overflow:hidden;
 	
 	border:solid green;
 	border-width:2px;
 	border-radius:10px 0px 0px 0px;
 	
 	width:20%;
-	min-width:250px;
+	min-width:220px;
 	height:320px;
 	
 	position:relative;
@@ -83,6 +85,7 @@ article p{
 footer{;
 	height:auto;
 	width:100%;
+	margin-top:20px;
 	float:right;
 }
 /*clases*/
@@ -159,7 +162,6 @@ legend {
     font-size:90%;
     text-align:left;
   }
-
 /*iniciar sesion*/
 .ini-form {
 	display:none;
@@ -169,7 +171,7 @@ legend {
 	max-width: 360px;
 	position:relative;
 	margin: 0 auto;
-	padding: 2em;
+	padding: 0.8em;
 	text-align: center;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -181,7 +183,7 @@ legend {
 	width: 100%;
 	border: 0;
 	margin: 0 0 15px;
-	padding: 1em;
+	padding: 0.4em;
 	box-sizing: border-box;
 	font-size: 14px;
 }
@@ -195,7 +197,7 @@ legend {
 	background: #4CAF50;
 	width: 100%;
 	border: 0;
-	padding: 15px;
+	padding: 10px;
 	color: #FFFFFF;
 	font-size: 14px;
 	cursor: pointer;
@@ -220,9 +222,10 @@ legend {
 	position:absolute;
 	top:0px;
 	
+	width:20%;
+	
 	background:linear-gradient(#9F0AFB, #480075);
 	margin:0 auto;
-	margin-right:20%;
 	margin-top:5%;
 	padding: 0.2em 0.1em 0.2em 0.1em;
 	color:white;
@@ -236,7 +239,7 @@ legend {
 	position:relative;
 	margin: 0 auto;
 	margin-top:2.5%;
-	padding: 0.5em;
+	padding: 0.3em;
 	text-align: center;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -259,9 +262,9 @@ legend {
 	text-transform: uppercase;
 	outline: 0;
 	background: #4CAF50;
-	width: 33%;
+	width: 30%;
 	border: 0;
-	padding: 15px;
+	padding: 15px 5px;
 	color: #FFFFFF;
 	font-size: 14px;
 	cursor: pointer;

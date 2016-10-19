@@ -92,8 +92,7 @@ footer{;
 	float:bottom;
 	z-index: 3;
 	background: #FFFFFF;
-    max-width:420px;
-    min-width: 420px;
+    width:420px;
 	position:relative;
 	margin: 0 auto;
 	margin-top:2.5%;
@@ -113,7 +112,7 @@ footer{;
     padding:1em;
 }
 .formInput{
-    min-width: 180px;
+    min-width: 200px;
 	background: #ddccff;
 	color:#4CAF50;
 	border: 0;
@@ -124,8 +123,8 @@ footer{;
     display:block;
 }
 .formInputColor{
-    height: 40px;
-    width: 180px;
+    height: 45px;
+    min-width: 200px;
 	border: 0;
 	margin: 0 0 15px;
 	box-sizing: border-box;
@@ -160,9 +159,6 @@ legend {
     font-size:90%;
     text-align:left;
   }
-
-.radioLabel{
-}
 
 /*iniciar sesion*/
 .ini-form {

@@ -18,7 +18,7 @@ header{
 	
 	position: static;
 	
-	height:5em;
+	height:auto;
 	width:100%;
 	
 	display:inline-block;
@@ -280,7 +280,28 @@ legend {
 .bus-form button:hover,.form button:active,.form button:focus {
 	background: #43A047;
 }
+/*Confirmar*/
+.confirmar-form{
+	height:100%;
+	padding:20px;
+	
+	margin:0 auto;
+}
 
+/*Confirmar*/
+.detalle{
+	font-size:2em;
+	text-align:center;
+	
+	width:100%;
+	height:auto;
+}
+.detalle figure img{
+	width:60%;
+}
+.detalle p{
+	text-align:center;
+}
 /*resto*/
 .boton-menu{
     

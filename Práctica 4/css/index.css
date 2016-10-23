@@ -280,6 +280,61 @@ legend {
 .bus-form button:hover,.form button:active,.form button:focus {
 	background: #43A047;
 }
+/*buscador avanzado*/
+.bus-form-a {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	float:bottom;
+	z-index: 3;
+	background: #FFFFFF;
+	max-width: 500px;
+	height:auto;
+	position:relative;
+	margin: 0 auto;
+	margin-top:2.5%;
+	padding: 0.3em;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.bus-form-a fieldset {
+	width:100%;
+	border:0px;
+}
+.bus-form-a label {
+    line-height: normal;
+	text-align:left;
+    position: relative;
+    display: block;
+    float: left;
+    padding:0.8em;
+}
+
+.bus-form-a input {
+	outline: 0;
+	background: #ddccff;
+	color:#4CAF50;
+	border: 0;
+	margin: 0 15px 0 5px;
+	padding: 1em;
+	box-sizing: border-box;
+	font-size: 14px;
+	float:left;
+	margin-top:1px;
+}
+.bus-form-a button {
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 30%;
+	border: 0;
+	padding: 15px 5px;
+	color: #FFFFFF;
+	font-size: 14px;
+	cursor: pointer;
+}
+.bus-form-a button:hover,.form button:active,.form button:focus {
+	background: #43A047;
+}
 /*Confirmar*/
 .confirmar-form{
 	height:100%;

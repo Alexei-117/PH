@@ -4,22 +4,44 @@
 <head>
 <meta charset="UTF-8"/>
 
-<title>Universal Images</title>
+<title>Universal Images - búsqueda avanzada</title>
 
 </head>
 
 <body>
+	<header>
+		<a href="index.html">Inicio</a>
+
+		<h3>UNIVERSAL IMAGES</h3>
+		<form action="inicio_sesion.php">
+			Nombre:<br>
+			<input type="text" name="nombre">
+			<br>
+			Contraseña:<br>
+			<input type="password" name="password">
+			<input type="submit" value="Iniciar sesion">
+		</form>
+		¿No estás registrado?
+		<a href="registro.html"> Regístrate</a>
+
+	</header>
+	<hr>
 	<main>
-		<b>Titulo</b>
-		<input type="text" name="Titulo">
-		<br>
-		<b>Fecha entre</b>
-		<input type="date" name="Fecha inicio"><b>y</b><input type="date" name="Fecha final">
-		<br>
-		<b>Pais</b>
-		<input type="text" name="Pais">
-		<br>
-		<input type="submit" value="Buscar">
+		<form action="result-busqueda.html" class="bus-form-a">
+			<fieldset>
+			<label for="title">Título</label>
+			<input type="text" name="Titulo" id="title">
+			</fieldset>
+			<fieldset>
+			<label for="fecha_ini">Fecha entre</label>
+			<input type="date" name="Fecha_inicio" id="fecha_ini" ><input type="date" name="Fecha_final" id="fecha_fin">
+			</fieldset>
+			<fieldset>
+			<label for="country">País:</label>
+			<input type="text" name="Pais" id="country">
+			</fieldset>
+			<button type="submit" value="Buscar">Buscar</button>
+		</form>
 	</main>
 </body>
 </html>

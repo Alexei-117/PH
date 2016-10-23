@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Solicitar album</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
 </head>
 
 <body>
 	<header>
        <ol>
 			<li class="li2">
-				<a class="boton-menu2" >Inicio</a>
+				<a href="index2.html" class="boton-menu2" >Inicio</a>
 			</li>
 			<li class="li2">
 				<a href="perfil.html" class="boton-menu2">Subir foto</a>
@@ -45,41 +45,41 @@
         
         <fieldset>
         <legend>Formulario de solicitud</legend>
-        <label id="nameLabel" class="labelForm" for="name_control">Nombre:</label><input class="formInput" type="text" name="name_control" max="Z3" autofocus required />
+        <label class="labelForm" for="nameInput">Nombre:</label><input id="nameInput" class="formInput" type="text" name="name_control" autofocus required />
         <br>
-        <label id="titleLabe" class="labelForm" for="title_control">Título de album:</label><input class="formInput" type="text" name="title_control" required />
+        <label class="labelForm" for="titleInput">Título de album:</label><input id="titleInput" class="formInput" type="text" name="title_control" required />
         <br>
-        <label id="textLabel" class="labelForm" for="text_control">Texto adicional:</label><input class="formInput" type="text" name="text_control"/>
+        <label class="labelForm" for="textInput">Texto adicional:</label><input id="textInput" class="formInput" type="text" name="text_control"/>
         <br>
-        <label id="emailLabel" class="labelForm" for="email_control"> E-mail:</label><input class="formInput" type="text" name="email_control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+        <label class="labelForm" for="emailInput"> E-mail:</label><input id="emailInput" class="formInput" type="text" name="email_control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
         <br>
-        <label id="directionLabel" class="labelForm" for="direction_control">Dirección:</label><input class="formInput" type="text" name="direction_control"/>
+        <label class="labelForm" for="directionInput">Dirección:</label><input id="directionInput" class="formInput" type="text" name="direction_control"/>
         <br>
-        <label id="telLabel" class="labelForm" for="tel_control">Teléfono:</label><input class="formInput" type="tel" name="tel_control" pattern="(+[0-9]{2} [0-9]{9})"/>
+        <label class="labelForm" for="telInput">Teléfono:</label><input id="telInput" class="formInput" type="tel" name="tel_control"/>
         <br>
-        <label id="colorLabel" class="labelForm" for="color_control">Color de portada:</label><input class="formInputColor" type="color" name="color_control"/>
+        <label class="labelForm" for="colorInput">Color de portada:</label><input id="colorInput" class="formInputColor" type="color" name="color_control"/>
         
         <br>
-        <label id="numberLabel"class="labelForm" for="number_control">Nº de copias:</label><input class="formInput" type="number" name="number_control" min="1" max="100000" value="1" required/>
+        <label class="labelForm" for="numberInput">Nº de copias:</label><input id="numberInput" class="formInput" type="number" name="number_control" min="1" max="100000" value="1" required/>
         <br>
-        <label id="resLabel" class="labelForm" for="resolution_control">Resolución:</label><input class="formInput" type="number" name="resolution_control" min="150" max="900" step="150"value="150" required/>
+        <label class="labelForm" for="resInput">Resolución:</label><input id="resInput" class="formInput" type="number" name="resolution_control" min="150" max="900" step="150"value="150" required/>
         <br>
-        <label id="albumLabel" class="labelForm" for="album_control">Album:</label>
-        <select class="formInput" name="album_control">
+        <label class="labelForm" for="albumInput">Album:</label>
+        <select id="albumInput" class="formInput" name="album_control">
             <option value="blank"></option>
             <option value="album1">album 1</option>
             <option value="album2">album 2</option>
             <option value="album3">album 3</option>
         </select>
         <br>
-        <label id="colorLabel" class="labelForm" for="color_control">A color:</label>
-            <input class="labelFormRadio" type="radio" name="color_control1" value="blanconegro" checked/><label class="radioLabel" id="modoLabel1" for="color_control1">blanco y negro</label>
+        <label class="labelForm" for="colorInput">A color:</label>
+            <input id="colorInput" class="labelFormRadio" type="radio" name="color_control1" value="blanconegro" checked/><label class="radioLabel" id="modoLabel1" for="color_control1">blanco y negro</label>
             <br>
             <input class="labelFormRadio" type="radio" name="color_control2" value="wcolor"/><label class="radioLabel" id="modoLabel2" for="color_control2">con color</label>
             <br>
         <br>
         </fieldset>
-        <label id="subLabel" for="submit_control"></label><input class="formSubmit" type="submit" name="submit_control" value="Confirmar" required/>
+        <label for="subInput"></label><input id="subInput" class="formSubmit" type="submit" name="submit_control" value="Confirmar"/>
         
     </form>
 	</main>

@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Universal Images - Perfil</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Pefil</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
+    <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
+    <link rel="stylesheet" type="text/css" href="css/imprimir.css" media="print"/>
 </head>
 
 <body>
 	<header>
-       <ol>
+      <ol>
 			<li class="li2">
 				<a href="index2.html" class="boton-menu2" >Inicio</a>
 			</li>
@@ -40,41 +42,59 @@
 		</ol>
 	</header>
 	<hr>
-	<main>
-        <img src="img/lacara.png" style="width:160px;height:90px;">
-        <br>
-        Editar foto de perfil:
+	<main class="perfil">
+        <form class="album-form">
+        <legend>Datos personales:</legend>
+        <img hspace="40" src="img/lacara.png">
+        <p>
+        <b>Editar foto de perfil:</b>
+		</p>
         <input name="imagen" type="file" />
-        <br>
-        Nombre: Pepito Morales
-        <br>
-        Correo electrónico: pepitom63@gmail.com
-        <br>
-        Edad: 43
-        <br>
-        Pais: España
-        <br>
-        Ciudad: Alicante
-        <br>
-        Sexo: Hombre
-        <br>
-        Nacimiento: 22/01/73 
-        <br>
-        Edad: 43
-        <br>
-        Últimas fotos:
-        <br>
+		<p>
+        <b>Nombre:</b> Pepito Morales
+		</p>
+		<p>
+        <b>Correo electrónico:</b> pepitom63@gmail.com
+		</p>
+		<p>
+        <b>Edad:</b> 43
+		</p>
+		<p>
+        <b>Pais:</b> España
+		</p>
+		<p>
+        <b>Ciudad:</b> Alicante
+		</p>
+		<p>
+        <b>Sexo:</b> Hombre
+		</p>
+		<p>
+        <b>Nacimiento:</b> 22/01/73 
+		</p>
+		<p>
+        <b>Edad:</b> 43
+		</p>
+        </form>
+        <form class="album-form">
+        <legend>Últimas fotos:</legend>
+		<p>
+        <b>Últimas fotos:</b>
+		</p>
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
-        <br>
-        Álbumes:
-        <br>
+        </form>    
+        <form class="album-form">
+        <legend>Álbumes:</legend>
+		<p>
+        <b>Álbumes:</b>
+        </p>
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
+        </form>
 	</main>
 
 	<footer>

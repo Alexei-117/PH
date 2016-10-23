@@ -2,12 +2,9 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8"/>
+	<meta charset="UTF-8"/>
 
-<title>Universal Images</title>
-<br>
-    <img hspace="40" align="right" src="img/lacara.png" style="width:160px;height:90px;">
-    
+	<title>Universal Images - Inicio identificado</title>
 </head>
 
 <body>
@@ -19,19 +16,21 @@
         <button type="button" name="Subir foto">Subir foto</button>
         <button type="button" name="Mis albumes">Mis albumes</button>
         <button type="button" name="Crear album">Crear album</button>
-        <a href="perfil.html"> <button type="button" name="Ir al perfil">Ir a perfil</button></a>
-        <a href="index.html"><button type="button" name="Cerrar sesion">Cerrar sesión</button></a>
-        <a href="solicitar_album.html"><button type="button" name="Solicitar album">Solicitar album</button></a>
+        <a href="perfil.html">Ir a perfil</a>
+        <a href="index.html">Cerrar sesión</a>
+        <a href="solicitar_album.html">Solicitar album</a>
         
 
 	</header>
 	<hr>
 	<main>
         
-		<input type="text" name="buscar"><button type="button"><a href="result-busqueda.html">Buscar</a></button>
+		<form action="result-busqueda.html">
+			<input type="text" name="buscar" placeholder="Buscar...">
+			<button>Buscar</button>
+		</form>
 		<br>
-		<a href="form-busqueda.html" target="frame1">Busqueda avanzada</a>
-		<iframe width="600" src="none.html" name="frame1"></iframe>
+		<a href="form-busqueda.html">Busqueda avanzada</a>
 		<br>
         <article>
             <figure>
@@ -55,7 +54,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/si_o_que.jpg" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-2" src="img/si_o_que.jpg" style="width:800px;height:480px;"/></a>
             </figure>
 			<p>
 				<b>Titulo: Party with my work mates!</b>
@@ -75,7 +74,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/tio_maquina.jpg" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-3" src="img/tio_maquina.jpg" style="width:800px;height:480px;"/></a>
             </figure>
 			<p>
 				<b>Titulo: Yo guapo</b>
@@ -95,7 +94,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/lacara.png" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-4" src="img/lacara.png" style="width:800px;height:480px;"/></a>
             </figure>
 			<p>
 				<b>Titulo: My son's first draw</b>
@@ -115,7 +114,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/soy_guapa.jpeg" style="width:800px;height:480px;"/></a>
+                <a href="detalle.html"><img alt="Última-foto-5" src="img/soy_guapa.jpeg" style="width:800px;height:480px;"/></a>
             </figure>
 			<p>
 				<b>Titulo: I'm pretty!</b>

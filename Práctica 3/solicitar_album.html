@@ -2,12 +2,9 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8"/>
+	<meta charset="UTF-8"/>
 
-<title>Universal Images</title>
-<br>
-    <img hspace="40" align="right" src="img/lacara.png" style="width:160px;height:90px;">
-    
+	<title>Universal Images - Solicitar Álbum</title>
 </head>
 
 <body>
@@ -19,10 +16,9 @@
         <button type="button" name="Subir foto">Subir foto</button>
         <button type="button" name="Mis albumes">Mis albumes</button>
         <button type="button" name="Crear album">Crear album</button>
-        <a href="perfil.html"> <button type="button" name="Ir al perfil">Ir a perfil</button></a>
-        <a href="index.html"><button type="button" name="Cerrar sesion">Cerrar sesión</button></a>
-        <a href="solicitar_album.html"><button type="button" name="Solicitar album">Solicitar album</button></a>
-        
+        <a href="perfil.html">Ir a perfil</a>
+        <a href="index.html">Cerrar sesión</a>
+        <a href="solicitar_album.html">Solicitar album</a>
 
 	</header>
 	<hr>
@@ -30,12 +26,14 @@
     <p>En esta página puedes solicitar un álbum para que te lo envíen a tu dirección. Solo has de rellenar este formulario</p>
 	<table>
         <thead>
-            <th>
-                Condición
-            </th>
-            <th>
-                Coste
-            </th>
+			<tr>
+				<th>
+					Condición
+				</th>
+				<th>
+					Coste
+				</th>
+			</tr>
         </thead>
         <tbody>
             <tr>
@@ -81,47 +79,45 @@
         </tbody>
         </table>
     <p><b>Formulario de solicitud</b></p>
-    <form action="." oninput="range_control_value.value = range_control.valueAsNumber">
-    <label for="name_control"> Nombre:</label><input type="text" name="name_control" max="3" autofocus required />(*)
-    <br />
-    <label for="title_control"> Título de album:</label><input type="text" name="title_control" required />(*)
-    <br />
-     <label for="text_control">Texto adicional:</label><input type="text" name="text_control"/>
-    <br />
-    <label for="email_control"> Correo Electrónico:</label><input type="email" name="email_control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />(*)
-    <br />
-     <label for="direction_control">Dirección:</label><input type="text" name="text_control"/>
-    <label for="direction_control2"></label><input type="number" name="direction_control2"/>
-    <br />
-    
+    <form action="confirmar.html" oninput="range_control_value.value = range_control.valueAsNumber">
+		<label for="name_control"> Nombre:</label><input type="text" id="name_control" name="name_control" autofocus required />(*)
+		<br />
+		<label for="title_control"> Título de album:</label><input type="text" id="title_control" name="title_control" required />(*)
+		<br />
+		 <label for="text_control">Texto adicional:</label><input type="text" id="text_control" name="text_control"/>
+		<br />
+		<label for="email_control"> Correo Electrónico:</label><input type="email" id="email_control" name="email_control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />(*)
+		<br />
+		 <label for="direction_control">Dirección:</label><input type="text" id="direction_control" name="text_control"/>
+		<label for="direction_control2"></label><input type="number" id="direction_control2" name="direction_control2"/>
+		<br />
+		
 
-     <label for="tel_control">Teléfono:</label><input type="tel" name="tel_control" pattern="(+[0-9]{2} [0-9]{9})"/>
-    <br />
-    <label for="color_control"> Color de portada:</label><input type="color" name="color_control" />
-    <br />
-    <label for="number_control">Número de copias:</label><input type="number" name="number_control" min="1" max="100000" value="1" required/>(*)
-    <br /> 
-    <label for="resolution">Resolución:</label><input type="number" name="rsolution" min="150" max="900" step="150"value="150" required/>
-    
-    <br />
-    Album: 
-        <select>
-            <option value="blank"></option>
-            <option value="album1">album 1</option>
-            <option value="album2">album 2</option>
-            <option value="album3">album 3</option>
-        </select> (*)
-    <br />
-    <label for="date_control"> Fecha de recepcion:</label><input type="date" name="date_control" placeholder="dd/mm/yyyy" />
-    <br />      
-        <label for="date_control2">Impresión de color: </label>
-        <br />
-        <form>
-            <input type="radio" name="color_control2" />Color <br />
-            <input type="radio" name="color_control2" />Blanco y negro
-        </form>
-        <label for="submit_control"></label>
-    <a href="confirmar.html"><input type="submit" name="submit_control" value="Submit!" required/></a>
+		 <label for="tel_control">Teléfono:</label><input type="tel" id="tel_control" name="tel_control" />
+		<br />
+		<label for="color_control"> Color de portada:</label><input type="color" id="color_control" name="color_control" />
+		<br />
+		<label for="number_control">Número de copias:</label><input type="number" id="number_control" name="number_control" min="1" max="100000" value="1" required/>(*)
+		<br /> 
+		<label for="resolution" >Resolución:</label><input type="number" id="resolution" name="rsolution" min="150" max="900" step="150" value="150" required/>
+		
+		<br />
+		Album: 
+			<select>
+				<option label="opt1" value="blank"></option>
+				<option label="opt2" value="album1">album 1</option>
+				<option label="opt3" value="album2">album 2</option>
+				<option label="opt4" value="album3">album 3</option>
+			</select> (*)
+		<br />
+		<label for="date_control"> Fecha de recepcion:</label><input type="date" name="date_control" id="date_control" />
+		<br />      
+			<label for="color_control2">Impresión de color: </label>
+			<br />
+				<input type="radio" name="color_control2" id="color_control2" />Color <br />
+				<input type="radio" name="color_control2" />Blanco y negro
+			<label for="submit_control"></label>
+		<input type="submit" id="submit_control" name="submit_control" value="Confirmar"/>
     </form>
 
 

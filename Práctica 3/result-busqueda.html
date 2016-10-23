@@ -2,10 +2,9 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 
-<title>Universal Images</title>
-
+	<title>Universal Images - Resultados de Búsqueda</title>
 </head>
 
 <body>
@@ -13,13 +12,13 @@
 		<a href="index.html">Inicio</a>
 
 		<h3>UNIVERSAL IMAGES</h3>
-		<form action="inicio_sesion.php">
+		<form action="index2.html">
 			Nombre:<br>
 			<input type="text" name="nombre">
 			<br>
 			Contraseña:<br>
 			<input type="password" name="password">
-            <a href="index2.html"><button type="button" name="Iniciar sesion">Iniciar sesion</button></a>
+            <input type="submit" value="Iniciar sesion">
 		</form>
 		¿No estás registrado?
 		<a href="registro.html"> Regístrate</a>
@@ -27,13 +26,14 @@
 	</header>
 	<hr>
 	<main>
-		<input type="text" name="buscar"><button type="button"><a href="result-busqueda.html">Buscar</a></button>
+		<form action="result-busqueda.html">
+			<input type="text" name="buscar" placeholder="Buscar...">
+			<button>Buscar</button>
+		</form>
 		<br>
-		<a href="form-busqueda.html" target="frame1">Busqueda avanzada</a>
-		<iframe width="600" src="none.html" name="frame1"></iframe>
+		<a href="form-busqueda.html">Busqueda avanzada</a>
 		<br>
-		<h4>Resultado de la búsqueda</h4>
-		<br>
+		<h4>Resultados de búsqueda</h4>
         <article>
             <figure>
                 <a href="detalle.html"><img alt="Última-foto-1" src="img/te_fo.jpg" style="width:800px;height:480px;"/></a>

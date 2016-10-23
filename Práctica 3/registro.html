@@ -2,10 +2,9 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8"/>
+	<meta charset="UTF-8"/>
 
-<title>Universal Images</title>
-
+	<title>Universal Images - Registro</title>
 </head>
 
 <body>
@@ -13,13 +12,13 @@
 		<a href="index.html">Inicio</a>
 
 		<h3>UNIVERSAL IMAGES</h3>
-		<form action="inicio_sesion.php">
+		<form action="index2.html">
 			Nombre:<br>
 			<input type="text" name="nombre">
 			<br>
 			Contraseña:<br>
 			<input type="password" name="password">
-			<a href="index2.html"><button type="button" name="Iniciar sesion">Iniciar sesion</button></a>
+			 <input type="submit" value="Iniciar sesion">
 		</form>
 		¿No estás registrado?
 		<a href="registro.html"> Regístrate</a>
@@ -27,25 +26,25 @@
 	</header>
 	<hr>
 	<main>
-		<form action="registro.php">
+		<form action="index2.html">
 			<fieldset>
 				<legend> Formulario de registro </legend>	
 				<label for="nom-user"></label>
-				<input type="text" name="nom-user">
+				<input type="text" name="nom-user" id="nom-user">
 				<label for="Contraseña">Contraseña</label>
-				<input type="password" name="Contraseña">
+				<input type="password" name="Contraseña" id="Contraseña">
 				<label for="rep-contraseña">Repetir contraseña</label>
-				<input type="password" name="rep-contraseña">
+				<input type="password" name="rep-contraseña" id="rep-contraseña">
 				<label for="Correo">Correo electrónico</label>
-				<input type="email" name="Correo">
+				<input type="email" name="Correo" id="Correo">
 				<label for="sexo">Sexo</label>
-				<input type="radio" name="sexo" value="male" checked> Hombre<br>
+				<input type="radio" name="sexo" id="sexo" value="male" checked> Hombre<br>
 				<input type="radio" name="sexo" value="female"> Mujer<br>
 				<input type="radio" name="sexo" value="other"> Otro
 				<label for="fecha">Fecha</label>
-				<input type="date" name="fecha">
+				<input type="date" name="fecha" id="fecha">
 				<label for="pais">País</label>
-				<input type="text" name="pais">
+				<input type="text" name="pais" id="pais">
 				<select>
 					<option value="spain">España</option>
 					<option value="spain">Inglaterra</option>
@@ -57,8 +56,8 @@
 					<option value="spain">Otro</option>
 				</select>
 				<label for="foto-usuario">Foto de perfil</label>
-				<input type="file" name="foto-usuario">
-				<button type="button"><a href="result-busqueda.html">Registrarse</a></button>
+				<input type="file" name="foto-usuario" id="foto-usuario">
+				<input type="submit" name="submit_reg" value="Registrarse" />
 			</fieldset>
 		</form>
 	</main>

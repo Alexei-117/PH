@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 
-<title>Universal Images - registro</title>
+<title>Universal Images - Registro</title>
 
 </head>
 
@@ -27,40 +27,45 @@
 	</header>
 	<hr>
 	<main>
-		<form action="registro.php">
-			<fieldset>
-				<legend> Formulario de registro </legend>	
-				<b>Nombre de usuario</b>
-				<input type="text" name="Nombre de usuario">
-				<b>Contraseña</b>
-				<input type="password" name="Contraseña">
-				<b>Repetir Contraseña</b>
-				<input type="password" name="rep-contraseña">
-				<b>e-mail</b>
-				<input type="email" name="Correo">
-				<b>sexo</b>
-				<input type="radio" name="sexo" value="male" checked> Hombre<br>
-				<input type="radio" name="sexo" value="female"> Mujer<br>
-				<input type="radio" name="sexo" value="other"> Otro
-				<b>fecha de nacimiento</b>
-				<input type="date" name="fecha">
-				<b>Ciudad</b>
-				<input type="text" name="pais">
-				<b>País de residencia</b>
-				<select>
-					<option value="spain">España</option>
-					<option value="spain">Inglaterra</option>
-					<option value="spain">Francia</option>
-					<option value="spain">Argentina</option>
-					<option value="spain">Chile</option>
-					<option value="spain">Portugal</option>
-					<option value="spain">Andorra</option>
-					<option value="spain">Otro</option>
-				</select>
-				<b>Foto</b>
-				<input type="file" name="foto-usuario">
-				<button type="button"><a href="result-busqueda.html">Registrarse</a></button>
-			</fieldset>
+		<form action="index.html">
+                <fieldset>
+                <legend>Formulario de registro</legend>
+                <label for="nom-user">Usuario</label>
+				<input type="text" name="nom-user" id="nom-user" required>
+                <br>
+                <label for="Contraseña">Contraseña</label>
+				<input type="password" name="Contraseña" id="Contraseña" required>
+                <br>
+                <label for="rep-contraseña">Repetir contraseña</label>
+				<input type="password" name="rep-contraseña" id="rep-contraseña" required>
+                <br>
+                <label for="Correo">Correo electrónico</label>
+				<input type="email" name="Correo" id="Correo" required>
+                <br>
+                <label for="sexo">Sexo</label>
+                    <input type="radio" name="sexo" value="male" id="sexo" checked> Hombre
+                    <br>
+                    <input type="radio" name="sexo" value="female"> Mujer
+                    <br>
+                <br>
+                <label for="fecha">Fecha de nacimiento</label>
+				<input type="date" name="fecha"  id="fecha" required>
+				<label for="pais_regis">País</label>
+                <select name="pais_regis" id="pais_regis">
+				    <option value="spain">España</option>
+				    <option value="spain">Inglaterra</option>
+				    <option value="spain">Francia</option>
+                    <option value="spain">Argentina</option>
+				    <option value="spain">Chile</option>
+				    <option value="spain">Portugal</option>
+                    <option value="spain">Andorra</option>
+				    <option value="spain">Otro</option>
+                </select>
+                <label for="foto-usuario">Foto de perfil</label>
+				<input type="file" name="foto-usuario"  id="foto-usuario">
+                </fieldset>
+			 	<label for="submit_reg"></label>
+				<input type="submit" name="submit_reg" id="submit_reg" value="Registrarse" />
 		</form>
 	</main>
 

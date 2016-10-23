@@ -62,24 +62,25 @@
         <label class="labelForm" for="telInput">Teléfono:</label><input id="telInput" class="formInput" type="tel" name="tel_control"/>
         <br>
         <label class="labelForm" for="colorInput">Color de portada:</label><input id="colorInput" class="formInputColor" type="color" name="color_control"/>
-        
         <br>
         <label class="labelForm" for="numberInput">Nº de copias:</label><input id="numberInput" class="formInput" type="number" name="number_control" min="1" max="100000" value="1" required/>
         <br>
-        <label class="labelForm" for="resInput">Resolución:</label><input id="resInput" class="formInput" type="number" name="resolution_control" min="150" max="900" step="150"value="150" required/>
+        <label class="labelForm" for="resInput">Resolución:</label><input id="resInput" class="formInput" type="number" name="resolution_control" min="150" max="900" step="150" value="150" required/>
         <br>
         <label class="labelForm" for="albumInput">Album:</label>
         <select id="albumInput" class="formInput" name="album_control">
-            <option value="blank"></option>
-            <option value="album1">album 1</option>
-            <option value="album2">album 2</option>
-            <option value="album3">album 3</option>
+            <option label="opt" value="blank"></option>
+            <option label="opt" value="album1">album 1</option>
+            <option label="opt" value="album2">album 2</option>
+            <option label="opt" value="album3">album 3</option>
         </select>
         <br>
-        <label class="labelForm" for="colorInput">A color:</label>
-            <input id="colorInput" class="labelFormRadio" type="radio" name="color_control1" value="blanconegro" checked/><label class="radioLabel" id="modoLabel1" for="color_control1">blanco y negro</label>
+        <label class="labelForm" for="colorInput2">A color:</label>
+            <input id="colorInput2" class="labelFormRadio" type="radio" name="color_control1" value="blanconegro" checked/>
+			<label class="radioLabel" id="modoLabel1" for="colorInput2">blanco y negro</label>
             <br>
-            <input class="labelFormRadio" type="radio" name="color_control2" value="wcolor"/><label class="radioLabel" id="modoLabel2" for="color_control2">con color</label>
+            <input class="labelFormRadio" id="modoLabel2" type="radio" name="color_control2" value="wcolor"/>
+			<label class="radioLabel"  for="modoLabel2">con color</label>
             <br>
         <br>
         </fieldset>

@@ -44,13 +44,16 @@
 	</header>
 	<hr>
 	<main class="perfil">
-        <form class="album-form">
+        
         <legend>Datos personales:</legend>
-        <img hspace="40" src="img/lacara.png">
+        <img src="img/lacara.png">
         <p>
         <b>Editar foto de perfil:</b>
 		</p>
-        <input name="imagen" type="file" />
+		<form class="album-form">
+			<input class="botonOcultable" name="imagen" type="file" />
+			<input type="submit" value="subir">
+		</form>
 		<p>
         <b>Nombre:</b> Pepito Morales
 		</p>

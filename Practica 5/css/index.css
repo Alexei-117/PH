@@ -139,9 +139,6 @@ footer{;
 
 <<<<<<< HEAD
 .formSubmit button:hover,.form button:active,.form button:focus {
-=======
-.bus-form button:hover,.form button:active,.form button:focus {
->>>>>>> origin/master
 	background: #43A047;
 }
 .formSubmit{
@@ -154,12 +151,11 @@ footer{;
     min-width: 400px;
     padding: 1em;
 }
-<<<<<<< HEAD
+
 .formSubmit:hover{
 	background:linear-gradient(#480075, #9F0AFB);
 }
-=======
->>>>>>> origin/master
+
 .formFile{
     display: block !important;
     width: 180px !important;

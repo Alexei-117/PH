@@ -320,6 +320,9 @@ legend {
 	font-size:1.2em;
 
 }
+.boton-menu:hover{
+    background:linear-gradient(#480075,#9F0AFB);
+}
 
 .logo{ 
    position:relative;
@@ -335,7 +338,7 @@ legend {
 	float:left;
 	margin:0 auto;
 	margin-top:10px;
-	width:auto;
+	width:110px;
 	
 	border-color: #A889BB;
 	
@@ -344,10 +347,24 @@ legend {
 	font-size:1.2em;
 
 }
-.li2{
-	width:auto;
-	margin:5px;
+.boton-menu2:hover{
+     background:linear-gradient(#480075,#9F0AFB);
 }
+.li2{
+	width:110px;
+	margin:1% 4% 2% -2%;
+}
+.li-logo{
+	width:110px;
+	margin:2% 4% 0 20px;
+}
+.logo2{
+	position:relative;
+	width:4em;
+	margin-top:17px;
+	float:left;
+}
+
 
 /*ids*/
 #logo-U{

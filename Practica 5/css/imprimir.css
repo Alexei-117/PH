@@ -5,18 +5,20 @@ header{
     display:none;
 }
 .buscadorLink{
-    display:none;
+    
 }
 body { 
     color: #000; 
-    font: 12px Georgia, "Times New Roman", Times, serif;
+    font: 12px serif;
 }
 img{
     max-width: 500px;
-    max-height: auto;
+    min-width: 500px;
+    min-height: 350px;
+    max-height: 350px;
 }
 .fotoLink{
-    display: none;
+    text-decoration: underline;
 }
 footer{
     display: none;
@@ -26,4 +28,33 @@ footer{
 }
 article{
     border: 0;
+}
+hr{
+    display:none;
+}
+.botonOcultable{
+    display:none;
+}
+
+.formFile{
+    display:none;
+}
+.formSubmit{
+    display: none;
+}
+#fotoReg{
+    display: none;
+}
+.album-form{
+    max-width: 310px;
+}
+a{
+    text-decoration: underline;
+    text-decoration: underline;
+}
+a:link {
+    color: blue;
+}
+a:visited {
+    color: violet;
 }

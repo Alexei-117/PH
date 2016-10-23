@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Pefil</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-	<link rel="alternative stylesheet" type="text/css" href="/css/acc.css" media="screen" title="Estilo accesible"/>
-	<link rel="alternative stylesheet" type="text/css" href="/css/imprimir.css" media="print" title="Estilo de impresión"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
+    <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
+    <link rel="stylesheet" type="text/css" href="css/imprimir.css" media="print"/>
 </head>
 
 <body>
@@ -43,6 +43,8 @@
 	</header>
 	<hr>
 	<main class="perfil">
+        <form class="album-form">
+        <legend>Datos personales:</legend>
         <img hspace="40" src="img/lacara.png">
         <p>
         <b>Editar foto de perfil:</b>
@@ -72,6 +74,9 @@
 		<p>
         <b>Edad:</b> 43
 		</p>
+        </form>
+        <form class="album-form">
+        <legend>Últimas fotos:</legend>
 		<p>
         <b>Últimas fotos:</b>
 		</p>
@@ -79,7 +84,9 @@
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
-
+        </form>    
+        <form class="album-form">
+        <legend>Álbumes:</legend>
 		<p>
         <b>Álbumes:</b>
         </p>
@@ -87,6 +94,7 @@
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
         <img hspace="40" src="img/lacara.png" style="width:160px;height:90px;">
+        </form>
 	</main>
 
 	<footer>

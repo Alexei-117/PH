@@ -1,16 +1,30 @@
 /*Etiquetas*/
+a:link {
+}
+
+a:visited {
+}
+
+a:hover {
+    color: #B30EEB;
+}
+
+a:active {
+    color: #FF9100;
+}
 body{
     background:#fff;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.2em;
+    font-size: 1.4em;
     line-height: 1.5;
     margin: 0 auto;
     max-width: 65%;
     padding: 2em 2em 4em;
 	text-align:center;
 }
+
 header{
 	font-weight: bolder;
     text-decoration:none;
@@ -47,7 +61,7 @@ article{
 	font-size:0.7em;
 	text-overflow:hidden;
 	
-	border:solid green;
+	border:solid #FF9100;
 	border-width:2px;
 	border-radius:10px 0px 0px 0px;
 	
@@ -70,12 +84,10 @@ article img{
 }
 article a{
 	margin:1em;
-	
+	color:#FF9100;
 	padding:2px;
 	border-radius:10px 0px 10px 0px;
 	background-color:rgba(76,175,80,0.1);
-	
-	color:green;
 	text-decoration:none;
 }
 article p{
@@ -119,7 +131,7 @@ footer{;
 .formInput{
     min-width: 200px;
 	background: #ddccff;
-	color:#4CAF50;
+	color:#FF9100;
 	border: 0;
 	margin: 0 0 15px;
 	padding: 1em;
@@ -137,8 +149,9 @@ footer{;
     display:block;
 }
 
+<<<<<<< HEAD
 .formSubmit button:hover,.form button:active,.form button:focus {
-	background: #43A047;
+	background: #FF9100;
 }
 .formSubmit{
     font-weight:bold;
@@ -186,7 +199,7 @@ legend {
 	font-family: "Roboto", sans-serif;
 	outline: 0;
 	background: #ddccff;
-	color:#4CAF50;
+	color:#FF9100;
 	width: 100%;
 	border: 0;
 	margin: 0 0 15px;
@@ -195,13 +208,13 @@ legend {
 	font-size: 14px;
 }
 ::-webkit-input-placeholder {
-	color: #4CAF50;
+	color: #FF9100;
 }
 .ini-form button {
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background: #FF9100;
 	width: 100%;
 	border: 0;
 	padding: 10px;
@@ -210,7 +223,7 @@ legend {
 	cursor: pointer;
 }
 .ini-form button:hover,.form button:active,.form button:focus {
-	background: #43A047;
+	background: #FF9100;
 }
 .ini-form .mensaje {
 	margin: 15px 0 0;
@@ -218,7 +231,7 @@ legend {
 	font-size: 12px;
 }
 .ini-form .mensaje a {
-	color: #4CAF50;
+	color: #FF9100;
 	text-decoration: none;
 }
 .boton-ini:hover .ini-form{
@@ -260,7 +273,7 @@ legend {
 	font-family: "Roboto", sans-serif;
 	outline: 0;
 	background: #ddccff;
-	color:#4CAF50;
+	color:#FF9100;
 	width: 66%;
 	border: 0;
 	margin: 0 0 15px;
@@ -274,7 +287,7 @@ legend {
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background: #FF9100;
 	width: 30%;
 	border: 0;
 	padding: 15px 5px;
@@ -283,7 +296,7 @@ legend {
 	cursor: pointer;
 }
 .bus-form button:hover,.form button:active,.form button:focus {
-	background: #43A047;
+	background: #FF9100;
 }
 /*buscador avanzado*/
 .bus-form-a {
@@ -317,7 +330,7 @@ legend {
 .bus-form-a input {
 	outline: 0;
 	background: #ddccff;
-	color:#4CAF50;
+	color:#FF9100;
 	border: 0;
 	margin: 0 15px 0 5px;
 	padding: 1em;
@@ -329,7 +342,7 @@ legend {
 .bus-form-a button {
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background: #FF9100;
 	width: 30%;
 	border: 0;
 	padding: 15px 5px;
@@ -338,7 +351,7 @@ legend {
 	cursor: pointer;
 }
 .bus-form-a button:hover,.form button:active,.form button:focus {
-	background: #43A047;
+	background: #FF9100;
 }
 /*perfil*/
 .perfil{
@@ -351,38 +364,16 @@ legend {
 	margin:0 auto;
 }
 .perfil b{
-	color:#4CAF50;
+	color:#FF9100;
 }
 
 /*detalle*/
-article img{
-	width:100%;
-	height:auto;
-	margin:0 auto;
-	margin-left:-15px;
-	padding:0;
-}
-article a{
-	margin:1em;
-	
-	padding:2px;
-	border-radius:10px 0px 10px 0px;
-	background-color:rgba(76,175,80,0.1);
-	
-	color:green;
-	text-decoration:none;
-}
-article p{
-	text-align:left;
-	text-indent:1em;
-	width:90%;
-}
 .detalle{
 	text-align:center;
 	font-size:1.2em;
 	text-overflow:hidden;
 	
-	border:solid green;
+	border:solid #FF9100;
 	border-width:2px;
 	border-radius:10px 0px 0px 0px;
 	
@@ -414,7 +405,7 @@ article p{
 	border-radius:10px 0px 10px 0px;
 	background-color:rgba(76,175,80,0.1);
 	
-	color:green;
+	color:#FF9100;
 	text-decoration:none;
 	font-size:100%;
 	text-overflow:hidden;
@@ -433,7 +424,7 @@ article p{
 	font-size:1.2em;
 	text-overflow:hidden;
 	
-	border:solid green;
+	border:solid #FF9100;
 	border-width:2px;
 	border-radius:10px 0px 0px 0px;
 	
@@ -445,25 +436,25 @@ article p{
 	float:left;
 	margin:1.5em 17.5%;
 	display:block;
-	padding:0;
+	padding;
 }
 .confirmar p{
 	padding-left:1.5em;
 }
-.confirmar a {
+.confirmar button {
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background: #FF9100;
 	width: 30%;
 	border: 0;
-	margin-bottom:2%;
+	margin-bottom:10px;
 	padding: 15px 5px;
 	color: #FFFFFF;
 	font-size: 14px;
 	cursor: pointer;
 }
-.confirmar a:hover,.form a:active,.form a:focus {
-	background: #43A047;
+.confirmar button:hover,.form button:active,.form button:focus {
+	background: #FF9100;
 }
 
 /*resto*/
@@ -539,10 +530,10 @@ article p{
 	margin-left:-20px;
 	position:relative;
 	float:left;
-    border-top-color:#4CAF50;
+    border-top-color:#FF9100;
     border-left-color:mediumpurple;
     border-right-color:mediumpurple;
-    border-bottom-color:#4CAF50;
+    border-bottom-color:#FF9100;
 	border-radius:100%;
     border-width:10px;
     border-style: solid;
@@ -559,17 +550,14 @@ article p{
 
 
 /*Ligera adaptación para resoluciones bajas*/
-@media (max-width:700px){
+@media (max-width:600px){
 	body{
 		max-width:100%;
 		width:95%;
 		line-height: 1;
-		margin:0px;
+		margin: 0 auto;
 		padding:0px;
-		
 		text-align:center;
-		font-size:1em;
-		
 		float:left;
 	}
 	.boton-ini:hover {
@@ -580,7 +568,7 @@ article p{
 	}
 	header{
 		width:100%;
-		margin:0px;
+		margin:0px auto;
 		margin-right:20px;
 		padding:0px;
 	}
@@ -595,7 +583,7 @@ article p{
 		font-size:1em;
 		text-overflow:hidden;
 		
-		border:solid green;
+		border:solid #FF9100;
 		border-width:4px;
 		border-radius:10px 0px 10px 0px;
 		
@@ -607,57 +595,14 @@ article p{
 		float:left;
 		display:block;
 		padding:0;
-		margin:0px;
 	}
 	footer{
-		margin:0px;
+		margin:0;
 		width:90%;
 		height:100%;
 		padding:0;
 	}
-	.confirmar {
-		width:100%;
-		
-		padding:0;
-		margin:10% auto;
-		margin-right:0%;
-	}
-	.confirmar a {
-		width: 80%;
-	}
-	.detalle{
-		width:100%;
-		min-width:220px;
-		height:100%;
-		margin:0 auto;
-		padding:5%;
-		line-height:2em;
-	}
-	.bus-form-a {
-		max-width: 500px;
-		height:auto;
-		position:relative;
-		margin: 0 auto;
-		margin-top:5%;
-	}
-	.bus-form-a input {
-		margin: 10px 120px;
-		padding: 1em;
-	}
-	.bus-form-a button {
-		text-transform: uppercase;
-		outline: 0;
-		background: #4CAF50;
-		width: 30%;
-		border: 0;
-		padding: 15px 5px;
-		color: #FFFFFF;
-		font-size: 14px;
-		cursor: pointer;
-	}
-	.bus-form-a button:hover,.form button:active,.form button:focus {
-		background: #43A047;
-	}
+
 	.boton-ini{
 		position:absolute;
 		top:30px;
@@ -670,30 +615,25 @@ article p{
 	}
 	.boton-menu{
 		
-		margin-top:12px;
+		background:linear-gradient(#9F0AFB, #480075);
+		
+		padding: 0.4em 2% 0.4em 2%;
+		float:left;
+		margin:0 auto;
+		margin-top:10px;
+		margin-left:-20px;
+		
 		border-color: #A889BB;
 		
-		text-decoration:none;
-		font-size:2em;
-
-	}
-	.boton-menu2{
-		
-		margin:0px;
-		padding:0px;
-		border-color: #A889BB;
-		
+		color:aliceblue;
 		text-decoration:none;
 		font-size:1.6em;
 
 	}
-	.li-logo{
-		position:relative;
-		float:up;
-		border:dotted 3px green;
-		border-radius:50%;
+	.logo{ 
+	   display:none;
 	}
-	.album-form {
-		margin-bottom:6%;
+	.logo2{ 
+	   display:none;
 	}
 }

@@ -15,7 +15,7 @@
 	?>
 	<hr>
 	<main>
-		<form class="album-form" action="index2.html">
+		<form class="album-form" action="index2.php">
                 <fieldset>
                 <legend>Crear Álbum</legend>
                 <label class="labelForm" for="nomAlbum">Título</label>

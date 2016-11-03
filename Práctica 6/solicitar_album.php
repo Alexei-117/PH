@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Solicitar album</title>
+    <title>Universal Images - Solicitar album</title>
   
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
@@ -12,40 +12,12 @@
 </head>
 
 <body>
-	<header>
-       <ol>
-			<li class="li2">
-				<a href="index2.html" class="boton-menu2" >Inicio</a>
-			</li>
-			<li class="li2">
-				<a href="perfil.html" class="boton-menu2">Subir foto</a>
-			</li>
-			<li class="li2">
-				<a href="perfil.html" class="boton-menu2">Mis álbumes</a>
-			</li >
-			<li class="li2">
-				<a href="index2.html" class="boton-menu2">Crear álbum</a>
-			</li>
-			<li class="li2">
-				<a href="solicitar_album.html" class="boton-menu2">Solicitar Álbum</a>
-			</li>
-			<li class="li-logo">
-				<div id="logo-U">
-				</div>
-				<img class="logo2" alt="logo" src="img/logo.png">
-			</li>
-
-			<li class="li2">
-				<a href="perfil.html" class="boton-menu2">Ir a perfil</a>
-			</li>
-			<li class="li2">
-				<a href="index.html" class="boton-menu2">Cerrar sesión</a>
-			</li>
-		</ol>
-	</header>
+	<?php
+		include("header2.html");
+	?>
     <main>
     <p >En esta página puedes solicitar un álbum para que te lo envíen a tu dirección. Solo has de rellenar este formulario</p>
-    <form action="confirmar.html" oninput="range_control_value.value = range_control.valueAsNumber" class="album-form">
+    <form action="confirmar.php" method="POST" oninput="range_control_value.value = range_control.valueAsNumber" class="album-form">
         
         <fieldset>
         <legend>Formulario de solicitud</legend>
@@ -76,10 +48,10 @@
         </select>
         <br>
         <label class="labelForm" for="colorInput2">A color:</label>
-            <input id="colorInput2" class="labelFormRadio" type="radio" name="color_control1" value="blanconegro" checked/>
+            <input id="colorInput2" class="labelFormRadio" type="radio" name="color_control1" value="blanco y negro" checked/>
 			<label class="radioLabel" id="modoLabel1" for="colorInput2">blanco y negro</label>
             <br>
-            <input class="labelFormRadio" id="modoLabel2" type="radio" name="color_control2" value="wcolor"/>
+            <input class="labelFormRadio" id="modoLabel2" type="radio" name="color_control2" value="A color"/>
 			<label class="radioLabel"  for="modoLabel2">con color</label>
             <br>
         <br>
@@ -88,12 +60,6 @@
         
     </form>
 	</main>
-
-	<footer>
-		<a href="">Contacto</a>
-		<a href="">Ayuda</a>
-		<a href="">Idioma</a>
-	</footer>
-
+	<?php include("footer.html");?>
 </body>
 </html>

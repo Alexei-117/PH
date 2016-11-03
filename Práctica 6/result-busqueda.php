@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
 
-    <title>Universal Images</title>
+    <title>Universal Images - Resultados de búsqueda</title>
    
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
@@ -12,40 +12,51 @@
 </head>
 
 <body>
-	<header>
-		<ol>
-			<li>
-				<a href="index.html" class="boton-menu" >Inicio</a>
-			</li>
-			<li>
-				<div id="logo-U">
-				</div>
-				<img class="logo" alt="logo" src="img/logo.png">
-			</li>
-			<li >
-				<div class="boton-ini" >Entrar
-					<form action="index2.html" class="ini-form">
-					  <input type="text" name="nombre" placeholder="Nombre"/>
-					  <input type="password" name="password" placeholder="contraseña"/>
-					  <button>Iniciar sesión</button>
-					  <p class="mensaje">¿No está registrado? <a href="registro.html">¡Regístrate!</a></p>
-					</form>
-				</div>
-			</li>
-		</ol>
-	</header>
+	<?php
+		include("header.html");
+		if(isset($_GET["popen"])){
+			if($_GET["popen"]=="si"){
+				echo '<div style="	width:auto;
+							height:auto;
+							margin:10px;
+							border: 3px solid red;
+							border-radius:10px;
+							
+							color:red;
+							font-size:2em;">
+							Usuario y/o contraseña incorrectos
+					</div>';
+			}
+		}
+		
+	?>
 	<hr>
 	<main>
-		<form action="result-busqueda.html" class="bus-form">
-			<input type="text" name="buscar" placeholder="Buscar...">
-			<button>Buscar</button>
-		</form>
-		<br>
-		<h4>Resultado de la búsqueda</h4>
-		<br>
+		<?php include("buscador.html");?>
+				<h4>Resultado de la búsqueda</h4>
+		<?php 
+		echo "<div class='alert2'>";
+			if(isset($_POST["buscar"])){
+				echo "Has buscado: $_POST[buscar]";
+			}
+			if(isset($_POST["Titulo"])){
+				echo "Has buscado el título: $_POST[Titulo]";
+			}
+			if(isset($_POST["Fecha_inicio"])){
+				echo "<br>Entre las fechas: $_POST[Fecha_inicio]";
+			}
+			if(isset($_POST["Fecha_final"])){
+				echo "<br> y : $_POST[Fecha_final]";
+			}
+			if(isset($_POST["Pais"])){
+				echo "<br>En el país: $_POST[Pais]";
+			}
+		echo "</div>";
+		?>
+
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-1" src="img/te_fo.jpg"/></a>
+                <a href="detalle.php?id=1"><img alt="Última-foto-1" src="img/te_fo.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Selfie</b>
@@ -65,7 +76,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-2" src="img/si_o_que.jpg"/></a>
+                <a href="detalle.php?id=2"><img alt="Última-foto-2" src="img/si_o_que.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Party with my work mates!</b>
@@ -85,7 +96,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-3" src="img/tio_maquina.jpg"/></a>
+                <a href="detalle.php?id=1"><img alt="Última-foto-3" src="img/tio_maquina.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Yo guapo</b>
@@ -105,7 +116,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-4" src="img/lacara.png"/></a>
+                <a href="detalle.php?id=2"><img alt="Última-foto-4" src="img/lacara.png"/></a>
             </figure>
 			<p>
 				<b>Titulo: My son's first draw</b>
@@ -125,7 +136,7 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.html"><img alt="Última-foto-5" src="img/soy_guapa.jpeg"/></a>
+                <a href="detalle.php?id=2"><img alt="Última-foto-5" src="img/soy_guapa.jpeg"/></a>
             </figure>
 			<p>
 				<b>Titulo: I'm pretty!</b>
@@ -145,9 +156,7 @@
         </article>
 	</main>
 
-	<footer>
-
-	</footer>
+<?php include("footer.html");?>
 
 </body>
 </html>

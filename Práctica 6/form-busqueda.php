@@ -11,30 +11,19 @@
 </head>
 
 <body>
-<header>
-		<ol>
-			<li>
-				<a href="index.html" class="boton-menu" >Inicio</a>
-			</li>
-			<li>
-				<div id="logo-U">
-				</div>
-				<img class="logo" alt="logo" src="img/logo.png">
-			</li>
-			<li >
-				<div class="boton-ini" >Entrar
-					<form action="index2.html" class="ini-form">
-					  <input type="text" name="nombre" placeholder="Nombre"/>
-					  <input type="password" name="password" placeholder="contraseña"/>
-					  <button>Iniciar sesión</button>
-					  <p class="mensaje">¿No está registrado? <a href="registro.html">¡Regístrate!</a></p>
-					</form>
-				</div>
-			</li>
-		</ol>
-	</header>
+	<?php
+		include("header.html");
+		if(isset($_GET["popen"])){
+			if($_GET["popen"]=="si"){
+				echo '<div >
+					Usuario y/o contraseña incorrectos
+					</div>';
+			}
+		}
+		
+	?>
 	<main>
-		<form action="result-busqueda.html" class="album-form">
+		<form action="result-busqueda.php" method="POST" class="album-form">
 			<fieldset>
             <legend>Formulario de búsqueda avanzada</legend>
 			<label class="labelForm" for="title">Título:</label>

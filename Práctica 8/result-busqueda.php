@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,11 +16,34 @@
 
 <body>
 	<?php
-		include("header2.html");
+		$desactiva=0;
+		if(isset($_GET["desactiva"])){
+			setcookie("nombre","",time()-37000000);
+			setcookie("contra","",time()-37000000);
+			setcookie("fecha","",time()-37000000);
+			setcookie("hora","",time()-37000000);
+			$host = $_SERVER['HTTP_HOST'];
+			$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+			$pag = 'index.php?popen=no';
+			header("Location: http://$host$uri/$pag"); 
+			session_destroy();
+		}
+		if(isset($_SESSION["nombre"])){
+			include("header2.php");
+		}else{
+			include("header.php");
+		}
+		if(isset($_GET["popen"])){
+			if($_GET["popen"]=="si"){
+				echo '<div class="alert">
+					Usuario y/o contraseña incorrectos
+					</div>';
+			}
+		}
 	?>
 	<hr>
 	<main>
-		<?php include("buscador2.html");?>
+		<?php include("buscador.html");?>
 				<h4>Resultado de la búsqueda</h4>
 		<?php 
 		echo "<div class='alert2'>";
@@ -38,9 +64,17 @@
 			}
 		echo "</div>";
 		?>
+
         <article>
             <figure>
-                <a href="detalle.php?id=1"><img alt="Última-foto-1" src="img/te_fo.jpg"/></a>
+                <a href=		
+			<?php
+			if(isset($_SESSION["nombre"])){
+				echo "detalle.php?id=1";
+			}else{
+				echo "";
+			}
+		?>><img alt="Última-foto-1" src="img/te_fo.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Selfie</b>
@@ -60,7 +94,15 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.php?id=2"><img alt="Última-foto-2" src="img/si_o_que.jpg"/></a>
+                <a href=
+			<?php
+			if(isset($_SESSION["nombre"])){
+				echo "detalle.php?id=2";
+			}else{
+				echo "";
+			}
+			?>
+		><img alt="Última-foto-2" src="img/si_o_que.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Party with my work mates!</b>
@@ -80,7 +122,15 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.php?id=1"><img alt="Última-foto-3" src="img/tio_maquina.jpg"/></a>
+                <a href=		
+				<?php
+					if(isset($_SESSION["nombre"])){
+						echo "detalle.php?id=1";
+					}else{
+						echo "";
+					}
+				?>
+		><img alt="Última-foto-3" src="img/tio_maquina.jpg"/></a>
             </figure>
 			<p>
 				<b>Titulo: Yo guapo</b>
@@ -100,7 +150,15 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.php?id=2"><img alt="Última-foto-4" src="img/lacara.png"/></a>
+                <a href=		
+				<?php
+					if(isset($_SESSION["nombre"])){
+						echo "detalle.php?id=2";
+					}else{
+						echo "";
+					}
+				?>
+		><img alt="Última-foto-4" src="img/lacara.png"/></a>
             </figure>
 			<p>
 				<b>Titulo: My son's first draw</b>
@@ -120,7 +178,15 @@
         </article>
         <article>
             <figure>
-                <a href="detalle.php?id=2"><img alt="Última-foto-5" src="img/soy_guapa.jpeg"/></a>
+                <a href=		
+				<?php
+					if(isset($_SESSION["nombre"])){
+						echo "detalle.php?id=1";
+					}else{
+						echo "";
+					}
+				?>
+		><img alt="Última-foto-5" src="img/soy_guapa.jpeg"/></a>
             </figure>
 			<p>
 				<b>Titulo: I'm pretty!</b>

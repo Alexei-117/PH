@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8"/>
-	<title>Universal Images - búsqueda avanzada identificado</title>
+	<title>Universal Images - búsqueda avanzada</title>
 	
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
@@ -12,10 +12,18 @@
 
 <body>
 	<?php
-		include("header2.html");
+		include("header.php");
+		if(isset($_GET["popen"])){
+			if($_GET["popen"]=="si"){
+				echo '<div >
+					Usuario y/o contraseña incorrectos
+					</div>';
+			}
+		}
+		
 	?>
 	<main>
-		<form action="result-busqueda2.php" method="POST" class="album-form">
+		<form action="result-busqueda.php" method="POST" class="album-form">
 			<fieldset>
             <legend>Formulario de búsqueda avanzada</legend>
 			<label class="labelForm" for="title">Título:</label>
@@ -35,6 +43,4 @@
 		</form>
 	</main>
 </body>
-
-	<?php include("footer.html");?>
 </html>

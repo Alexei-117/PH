@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,54 +44,57 @@
 	<main>
 		<?php
 		if(null!=$_GET){
-			if($_GET["id"]==1){
-						echo "<article class='detalle'>
-				<h3>My son's first draw</h3>
-				<figure>
-					<img alt='plano detalle' src='img/lacara.png'/>
-				</figure>
-
-				<p>
-					<b>Pais: Spain</b>
-				</p>
-				<p>
-					<b>Fecha: 1/2/2015</b>
-				</p>
-				<p>
-					<a href=''>Album: My son</a>
-				</p>
-				<p>
-					<a href=''>Usuario: Manuel Carrasco</a>
-				</p>
-			</article>";
-			
-			}
-			if($_GET["id"]==2){
-				echo "<article class='detalle'>
-				<h3>Yo guapo</h3>
-				<figure>
-					<img alt='plano detalle' src='img/tio_maquina.jpg'/>
-				</figure>
-				<p>
-					<b>Pais: New York</b>
-				</p>
-				<p>
-					<b>Fecha: 3/4/2015</b>
-				</p>
-				<p>
-					<a href=''>Album: My face</a>
-				</p>
-				<p>
-					<a href=''>Usuario: Roberto Massterani</a>
-				</p>
-			</article>";
-			
+			if(isset($_SESSION["nombre"])){
+			$sentencia= "SELECT * FROM fotos as f,paises,albumes as a, usuarios as u 
+							WHERE f.pais=paises.IdPais 
+							AND ".$_GET['id']."=f.idFoto
+							AND f.album=a.IdAlbum
+							AND a.IdAlbum=u.IdUsuario
+							";
+			$resultado = mysqli_query($conexion, $sentencia);
+				while($fila=mysqli_fetch_assoc($resultado)){
+					echo "<article class='detalle'>
+							<h3>".$fila['titulo']."</h3>
+							<figure>
+								<a href=";
+								if(isset($_SESSION["nombre"])){
+									echo "detalle.php?id=".$fila['idFoto'];
+								}else{
+									echo "";
+								}
+					echo "		><img alt=".$fila['titulo']." src='".$fila['fichero']."'/></a>
+							</figure>
+							<p>
+								<b>País: ".$fila['NomPais']."</b>
+							</p>
+							<p>
+								<b>Fecha: ".$fila['fecha']."</b>
+							</p>
+							<p>
+								<a href='ver_album.php?album=".$fila['IdAlbum'].
+								"'>Album: ".$fila['IdAlbum']."</a>
+							</p>
+							<p>
+								<a href='perfil.php?user=".$fila['IdUsuario'].
+								"'>Usuario: ".$fila['NomUsuario']."</a>
+							</p>
+						</article>";
+				}
+			mysqli_free_result($resultado);
+			}else{
+				echo '<div class="alert">
+						Tiene que identificarse para ver la página detalle de una foto.
+						¡Regístrese en nuestra página principal!
+					</div>';
 			}
 		}
 		?>
 	</main>
 
-	<?php include("footer.html");?>
+	<?php 
+		include("footer.html");
+		mysqli_close($conexion);
+	?>
 
 </body>
 </html>

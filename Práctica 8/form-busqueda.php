@@ -1,3 +1,6 @@
+<?php
+	include("conexion.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -36,8 +39,18 @@
             <label class="labelForm" for="fecha_ini">Fecha final:</label>
             <input class="formInput" type="date" name="Fecha_final" id="fecha_fin">
 			
+
 			<label class="labelForm" for="country">País:</label>
-			<input class="formInput" type="text" name="Pais" id="country">
+			<select class="formInput" type="text" name="Pais" id="country">
+				<?php
+					$sentencia= 'SELECT * FROM paises';
+					$resultado = mysqli_query($conexion, $sentencia);
+					while($fila=mysqli_fetch_assoc($resultado)){
+						echo "<option value=".$fila['IdPais'].">".$fila['NomPais']."</option>";
+					}
+					mysqli_free_result($resultado);
+				?>
+			</select>
 			</fieldset>
 			<button class="formSubmit" type="submit" value="Buscar">Buscar</button>
 		</form>

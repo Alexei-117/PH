@@ -1,38 +1,40 @@
 		<?php
 			session_start();
-			if(($_POST["name"]=="test" && $_POST["password"]=="test")
-				|| ($_POST["name"]=="pepito" && $_POST["password"]=="pepito1234")
-				|| ($_POST["name"]=="jaja" && $_POST["password"]=="no")){
-				if(isset($_POST["submit"])){
-					if(isset($_POST["recordar"])){
-						setcookie("nombre",$_POST["name"],time()+3600*24*30);
-						setcookie("contra",$_POST["password"],time()+3600*24*30);
-						setcookie("fecha",date("d.m.y"),time()+3600*24*30);
-						setcookie("hora",date("H:i:s"),time()+3600*24*30);
+			include("conexion.php");
+			$sentencia= 'SELECT * FROM usuarios';
+			$resultado = mysqli_query($conexion, $sentencia);
+			$existe=false;
+			$nombre=null;
+			$pass=null;
+			while($fila=mysqli_fetch_assoc($resultado)){
+				if(isset($_COOKIE["nombre"])){
+					if(strcmp($_COOKIE["nombre"],$fila["NomUsuario"])==0 && strcmp($_COOKIE["contra"],$fila["Clave"])==0){
+						$existe=true;
+						$nombre=$fila["NomUsuario"];
+						$pass=$fila["Clave"];
 					}
-					$_SESSION["nombre"]=$_POST["name"];
-					$host = $_SERVER['HTTP_HOST'];
-					$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-					$pag = 'index.php';
-					header("Location: http://$host$uri/$pag"); 
 				}
-			}elseif(isset($_COOKIE["nombre"])){
-				if(($_COOKIE["nombre"]=="test" && $_COOKIE["contra"]=="test")
-				|| ($_COOKIE["nombre"]=="pepito" && $_COOKIE["contra"]=="pepito1234")
-				|| ($_COOKIE["nombre"]=="jaja" && $_COOKIE["contra"]=="no")){
-					if(isset($_POST["submit"])){
+				if(strcmp($_POST["name"],$fila["NomUsuario"])==0 && strcmp($_POST["password"],$fila["Clave"])==0){
+					$existe=true;
+					$nombre=$fila["NomUsuario"];
+					$pass=$fila["Clave"];
+				}
+			}
+			
+			if($existe){
+				if(isset($_POST["submit"])){
 						if(isset($_POST["recordar"])){
-							setcookie("nombre",$_POST["name"],time()+3600*24*30);
-							setcookie("contra",$_POST["password"],time()+3600*24*30);
+							setcookie("nombre",$nombre,time()+3600*24*30);
+							setcookie("contra",$pass,time()+3600*24*30);
 							setcookie("fecha",date("d.m.y"),time()+3600*24*30);
 							setcookie("hora",date("H:i:s"),time()+3600*24*30);
 						}
-						$_SESSION["nombre"]=$_POST["name"];
+						$_SESSION["nombre"]=$nombre;
 						$host = $_SERVER['HTTP_HOST'];
 						$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 						$pag = 'index.php';
 						header("Location: http://$host$uri/$pag"); 
-					}else{
+				}else{
 						setcookie("nombre","",time()-3700000);
 						setcookie("contra","",time()-37000000);
 						setcookie("fecha","",time()-37000000);
@@ -46,14 +48,15 @@
 							$pag = 'index.php?popen=si';
 						}
 						header("Location: http://$host$uri/$pag"); 
-					}
 				}
 			}else{
 				$host = $_SERVER['HTTP_HOST'];
 				$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-				$pag = 'index.php?popen=no';
-				header("Location: http://$host$uri/$pag"); 
+				$pag = 'index.php?popen=si';
+				session_destroy();
+				header("Location: http://$host$uri/$pag");
 			}
+			mysqli_free_result($resultado);
 		?>
 <!DOCTYPE html>
 <html lang="es">

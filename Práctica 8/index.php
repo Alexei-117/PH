@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,7 +45,10 @@
         <?php include("ultimasFotos.php");?>
 	</main>
 
-	<?php include("footer.html");?>
+	<?php 
+		include("footer.html");
+		mysqli_close($conexion);
+	?>
 
 </body>
 </html>

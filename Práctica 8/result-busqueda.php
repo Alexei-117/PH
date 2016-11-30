@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,166 +45,93 @@
 	<hr>
 	<main>
 		<?php include("buscador.html");?>
+		<hr>
 				<h4>Resultado de la búsqueda</h4>
 		<?php 
-		echo "<div class='alert2'>";
-			if(isset($_POST["buscar"])){
-				echo "Has buscado: $_POST[buscar]";
-			}
-			if(isset($_POST["Titulo"])){
-				echo "Has buscado el título: $_POST[Titulo]";
-			}
-			if(isset($_POST["Fecha_inicio"])){
-				echo "<br>Entre las fechas: $_POST[Fecha_inicio]";
-			}
+		$sentencia= 'SELECT * FROM fotos,paises WHERE fotos.pais=paises.IdPais';
+		$where =false;
+		
+		
+		if(isset($_POST["buscar"]) && strcmp($_POST["buscar"],"")!=0){
+				$sentencia.=" AND fotos.titulo LIKE '%".$_POST['buscar']."%'";
+				$where=true;
+			
+		}
+		if(isset($_POST["Titulo"]) && strcmp($_POST["Titulo"],"")!=0){
+			$sentencia.=" AND fotos.titulo LIKE '%".$_POST['Titulo']."%'";
+			
+		}
+		
+		$FechaInicio=false;
+		if(isset($_POST["Fecha_inicio"]) && strcmp($_POST["Fecha_inicio"],"")!=0){
+			$FechaInicio=true;
+			$sentencia.="AND fotos.fecha BETWEEN '".$_POST['Fecha_inicio']."' AND ";
+		}
+		
+		if($FechaInicio){
 			if(isset($_POST["Fecha_final"])){
-				echo "<br> y : $_POST[Fecha_final]";
+				if(strcmp($_POST["Fecha_final"],"")!=0){
+					$sentencia.=" '".$_POST["Fecha_final"]."'";
+				}else{
+					$sentencia.=" '2016-11-11'";
+				}
 			}
-			if(isset($_POST["Pais"])){
-				echo "<br>En el país: $_POST[Pais]";
-			}
-		echo "</div>";
-		?>
-
-        <article>
-            <figure>
-                <a href=		
-			<?php
-			if(isset($_SESSION["nombre"])){
-				echo "detalle.php?id=1";
-			}else{
-				echo "";
-			}
-		?>><img alt="Última-foto-1" src="img/te_fo.jpg"/></a>
-            </figure>
-			<p>
-				<b>Titulo: Selfie</b>
-			</p>
-			<p>
-				<b>Pais: India</b>
-			</p>
-			<p>
-				<b>Fecha: 14/3/2015</b>
-			</p>
-			<p>
-				<a href="">Album: Last selfies</a>
-			</p>
-			<p>
-				<a href="">Usuario: Ashram Uktah</a>
-			</p>
-        </article>
-        <article>
-            <figure>
-                <a href=
-			<?php
-			if(isset($_SESSION["nombre"])){
-				echo "detalle.php?id=2";
-			}else{
-				echo "";
-			}
-			?>
-		><img alt="Última-foto-2" src="img/si_o_que.jpg"/></a>
-            </figure>
-			<p>
-				<b>Titulo: Party with my work mates!</b>
-			</p>
-			<p>
-				<b>Pais: New Delhi</b>
-			</p>
-			<p>
-				<b>Fecha: 2/5/2015</b>
-			</p>
-			<p>
-				<a href="">Album: Party!</a>
-			</p>
-			<p>
-				<a href="">Usuario: Marenna Arem</a>
-			</p>
-        </article>
-        <article>
-            <figure>
-                <a href=		
-				<?php
-					if(isset($_SESSION["nombre"])){
-						echo "detalle.php?id=1";
+		}
+		
+		if(isset($_POST["Pais"]) && strcmp($_POST["Pais"],"")!=0){
+			$sentencia.=" AND paises.IdPais=".$_POST['Pais'];
+		}
+		$puesto=false;
+		$resultado = mysqli_query($conexion, $sentencia);
+		while($fila=mysqli_fetch_assoc($resultado)){
+			if(!$puesto){
+				echo "<div class='alert2'>";
+				if(isset($_POST["buscar"]) && strcmp($_POST["Buscar"],"")!=0){
+					echo "Has buscado: $_POST[buscar]";
+				}
+				if(isset($_POST["Titulo"]) && strcmp($_POST["Titulo"],"")!=0){
+					echo "Has buscado el título: $_POST[Titulo]";
+				}
+				if(isset($_POST["Pais"]) && strcmp($_POST["Pais"],"")!=0){
+					echo "<br>En el país:".$fila['NomPais'];
+				}
+				if(isset($_POST["Fecha_inicio"]) && strcmp($_POST["Fecha_inicio"],"")!=0){
+					echo "<br>Entre las fechas: $_POST[Fecha_inicio]";
+				}
+				if($FechaInicio){
+					if(isset($_POST["Fecha_final"]) && strcmp($_POST["Fecha_final"],"")!=0){
+						echo "<br> y : $_POST[Fecha_final]";
 					}else{
-						echo "";
+						echo"<br> y ahora";
 					}
-				?>
-		><img alt="Última-foto-3" src="img/tio_maquina.jpg"/></a>
-            </figure>
-			<p>
-				<b>Titulo: Yo guapo</b>
-			</p>
-			<p>
-				<b>Pais: New York</b>
-			</p>
-			<p>
-				<b>Fecha: 3/4/2015</b>
-			</p>
-			<p>
-				<a href="">Album: My face</a>
-			</p>
-			<p>
-				<a href="">Usuario: Roberto Massterani</a>
-			</p>
-        </article>
-        <article>
-            <figure>
-                <a href=		
-				<?php
-					if(isset($_SESSION["nombre"])){
-						echo "detalle.php?id=2";
-					}else{
-						echo "";
-					}
-				?>
-		><img alt="Última-foto-4" src="img/lacara.png"/></a>
-            </figure>
-			<p>
-				<b>Titulo: My son's first draw</b>
-			</p>
-			<p>
-				<b>Pais: Spain</b>
-			</p>
-			<p>
-				<b>Fecha: 1/2/2015</b>
-			</p>
-			<p>
-				<a href="">Album: My son</a>
-			</p>
-			<p>
-				<a href="">Usuario: Manuel Carrasco</a>
-			</p>
-        </article>
-        <article>
-            <figure>
-                <a href=		
-				<?php
-					if(isset($_SESSION["nombre"])){
-						echo "detalle.php?id=1";
-					}else{
-						echo "";
-					}
-				?>
-		><img alt="Última-foto-5" src="img/soy_guapa.jpeg"/></a>
-            </figure>
-			<p>
-				<b>Titulo: I'm pretty!</b>
-			</p>
-			<p>
-				<b>Pais: England</b>
-			</p>
-			<p>
-				<b>Fecha: 11/10/2014</b>
-			</p>
-			<p>
-				<a href="">Album: My and myself</a>
-			</p>
-			<p>
-				<a href="">Usuario: Ruperta Dolores</a>
-			</p>
-        </article>
+				}
+				echo "</div>";
+			}
+			$puesto=true;
+			echo "<article>
+					<figure>
+						<a href=";
+						if(isset($_SESSION["nombre"])){
+							echo "detalle.php?id=".$fila['idFoto'];
+						}else{
+							echo "";
+						}
+			echo "		><img alt=".$fila['titulo']." src='".$fila['fichero']."'/></a>
+					</figure>
+					<p>
+						<b>Título: ".$fila['titulo']."</b>
+					</p>
+					<p>
+						<b>País: ".$fila['NomPais']."</b>
+					</p>
+					<p>
+						<b>Fecha: ".$fila['fecha']."</b>
+					</p>
+				</article>";
+				$pais=$fila['NomPais'];
+		}
+		mysqli_free_result($resultado);
+	?>
 	</main>
 
 <?php include("footer.html");?>

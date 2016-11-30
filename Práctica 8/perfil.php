@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Pefil</title>
+    <title>Perfil</title>
    
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">

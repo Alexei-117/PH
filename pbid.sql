@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2016 a las 19:18:39
+-- Tiempo de generación: 30-11-2016 a las 13:03:45
 -- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.24
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `universalimages`
+-- Base de datos: `pibd`
 --
 
 -- --------------------------------------------------------
@@ -53,25 +53,25 @@ INSERT INTO `albumes` (`IdAlbum`, `Titulo`, `Descripcion`, `Fecha`, `Pais`, `Usu
 --
 
 CREATE TABLE `fotos` (
-  `IdFoto` int(11) NOT NULL,
-  `Titulo` text NOT NULL,
-  `Descripcion` text NOT NULL,
-  `Fecha` date DEFAULT NULL,
-  `Pais` int(11) DEFAULT NULL,
-  `Album` int(11) NOT NULL,
-  `Fichero` text NOT NULL,
-  `FRegistro` datetime NOT NULL
+  `idFoto` int(11) NOT NULL,
+  `titulo` text NOT NULL,
+  `descripcion` text NOT NULL,
+  `fecha` date NOT NULL,
+  `pais` int(11) NOT NULL,
+  `album` int(11) DEFAULT NULL,
+  `fichero` text NOT NULL,
+  `fRegistro` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `fotos`
 --
 
-INSERT INTO `fotos` (`IdFoto`, `Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `FRegistro`) VALUES
-(0, 'My best friend!', 'Here in the party', '2016-10-17', 5, 3, '''/img/party.png''', '2016-10-10 00:00:00'),
-(0, 'My best friend!', 'Here in the party', '2016-10-17', 5, 3, '10', '2016-10-10 00:00:00'),
-(0, 'Foto 2', 'Foto de ejemplo 2', '2016-11-02', 2, 2, '''images/foto2.png''', '2016-11-03 00:00:00'),
-(0, 'Foto 2', 'Foto de ejemplo 2', '2016-11-02', 2, 2, '''images/foto2.png''', '2016-11-03 00:00:00');
+INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`, `fichero`, `fRegistro`) VALUES
+(1, 'selfie', 'Una foto que me saqué en la boda de mi hermana', '2015-03-14', 1, 2, 'img/te_fo.jpg', '2016-11-23 00:00:00'),
+(3, 'party with my work mates!', 'A picture with my friends at the party of our aunt Mary Sunshine :D', '2015-02-15', 3, 3, 'img/si_o_que.jpg', '0000-00-00 00:00:00'),
+(5, 'yo guapo', 'Miradme', '2015-04-03', 1, 0, 'img/tio_maquina.jpg', '2016-11-24 00:00:00'),
+(6, 'my son''s first draw', 'Very porud of him! :)D', '2014-02-14', 2, 4, 'img/lacara.png', '2016-11-09 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ INSERT INTO `fotos` (`IdFoto`, `Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`
 
 CREATE TABLE `paises` (
   `IdPais` int(11) NOT NULL,
-  `NomPais` text NOT NULL
+  `NomPais` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `usuarios` (
   `Email` text NOT NULL,
   `Sexo` smallint(6) NOT NULL,
   `FNacimiento` date NOT NULL,
-  `Ciudad` int(11) NOT NULL,
+  `Ciudad` text NOT NULL,
   `Pais` int(11) NOT NULL,
   `Foto` text NOT NULL,
   `FRegistro` datetime NOT NULL
@@ -141,9 +141,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `Clave`, `Email`, `Sexo`, `FNacimiento`, `Ciudad`, `Pais`, `Foto`, `FRegistro`) VALUES
-(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 1, 1, '''/img/photo1.png''', '2016-11-15 00:00:00'),
-(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 3, 2, '''/img/lavida.png''', '2016-11-01 00:00:00'),
-(3, 'Julieta', 'julia123', 'julio@gmail.com', 1, '2015-09-15', 1, 1, '''/img/photo1.png''', '2016-11-15 00:00:00');
+(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 'Alicante', 1, '''/img/photo1.png''', '2016-11-15 00:00:00'),
+(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 'Priscilla city', 2, '''/img/lavida.png''', '2016-11-01 00:00:00'),
+(3, 'Julieta', 'julia123', 'julio@gmail.com', 1, '2015-09-15', 'Samba land', 1, '''/img/photo1.png''', '2016-11-15 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -154,6 +154,12 @@ INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `Clave`, `Email`, `Sexo`, `FN
 --
 ALTER TABLE `albumes`
   ADD PRIMARY KEY (`IdAlbum`);
+
+--
+-- Indices de la tabla `fotos`
+--
+ALTER TABLE `fotos`
+  ADD PRIMARY KEY (`idFoto`);
 
 --
 -- Indices de la tabla `paises`
@@ -183,6 +189,11 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `albumes`
   MODIFY `IdAlbum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT de la tabla `fotos`
+--
+ALTER TABLE `fotos`
+  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `paises`
 --

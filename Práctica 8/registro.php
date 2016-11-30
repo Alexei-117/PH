@@ -1,3 +1,6 @@
+<?php
+	include("conexion.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -73,6 +76,9 @@
 		</form>
 	</main>
 
-		<?php include("footer.html");?>
+		<?php
+			include("footer.html");
+			mysqli_close($conexion);
+		?>
 </body>
 </html>

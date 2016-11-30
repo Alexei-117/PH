@@ -8,10 +8,10 @@
 			<a href="index.php" class="boton-menu2" >Inicio</a>
 		</li>
 		<li class="li2">
-			<a href="perfil.php" class="boton-menu2">Subir foto</a>
+			<a href="subirfoto.php" class="boton-menu2">Subir foto</a>
 		</li>
 		<li class="li2">
-			<a href="perfil.php" class="boton-menu2">Mis Álbumes</a>
+			<a href="misalbumes.php" class="boton-menu2">Mis Álbumes</a>
 		</li >
 		<li class="li2">
 			<a href="crearAlbum.php" class="boton-menu2">Crear Álbum</a>

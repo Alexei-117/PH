@@ -477,6 +477,186 @@ article p{
 	text-overflow:hidden;
 	float:left;
 }
+/*FORMULARIO_ALBUM_y_REGISTRO*/
+.album-form {
+    font-size: 14px;
+	float:bottom;
+	z-index: 3;
+	background: #FFFFFF;
+    width:420px;
+	position:relative;
+	margin: 0 auto;
+	margin-top:2.5%;
+	padding: 0.5em;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.labelForm{
+    font-weight: bold;
+    line-height: normal;
+    text-align: right;
+    margin-right: 10px;
+    position: relative;
+    display: block;
+    float: left;
+    width: 150px;
+    padding:1em;
+}
+.formInput{
+    min-width: 200px;
+	background: #ddccff;
+	color:#4CAF50;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 1em;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+.formInputA{
+    min-width: 200px;
+	height:200px;
+	background: #ddccff;
+	color:#4CAF50;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 1em;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+.formInputColor{
+    height: 45px;
+    min-width: 200px;
+	border: 0;
+	margin: 0 0 15px;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+
+.formSubmit button:hover,.form button:active,.form button:focus {
+	background: #43A047;
+}
+.formSubmit{
+    font-weight:bold;
+	background:linear-gradient(#9F0AFB, #480075);
+	margin:0 auto;
+	margin-top:2%;
+	color:white;
+    border:0;
+    min-width: 400px;
+    padding: 1em;
+}
+
+.formSubmit:hover{
+	background:linear-gradient(#480075, #9F0AFB);
+}
+
+.formFile{
+    display: block !important;
+    width: 180px !important;
+    height: 40px !important;
+    opacity: 0 !important;
+}
+.legend-form {
+    font-weight:bold;
+    background:linear-gradient(#9F0AFB, #480075);
+    color:white;
+    padding: 1em;
+    font-size:90%;
+    text-align:left;
+  }
+/*TABLAS MIS ALBUMES*/
+.table-form {
+    font-size: 14px;
+	float:bottom;
+	z-index: 3;
+	background: #FFFFFF;
+    max-width:500px;
+    min-width:400px;
+	position:relative;
+	margin: 0 auto;
+	margin-top:2.5%;
+	padding: 0.5em;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+table {
+    width: 100%;
+}
+td{
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    height: 60px;
+    background: linear-gradient(#01DF01,#4CAF50);
+    color: white;
+    border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+tr:hover {
+    background-color: #f5f5f5
+}
+/*ARTICLE*/
+.article-form {
+    font-size: 20px;
+	float:bottom;
+	z-index: 3;
+	background: #FFFFFF;
+    max-width:500px;
+	position:relative;
+	margin: 0 auto;
+	margin-top:2.5%;
+	padding: 0.5em;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.legend-article{
+    font-weight:bold;
+    background:linear-gradient(#01DF01,#4CAF50);
+    color:white;
+    padding: 0.5em;
+    font-size:18px;
+    text-align:left;
+}
+/* FOTOS */
+.legend-foto{
+    font-weight:bold;
+    background:linear-gradient(#01DF01,#4CAF50);
+    color:white;
+    padding: 0.5em;
+    font-size:14px;
+    text-align:left;
+}
+.fotoin{
+    min-width: 200px;
+	background: #ddccff;
+	color:#4CAF50;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 1em;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+.fotodesc{
+    min-width: 200px;
+	height: 100px;
+	background: #ddccff;
+	color:#4CAF50;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 1em;
+	box-sizing: border-box;
+	float:left;
+    display:block;
+}
+
 /*confirmar*/
 .confirmar{
 	text-align:center;

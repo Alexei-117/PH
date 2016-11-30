@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,14 +30,14 @@
 				<input class="formInput" type="date" name="fecha-album"  id="fechaAlbum" required>
 				<label class="labelForm" for="paisAlbum">País</label>
                 <select class="formInput" name="pais-album" id="paisAlbum">
-				    <option value="spain">España</option>
-				    <option value="spain">Inglaterra</option>
-				    <option value="spain">Francia</option>
-                    <option value="spain">Argentina</option>
-				    <option value="spain">Chile</option>
-				    <option value="spain">Portugal</option>
-                    <option value="spain">Andorra</option>
-				    <option value="spain">Otro</option>
+					<?php
+						$sentencia= 'SELECT * FROM paises';
+						$resultado = mysqli_query($conexion, $sentencia);
+						while($fila=mysqli_fetch_assoc($resultado)){
+							echo "<option value=".$fila['IdPais'].">".$fila['NomPais']."</option>";
+						}
+						mysqli_free_result($resultado);
+					?>
                 </select>
 				<br>
 				<label class="labelForm" for="descAlbum">Descripción</label>
@@ -47,6 +48,9 @@
                 
 		</form>
 	</main>
-	<?php include("footer.html");?>
+	<?php 
+		include("footer.html");
+		mysqli_close($conexion);
+	?>
 </body>
 </html>

@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Universal Images - Ver album</title>
+    <title>Universal Images - Ver álbum</title>
   
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">

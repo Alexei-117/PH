@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Universal Images - Ver album</title>
+    <title>Universal Images - Subir foto</title>
   
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
@@ -32,7 +32,7 @@
     <main>
         <?php
         if(isset($_SESSION["nombre"])){
-            $sentencia ='SELECT a.IdAlbum, a.Titulo, a.Descripcion, a.Fecha, p.NomPais FROM albumes a, paises p, usuarios u WHERE a.Pais=p.IdPais AND a.Usuario=u.IdUsuario AND u.NomUsuario="'.$_SESSION['nombre'].'" ORDER BY a.IdAlbum';
+            $sentencia ='SELECT a.IdAlbum, a.Titulo, a.Descripcion, a.Fecha FROM albumes a, usuarios u WHERE a.Usuario=u.IdUsuario AND u.NomUsuario="'.$_SESSION['nombre'].'" ORDER BY a.IdAlbum';
             $resultado= mysqli_query($conexion,$sentencia);
             $contador = mysqli_num_rows($resultado);
             if($contador==0){
@@ -48,16 +48,32 @@
                 <form class="album-form">
                     <fieldset>
                     <legend class="legend-form">Subir foto</legend>
-                    <label class="labelForm" for="nameFoto">Titulo:</label><input id="nameFoto" class="formInput" type="text" name="name_foto" autofocus required />
+                    <label class="labelForm" for="nameFoto">
+					Titulo:</label><input id="nameFoto" class="formInput" type="text" name="name_foto" autofocus required />
                     <br>
-                    <label class="labelForm" for="dateFoto">Fecha:</label><input id="dateFoto" class="formInput" type="text" name="date_foto" autofocus required />
+                    <label class="labelForm" for="dateFoto">
+					Fecha:</label><input id="dateFoto" class="formInput" type="date" name="date_foto" autofocus required />
                     <br>
-                    <label class="labelForm" for="paisFoto">Pais:</label><input id="paisFoto" class="formInput" type="text" name="pais_foto" autofocus required />
+                    <label class="labelForm" for="paisFoto">
+					Pais:</label>
+					 ';
+					$sentencia ='SELECT * FROM paises';
+					$resultado2= mysqli_query($conexion,$sentencia);
+						
+				echo '
+					<select id="paisFoto" class="formInput" type="text" name="pais_foto" autofocus required />';
+						while($fila2=mysqli_fetch_assoc($resultado2)){
+                            echo '<option value="'.$fila2['IdPais'].'">'.$fila2['NomPais'].'</option>';
+                        }
+				echo'
+					</select>
                     <br>
-                    <label class="labelForm" for="fotoFoto">Foto:</label><input id="fotoFoto" class="formInput" type="text" name="foto_Foto" autofocus required />
+                    <label class="labelForm" for="fotoFoto">
+					Foto:</label><input id="fotoFoto" class="formInput" type="text" name="foto_foto" autofocus required />
                     <br>
-                    <label class="labelForm" for="albumFoto">Album:</label>';
-                        echo '<select id="albumFoto" class="formInput" name="album_Foto">';
+                    <label class="labelForm" for="albumFoto">
+					Album:</label>';
+                        echo '<select id="albumFoto" class="formInput" name="album_foto">';
                 
                         while($fila=mysqli_fetch_assoc($resultado)){
                             echo '<option value="'.$fila['IdAlbum'].'">'.$fila['Titulo'].'</option>';
@@ -68,12 +84,13 @@
                     <label for="subFoto"></label><input id="subFoto" class="formSubmit" type="submit" name="submit_Foto" value="Confirmar"/>
                 </form>';
             }
-            mysqli_free_result($resultado);
-            //mysqli_close($conexion);
+           
         }
         ?>
 	</main>
 	<?php include("footer.html");
+	mysqli_free_result($resultado);
+	mysqli_free_result($resultado2);
     mysqli_close($conexion);
     ?>
 </body>

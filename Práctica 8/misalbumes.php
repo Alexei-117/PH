@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Universal Images - Mis albumes</title>
+    <title>Universal Images - Mis álbumes</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
     <link rel="alternate stylesheet" type="text/css" href="css/imprimir.css" media="screen" title="Estilo de impresión"/>
@@ -21,7 +21,7 @@
         include("header.php");
         echo '
         <div class="alert">
-            Debe identificarse antes para poder acceder a sus albumes
+            Debe identificarse antes para poder acceder a sus álbumes
         </div>';
         include("ultimasFotos.php");
     }
@@ -38,7 +38,7 @@
                 echo '
                 <form class="article-form">
                 <fieldset>
-                <legend class="legend-article">Aviso</legend>No se han encontrado albumes, debes crear uno antes mediante la opcion "Crear album".
+                <legend class="legend-article">Aviso</legend>No se han encontrado álbumes, debes crear uno antes mediante la opción "Crear álbum".
                 </fieldset>
                 </form>';
             }

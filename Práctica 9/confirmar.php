@@ -70,6 +70,7 @@
                     <label class='labelForm'>Dirección:</label><p class='fotoin'>".$_POST['direction_control']."</p>
                     <label class='labelForm'>Teléfono:</label><p class='fotoin'>".$_POST['tel_control']."</p>
                     <label class='labelForm'>Color de portada:</label><p class='fotoin'>".$_POST['color_control']."</p>
+                    <label class='labelForm'>Fecha:</label><p class='fotoin'>".$_POST['date_control']."</p>
                     <label class='labelForm'>Número de copias:</label><p class='fotoin'>".$_POST['number_control']."</p>
                     <label class='labelForm'>Resolución:</label><p class='fotoin'>".$_POST['resolution_control']."</p>
                     <label class='labelForm'>Álbum de fotos:</label><p class='fotoin'>".$_POST['album_control']."</p>

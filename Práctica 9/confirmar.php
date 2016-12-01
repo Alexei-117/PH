@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    include("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,40 +20,56 @@
 	?>
 	<hr>
 	<main>
-		<?php
-		$multiplicador=0.08;
-		$multiplicador= 0.08;
-		$text ="";
-		if(isset($_POST["color_control1"])){
+        <?php
+        $multiplicador=0.08;
+		$text ="";	
+        $time=time();
+		$price = 2 + $_POST["number_control"] * $multiplicador * $_POST["resolution_control"]/150*0.20;
+        if(isset($_POST["color_control1"])){
 			$text = $_POST["color_control1"];
 		}
 		if(isset($_POST["color_control2"])){
 			$text = $_POST["color_control2"];
 			$multiplicador=0.5;
-		}		
-		$price = 2 + $_POST["number_control"] * $multiplicador * $_POST["resolution_control"]/150*0.20;
-		echo "
-		<article class='confirmar'>
-			<h4>Confirma los datos de la petición</h4>
-			<p><b>Nombre:</b>$_POST[name_control]</p>
-			<p><b>Título del álbum:</b> $_POST[title_control]</p>
-			<p><b>Texto adicional:</b> $_POST[text_control]</p>
-			<p><b>Correo electrónico:</b> $_POST[email_control]</p>
-			<p><b>Dirección:</b> $_POST[direction_control]</p>
-			<p><b>Teléfono:</b> $_POST[tel_control]</p>
-			<p><b>Color de portada:</b> </p>
-			<input type='color' name='color-confirmacion' value='$_POST[color_control]'/>
-			<p><b>Número de copias:</b> $_POST[number_control]</p>
-			<p><b>Resolución:</b> $_POST[resolution_control]</p>
-			<p><b>Álbum de fotos:</b> $_POST[album_control]</p>
-			<p><b>Impresión a:</b> $text
-			</p>
+		}	
+        $sentencia ='INSERT INTO solicitudes VALUES(null,"'.$_POST['album_control'].'","'
+            .$_POST['name_control'].'","'.$_POST['title_control'].'","'.
+            $_POST['text_control'].'","'.$_POST['email_control'].'","'.
+            $_POST['direction_control'].'","'.$_POST['color_control'].
+            '","'.$_POST['number_control'].'","'.$_POST['resolution_control'].
+            '","'.$_POST['date_control'].'","'.$text.'",'.time().',"'.$price.'")';
+        $resultado = mysqli_query($conexion,$sentencia);
+        $error=false;
+		if(!$identificador=mysqli_query($conexion, $sentencia)){
+            $desc_error=mysqli_error($conexion);
+			echo '<div class="alert">
+					No se ha podido insertar dentro de la base de datos.
+					Descripción del error:'.$desc_error.'
+			     </div>';
+		}
+        else{
+			echo "
+                <form class='table-form'>
+                    <fieldset>
+                    <legend class='legend-form'>Datos de solicitud introducidos</legend>
+                    <label class='labelForm'>Nombre:</label><p class='fotoin'>".$_POST['name_control']."</p>
+                    <label class='labelForm'>Título del álbum:</label><p class='fotoin'>".$_POST['title_control']."</p>
+                    <label class='labelForm'>Texto adicional:</label><p class='fotoin'>".$_POST['text_control']."</p>
+                    <label class='labelForm'>Correo electrónico:</label><p class='fotoin'>".$_POST['email_control']."</p>
+                    <label class='labelForm'>Dirección:</label><p class='fotoin'>".$_POST['direction_control']."</p>
+                    <label class='labelForm'>Teléfono:</label><p class='fotoin'>".$_POST['tel_control']."</p>
+                    <label class='labelForm'>Color de portada:</label><p class='fotoin'>".$_POST['color_control']."</p>
+                    <label class='labelForm'>Número de copias:</label><p class='fotoin'>".$_POST['number_control']."</p>
+                    <label class='labelForm'>Resolución:</label><p class='fotoin'>".$_POST['resolution_control']."</p>
+                    <label class='labelForm'>Álbum de fotos:</label><p class='fotoin'>".$_POST['album_control']."</p>
+                    <label class='labelForm'>Impresión a:</label><p class='fotoin'>".$text."</p>
 
-			
-			<p><b>Precio final:</b> $price €</p>
-			<a href='index2.php'>Confirmar</a>
-			<a href='index2.php'>Cancelar</a>
-		</article>"?>
+
+                    <label class='labelForm'>Precio final::</label><p class='fotoin'>".$price."€</p>
+                    </fieldset>
+                </form>";
+		}
+        ?>	
 	</main>
 	<?php
 		include("footer.html");

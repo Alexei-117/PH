@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Universal Images - Insert de Crear Album</title>
+    <title>Universal Images - Insert de Subir Foto</title>
     <meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
 	<link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
@@ -30,38 +30,38 @@
 	<hr>
 	<main>
 	<?php
-		$album=$_POST["nomAlbum"];
-		$fecha=$_POST["fechaAlbum"];
-		$pais=$_POST["paisAlbum"];
-		$descripcion=$_POST["descAlbum"];
-		
-		$sentencia= "INSERT INTO albumes VALUES (null,'".$album."','".$descripcion."','".$fecha."','".$pais."','".$_SESSION['nombre']."')";
+		$titulo=$_POST["name_foto"];
+		$fecha=$_POST["date_foto"];
+		$pais=$_POST["pais_foto"];
+		$foto=$_POST["foto_foto"];
+		$album=$_POST["album_foto"];
+		//$hoy = (new DateTime())->format('Y-m-d');
+		$sentencia= "INSERT INTO fotos VALUES (null,'".$titulo."','Sin descripción','".$fecha."','".$pais."','".$album."','".$foto."','2016-12-01')";
 		$error=false;
 		if(!mysqli_query($conexion, $sentencia)){
 			$error=true;
 		}
 		if($error){
-			$desc_error=mysqli_error();
 			echo '<div class="alert">
 					No se ha podido insertar dentro de la base de datos.
-					Descripción del error:'.$desc_error.'
 			</div>';
 		}else{
-			echo "<article class='detalle'>
-					<h3>Inserción realizada, el nuevo album es</h3>
-					<p>
-						<b>Titulo: ".$album."</b>
-					</p>
-					<p>
-						<b>Descripción: ".$descripcion."</b>
-					</p>
-					<p>
-						<b>Fecha: ".$fecha."</b>
-					</p>
-					<p>
-						<b>País: ".$pais."</b>
-					</p>
-				</article>";
+					echo "<article class='detalle'>
+							<h3>Inserción realizada, la nueva foto es</h3>
+							<figure>
+								<a href=''";
+					echo "		><img alt=".$titulo." src='".$foto."'/></a>
+							</figure>
+							<p>
+								<b>País: ".$pais."</b>
+							</p>
+							<p>
+								<b>Fecha: ".$fecha."</b>
+							</p>
+							<p>
+								<b>Álbum: ".$album."</b>
+							</p>
+						</article>";
 		}
 	?>
 	</main>

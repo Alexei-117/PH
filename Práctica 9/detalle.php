@@ -15,29 +15,16 @@
 
 <body>
 	<?php
-		$desactiva=0;
-		if(isset($_GET["desactiva"])){
-			setcookie("nombre","",time()-37000000);
-			setcookie("contra","",time()-37000000);
-			setcookie("fecha","",time()-37000000);
-			setcookie("hora","",time()-37000000);
-			$host = $_SERVER['HTTP_HOST'];
-			$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-			$pag = 'index.php?popen=no';
-			header("Location: http://$host$uri/$pag"); 
-			session_destroy();
-		}
 		if(isset($_SESSION["nombre"])){
-			include("header2.php");
-		}else{
-			include("header.php");
+			include ("header2.php");
 		}
-		if(isset($_GET["popen"])){
-			if($_GET["popen"]=="si"){
-				echo '<div class="alert">
-					Usuario y/o contraseña incorrectos
-					</div>';
-			}
+		else{
+			include("header.php");
+			echo '
+			<div class="alert">
+				Debe identificarse antes para poder acceder al detalle de los albumes
+			</div>';
+			include("ultimasFotos.php");
 		}
 	?>
 	<hr>

@@ -15,7 +15,18 @@
 
 <body>
 	<?php
-		include("header2.php");
+		if(isset($_SESSION["nombre"])){
+			include ("header2.php");
+		}
+		else{
+			include("header.php");
+			echo '
+			<div class="alert">
+				Debe identificarse antes para poder acceder al detalle de los albumes
+			</div>';
+			include("ultimasFotos.php");
+		}
+    ?>
 	?>
 	<hr>
 	<main>

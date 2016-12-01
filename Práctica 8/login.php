@@ -57,6 +57,7 @@
 				header("Location: http://$host$uri/$pag");
 			}
 			mysqli_free_result($resultado);
+			mysqli_close($conexion);
 		?>
 <!DOCTYPE html>
 <html lang="es">

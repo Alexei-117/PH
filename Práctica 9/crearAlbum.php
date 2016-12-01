@@ -19,17 +19,17 @@
 	?>
 	<hr>
 	<main>
-		<form class="album-form" action="index2.php">
+		<form class="album-form" action="crearAlbumInsert.php" method='POST'>
                 <fieldset>
                 <legend>Crear Álbum</legend>
                 <label class="labelForm" for="nomAlbum">Título</label>
-				<input class="formInput" type="text" name="nom-album" id="nomAlbum" required>
+				<input class="formInput" type="text" name="nomAlbum" id="nomAlbum" required>
                 
                 <br>
 				<label class="labelForm" for="fechaAlbum">Fecha</label>
-				<input class="formInput" type="date" name="fecha-album"  id="fechaAlbum" required>
+				<input class="formInput" type="date" name="fechaAlbum"  id="fechaAlbum" required>
 				<label class="labelForm" for="paisAlbum">País</label>
-                <select class="formInput" name="pais-album" id="paisAlbum">
+                <select class="formInput" name="paisAlbum" id="paisAlbum">
 					<?php
 						$sentencia= 'SELECT * FROM paises';
 						$resultado = mysqli_query($conexion, $sentencia);
@@ -41,7 +41,7 @@
                 </select>
 				<br>
 				<label class="labelForm" for="descAlbum">Descripción</label>
-				<input class="formInputA" type="text" name="desc-album" id="descAlbum">
+				<input class="formInputA" type="text" name="descAlbum" id="descAlbum">
                 </fieldset>
 			 	<label for="subReg"></label>
 				<input class="formSubmit" type="submit" name="submit_reg" id="subReg" value="Crear" />

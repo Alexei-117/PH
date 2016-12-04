@@ -32,7 +32,7 @@
     <main>
         <?php
         if(isset($_SESSION["nombre"])){
-            $sentencia ='SELECT a.IdAlbum, a.Titulo, a.Descripcion, a.Fecha FROM albumes a, usuarios u WHERE a.Usuario=u.IdUsuario AND u.NomUsuario="'.$_SESSION['nombre'].'" ORDER BY a.IdAlbum';
+            $sentencia ='SELECT * FROM albumes a, usuarios u WHERE a.Usuario=u.IdUsuario AND u.NomUsuario="'.$_SESSION['nombre'].'" ORDER BY a.IdAlbum';
             $resultado= mysqli_query($conexion,$sentencia);
             $contador = mysqli_num_rows($resultado);
             if($contador==0){
@@ -54,6 +54,9 @@
                     <label class="labelForm" for="dateFoto">
 					Fecha:</label><input id="dateFoto" class="formInput" type="date" name="date_foto" autofocus required />
                     <br>
+					<label class="labelForm" for="descFoto">
+					Descripción:</label><input id="descFoto" class="formInput" type="text" name="desc_foto" autofocus/>
+                    <br>
                     <label class="labelForm" for="paisFoto">
 					Pais:</label>
 					 ';
@@ -73,11 +76,10 @@
                     <br>
                     <label class="labelForm" for="albumFoto">
 					Album:</label>';
-                        echo '<select id="albumFoto" class="formInput" name="album_foto">';
-                
-                        while($fila=mysqli_fetch_assoc($resultado)){
-                            echo '<option value="'.$fila['IdAlbum'].'">'.$fila['Titulo'].'</option>';
-                        }
+                    echo '<select id="albumFoto" class="formInput" name="album_foto">';
+					while($fila=mysqli_fetch_assoc($resultado)){
+                        echo '<option value="'.$fila['IdAlbum'].'">'.$fila['Titulo'].'</option>';
+                    }
                     echo '</select>
                     <br>
                     </fieldset>

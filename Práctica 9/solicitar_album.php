@@ -97,7 +97,6 @@
     ?>
 	</main>
 	<?php include("footer.html");
-        mysqli_free_result($resultado);
 		mysqli_close($conexion);
     ?>
 </body>

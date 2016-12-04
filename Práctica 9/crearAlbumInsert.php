@@ -30,36 +30,70 @@
 	<hr>
 	<main>
 	<?php
+		$error=false;
+		if(isset($_POST["pais_foto"])){
+			$fecha=explode("-",$_POST["pais_foto"]);
+			if(sizeof($fecha)==3){
+				$newFecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+				$expreg="/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/";
+				if(preg_match($expreg,'04-12-2014')){
+					$error=true;
+					$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
+				}
+			}else{
+				$error=true;
+				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
+			}
+		
+		}else{
+			$error=true;
+			$msgError.="<p>Debe de poner su fecha de nacimiento</p>";
+		}
+		
 		$album=$_POST["nomAlbum"];
 		$fecha=$_POST["fechaAlbum"];
 		$pais=$_POST["paisAlbum"];
 		$descripcion=$_POST["descAlbum"];
 		
-		$sentencia= "INSERT INTO albumes VALUES (null,'".$album."','".$descripcion."','".$fecha."','".$pais."','".$_SESSION['nombre']."')";
-		$error=false;
-		if(!mysqli_query($conexion, $sentencia)){
-			$error=true;
-		}
-		if($error){
-			echo '<div class="alert">
-					No se ha podido insertar dentro de la base de datos.
-			</div>';
+		if(!$error){
+			$sentencia ='SELECT * FROM paises p WHERE p.IdPais='.$pais;
+			$resultado= mysqli_query($conexion,$sentencia);
+			$sentencia= "INSERT INTO albumes VALUES (null,'".$album."','".$descripcion."','".$fecha."','".$pais."','".$_SESSION['nombre']."')";
+			$error=false;
+			if(!mysqli_query($conexion, $sentencia)){
+				$error=true;
+			}
+			if($error){
+				echo '<div class="alert">
+						No se ha podido insertar dentro de la base de datos.
+				</div>';
+			}else{
+				echo "<article class='detalle'>
+						<h3>Inserción realizada, el nuevo album es</h3>
+						<p>
+							<b>Titulo: ".$album."</b>
+						</p>
+						<p>
+							<b>Descripción: ".$descripcion."</b>
+						</p>
+						<p>
+							<b>Fecha: ".$fecha."</b>
+						</p>
+						";
+						while($fila=mysqli_fetch_assoc($resultado)){
+								echo "
+						<p>
+							<b>País: ".$fila["NomPais"]."</b>
+						</p>
+						";
+						}
+				echo "
+					</article>";
+			}
 		}else{
-			echo "<article class='detalle'>
-					<h3>Inserción realizada, el nuevo album es</h3>
-					<p>
-						<b>Titulo: ".$album."</b>
-					</p>
-					<p>
-						<b>Descripción: ".$descripcion."</b>
-					</p>
-					<p>
-						<b>Fecha: ".$fecha."</b>
-					</p>
-					<p>
-						<b>País: ".$pais."</b>
-					</p>
-				</article>";
+			echo "<div class='alert'>
+				".$msgError."
+				</div>";
 		}
 	?>
 	</main>

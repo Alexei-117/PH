@@ -51,7 +51,7 @@
                 </select>
 				<br>
 				<label class="labelForm" for="descAlbum">Descripción</label>
-				<input class="formInputA" type="text" name="descAlbum" id="descAlbum">
+				<input class="formInput" type="text" name="descAlbum" id="descAlbum">
                 </fieldset>
 			 	<label for="subReg"></label>
 				<input class="formSubmit" type="submit" name="submit_reg" id="subReg" value="Crear" />

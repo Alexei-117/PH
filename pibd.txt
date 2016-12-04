@@ -1,0 +1,108 @@
+===Base de datos pibd
+
+== Estructura de tabla para la tabla albumes
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**IdAlbum**//|int(11)|No|
+|Titulo|text|No|
+|Descripcion|text|No|
+|Fecha|date|Sí|NULL
+|Pais|int(11)|Sí|NULL
+|Usuario|int(11)|No|
+== Volcado de datos para la tabla albumes
+
+|1|Album 1|Album de ejemplo 1|2016-11-01|1|1
+|2|Album 2|Album de ejemplo 2|2016-11-02|2|2
+|3|Album 3|Album de ejemplo 3|2016-11-03|3|3
+|4|Album 4|Album de ejemplo 4|2016-11-04|4|1
+|5|Album 5|Album de ejemplo  5|2016-11-05|1|1
+|36|asdasd| |2016-12-01|1|0
+== Estructura de tabla para la tabla fotos
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**idFoto**//|int(11)|No|
+|titulo|text|No|
+|descripcion|text|No|
+|fecha|date|No|
+|pais|int(11)|No|
+|album|int(11)|Sí|NULL
+|fichero|text|No|
+|fRegistro|datetime|Sí|NULL
+== Volcado de datos para la tabla fotos
+
+|1|selfie|Una foto que me saqué en la boda de mi hermana|2015-03-14|1|2|img/te_fo.jpg|2016-11-23 00:00:00
+|3|party with my work mates!|A picture with my friends at the party of our aunt Mary Sunshine :D|2015-02-15|3|3|img/si_o_que.jpg|0000-00-00 00:00:00
+|5|yo guapo|Miradme|2015-04-03|1|0|img/tio_maquina.jpg|2016-11-24 00:00:00
+|6|my son's first draw|Very porud of him! :)D|2014-02-14|2|4|img/lacara.png|2016-11-09 00:00:00
+|7|fgh|La buena foto|2016-12-13|1|4|ghj|2016-12-01 00:00:00
+|8|fgh|La buena foto|2016-12-13|1|4|ghj|2016-12-01 00:00:00
+|9|fgh|Sin descripciÃ³n|2016-12-13|1|4|ghj|2016-12-01 00:00:00
+|10|fgh|Sin descripciÃ³n|2016-12-13|1|4|ghj|2016-12-01 00:00:00
+|11|fgh|Sin descripciÃ³n|2016-12-13|1|4|ghj|2016-12-01 00:00:00
+|12|fgh|Sin descripciÃ³n|2016-12-13|1|4|ghj|2016-12-01 00:00:00
+== Estructura de tabla para la tabla paises
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**IdPais**//|int(11)|No|
+|NomPais|text|No|
+== Volcado de datos para la tabla paises
+
+|1|España
+|2|Argentina
+|3|Francia
+|4|Alemania
+|5|Italia
+== Estructura de tabla para la tabla solicitudes
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**IdSolicitud**//|int(11)|No|
+|Album|int(11)|No|
+|Nombre|text|No|
+|Titulo|text|No|
+|Descripcion|text|No|
+|Email|text|No|
+|Direccion|text|No|
+|Color|text|No|
+|Copias|int(11)|No|
+|Resolucion|int(11)|No|
+|Fecha|date|No|
+|IColor|tinyint(1)|No|
+|FRegistro|datetime|No|
+|Coste|double|No|
+== Volcado de datos para la tabla solicitudes
+
+|1|1|asdasd|asdasd|asdasdasdasd|asdasd@asdasd.com|asdasd|#ff8040|3|150|0000-00-00|0|0000-00-00 00:00:00|2.048
+|2|1|asdasd|asdasd|asdasdasdasd|asdasd@asdasd.com|asdasd|#ff8040|3|150|0000-00-00|0|0000-00-00 00:00:00|2.048
+|3|1|sdfsdf|sdfsdf|sdfsdf|sdf@sdf.com|df|#000000|1|150|0000-00-00|1|0000-00-00 00:00:00|2.016
+|4|1|sdfsdf|sdfsdf|sdfsdf|sdf@sdf.com|df|#000000|1|150|0000-00-00|1|0000-00-00 00:00:00|2.016
+|5|1|sdfsdf|sdfsdf|sdfsdf|sdf@sdf.com|df|#000000|1|150|0000-00-00|1|0000-00-00 00:00:00|2.016
+|6|1|sdfsdf|sdfsdf|sdfsdf|sdf@sdf.com|df|#000000|1|150|0000-00-00|1|0000-00-00 00:00:00|2.016
+== Estructura de tabla para la tabla usuarios
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**IdUsuario**//|int(11)|No|
+|**NomUsuario**|text|No|
+|Clave|text|No|
+|Email|text|No|
+|Sexo|smallint(6)|No|
+|FNacimiento|date|No|
+|Ciudad|text|Sí|NULL
+|Pais|int(11)|No|
+|Foto|text|No|
+|FRegistro|datetime|No|
+== Volcado de datos para la tabla usuarios
+
+|1|Julian|murray50|julio@gmail.com|1|2015-09-15|valencia|1|img/photo1.jpg|2016-11-15 00:00:00
+|2|Alexis|alexeis12|alexiselmejor@gmail.com|2|2015-10-12|Priscilla city|2|img/photo3.jpg|2016-11-01 00:00:00
+|4|Julieta|julia123|julia@gmail.com|1|2015-08-18|Castellon|4|img/photo2.jpg|2016-11-22 08:08:04
+|6|Pablo|pablija12|pablo@gmail.com|2|2016-11-14|Barcelona|4|img/photo4.jpg|2016-11-27 00:00:00

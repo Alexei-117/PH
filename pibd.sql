@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2016 a las 17:34:29
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 7.0.9
+-- Tiempo de generación: 04-12-2016 a las 23:16:36
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -99,7 +99,8 @@ INSERT INTO `paises` (`IdPais`, `NomPais`) VALUES
 (1, 'España'),
 (2, 'Argentina'),
 (3, 'Francia'),
-(4, 'Alemania');
+(4, 'Alemania'),
+(5, 'Italia');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,7 @@ CREATE TABLE `usuarios` (
   `Email` text CHARACTER SET latin1 NOT NULL,
   `Sexo` smallint(6) NOT NULL,
   `FNacimiento` date NOT NULL,
-  `Ciudad` text CHARACTER SET latin1 NOT NULL,
+  `Ciudad` text CHARACTER SET latin1,
   `Pais` int(11) NOT NULL,
   `Foto` text CHARACTER SET latin1 NOT NULL,
   `FRegistro` datetime NOT NULL
@@ -160,9 +161,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `Clave`, `Email`, `Sexo`, `FNacimiento`, `Ciudad`, `Pais`, `Foto`, `FRegistro`) VALUES
-(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 'Alicante', 1, '''/img/photo1.png''', '2016-11-15 00:00:00'),
-(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 'Priscilla city', 2, '''/img/lavida.png''', '2016-11-01 00:00:00'),
-(3, 'Julieta', 'julia123', 'julio@gmail.com', 1, '2015-09-15', 'Samba land', 1, '''/img/photo1.png''', '2016-11-15 00:00:00');
+(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 'valencia', 1, 'img/photo1.jpg', '2016-11-15 00:00:00'),
+(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 'Priscilla city', 2, 'img/photo3.jpg', '2016-11-01 00:00:00'),
+(4, 'Julieta', 'julia123', 'julia@gmail.com', 1, '2015-08-18', 'Valencia', 4, 'img/photo2.jpg', '2016-11-22 08:08:04'),
+(5, 'Pablo', 'pablija12', 'pablo@gmail.com', 2, '2016-12-11', 'Barcelona', 3, 'img/photo4.jpg', '2016-09-05 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -217,7 +219,7 @@ ALTER TABLE `fotos`
 -- AUTO_INCREMENT de la tabla `paises`
 --
 ALTER TABLE `paises`
-  MODIFY `IdPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IdPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
@@ -227,7 +229,7 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

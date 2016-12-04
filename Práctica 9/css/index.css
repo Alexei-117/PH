@@ -112,6 +112,31 @@ footer{;
 	padding:1%;
 	font-size:1.4em;
 }
+/*BOTON JULIAN*/
+/*.cuadradoBoton{
+    
+
+    padding: 1em;
+}*/
+.botonJulian{
+    background:linear-gradient(#9F0AFB, #480075);
+    color:aliceblue;
+	text-decoration:none;
+    font-weight:bold;
+	margin:0 auto;
+    border:0;
+    padding: 1em;
+}
+
+.botonJulian:hover{
+	background:linear-gradient(#480075, #9F0AFB);
+}
+/*FOTOS*/
+.ifoto-perfil {
+    border: none;
+    margin: 20px;
+    padding: 10px;
+}
 /*FORMULARIO_ALBUM_y_REGISTRO*/
 .album-form {
     font-size: 14px;

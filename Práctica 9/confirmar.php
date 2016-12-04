@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Universal Images - Confirmar álbum</title>
+    <title>Universal Images - Confirmar solicitud de álbum</title>
 
     <link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
     <link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
@@ -16,7 +16,18 @@
 
 <body>
 	<?php
-		include("header2.php");
+		   if(isset($_SESSION["nombre"])){
+			include ("header2.php");
+		}
+		else{
+			include("header.php");
+			echo '
+			<div class="alert">
+				Debe identificarse antes para poder acceder al detalle de los albumes
+			</div>';
+			include("ultimasFotos.php");
+		}
+    ?>
 	?>
 	<hr>
 	<main>

@@ -49,31 +49,29 @@
 				<h4>Resultado de la búsqueda</h4>
 		<?php 
 		$sentencia= 'SELECT * FROM fotos,paises WHERE fotos.pais=paises.IdPais';
-		$where =false;
-		
-		
+
 		if(isset($_POST["buscar"]) && strcmp($_POST["buscar"],"")!=0){
 				$sentencia.=" AND fotos.titulo LIKE '%".$_POST['buscar']."%'";
-				$where=true;
 			
 		}
 		if(isset($_POST["Titulo"]) && strcmp($_POST["Titulo"],"")!=0){
-			$sentencia.=" AND fotos.titulo LIKE '%".$_POST['Titulo']."%'";
+			$sentencia.=" AND fotos.titulo LIKE '%".$_POST['Titulo']."%' ";
 			
 		}
 		
 		$FechaInicio=false;
 		if(isset($_POST["Fecha_inicio"]) && strcmp($_POST["Fecha_inicio"],"")!=0){
 			$FechaInicio=true;
-			$sentencia.="AND fotos.fecha BETWEEN '".$_POST['Fecha_inicio']."' AND ";
+			$sentencia.=" AND (fotos.fecha BETWEEN '".$_POST['Fecha_inicio']."' AND ";
 		}
 		
 		if($FechaInicio){
 			if(isset($_POST["Fecha_final"])){
-				if(strcmp($_POST["Fecha_final"],"")!=0){
-					$sentencia.=" '".$_POST["Fecha_final"]."'";
+				if(strcmp($_POST["Fecha_final"],"")!=0 && strtotime($_POST["Fecha_final"])>=strtotime($_POST["Fecha_inicio"])){
+					$sentencia.=" '".$_POST["Fecha_final"]."')";
 				}else{
-					$sentencia.=" '2016-11-11'";
+					$time=time();
+					$sentencia.=" '".$time."')";
 				}
 			}
 		}
@@ -85,17 +83,31 @@
 		$resultado = mysqli_query($conexion, $sentencia);
 		while($fila=mysqli_fetch_assoc($resultado)){
 			if(!$puesto){
-				echo "<div class='alert2'>";
-				if(isset($_POST["buscar"]) && strcmp($_POST["Buscar"],"")!=0){
+				if(isset($_POST["Buscar"]) && strcmp($_POST["Buscar"],"")!=0){
+					echo "<div class='alert2'>";
 					echo "Has buscado: $_POST[buscar]";
+					$puesto=true;
+					
 				}
 				if(isset($_POST["Titulo"]) && strcmp($_POST["Titulo"],"")!=0){
+					if(!$puesto){
+						echo "<div class='alert2'>";
+						$puesto=true;
+					}
 					echo "Has buscado el título: $_POST[Titulo]";
 				}
 				if(isset($_POST["Pais"]) && strcmp($_POST["Pais"],"")!=0){
-					echo "<br>En el país:".$fila['NomPais'];
+					if(!$puesto){
+						echo "<div class='alert2'>";
+						$puesto=true;
+					}
+					echo "<br>En el país: ".$fila['NomPais'];
 				}
 				if(isset($_POST["Fecha_inicio"]) && strcmp($_POST["Fecha_inicio"],"")!=0){
+					if(!$puesto){
+						echo "<div class='alert2'>";
+						$puesto=true;
+					}
 					echo "<br>Entre las fechas: $_POST[Fecha_inicio]";
 				}
 				if($FechaInicio){
@@ -103,32 +115,39 @@
 						echo "<br> y : $_POST[Fecha_final]";
 					}else{
 						echo"<br> y ahora";
-					}
+					}					
 				}
-				echo "</div>";
+				if($puesto){
+					echo "</div>";
+				}				
 			}
 			$puesto=true;
 			echo "<article>
-					<figure>
-						<a href=";
-						if(isset($_SESSION["nombre"])){
-							echo "detalle.php?id=".$fila['idFoto'];
-						}else{
-							echo "";
-						}
+				<figure>
+					<a href=";
+					if(isset($_SESSION["nombre"])){
+						echo "detalle.php?id=".$fila['idFoto'];
+					}else{
+						echo "";
+					}
 			echo "		><img alt=".$fila['titulo']." src='".$fila['fichero']."'/></a>
-					</figure>
-					<p>
-						<b>Título: ".$fila['titulo']."</b>
-					</p>
-					<p>
-						<b>País: ".$fila['NomPais']."</b>
-					</p>
-					<p>
-						<b>Fecha: ".$fila['fecha']."</b>
-					</p>
-				</article>";
-				$pais=$fila['NomPais'];
+				</figure>
+				<p>
+					<b>Título: ".$fila['titulo']."</b>
+				</p>
+				<p>
+					<b>País: ".$fila['NomPais']."</b>
+				</p>
+				<p>
+					<b>Fecha: ".$fila['fecha']."</b>
+				</p>
+			</article>";
+			$pais=$fila['NomPais'];
+		}
+		if(!$puesto){
+			echo "<div class='alert'>
+				No se han encontrado resultados
+			</div>";
 		}
 		mysqli_free_result($resultado);
 	?>

@@ -41,10 +41,8 @@
 			$error=true;
 		}
 		if($error){
-			$desc_error=mysqli_error();
 			echo '<div class="alert">
 					No se ha podido insertar dentro de la base de datos.
-					Descripción del error:'.$desc_error.'
 			</div>';
 		}else{
 			echo "<article class='detalle'>

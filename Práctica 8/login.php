@@ -1,7 +1,14 @@
 		<?php
 			session_start();
 			include("conexion.php");
-			$sentencia= 'SELECT * FROM usuarios';
+			if(isset($_COOKIE["nombre"])){
+				$nombre=$_COOKIE["nombre"];
+			}else{
+				if(isset($_POST["name"])){
+					$nombre=$_POST["name"];
+				}
+			}
+			$sentencia= 'SELECT * FROM usuarios where usuarios.NomUsuario="'.$nombre.'"';
 			$resultado = mysqli_query($conexion, $sentencia);
 			$existe=false;
 			$nombre=null;
@@ -57,7 +64,6 @@
 				header("Location: http://$host$uri/$pag");
 			}
 			mysqli_free_result($resultado);
-			mysqli_close($conexion);
 		?>
 <!DOCTYPE html>
 <html lang="es">

@@ -49,9 +49,9 @@
 				<input class="formInput" type="email" name="Correo" id="emailReg" required>
                 <br>
                 <label class="labelForm" for="sexReg">Sexo</label>
-                    <input type="radio" name="sexo" value="male" id="sexReg" checked> Hombre
+                    <input type="radio" name="sexo" value="1" id="sexReg" checked> Hombre
                     <br>
-                    <input type="radio" name="sexo" value="female"> Mujer
+                    <input type="radio" name="sexo" value="2"> Mujer
                     <br>
                 <br>
                 <label class="labelForm" for="naciReg">Fecha de nacimiento</label>

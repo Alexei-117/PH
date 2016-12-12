@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2016 a las 13:03:45
+-- Tiempo de generación: 04-12-2016 a las 23:16:36
 -- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Versión de PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `albumes` (
   `IdAlbum` int(11) NOT NULL,
-  `Titulo` text NOT NULL,
-  `Descripcion` text NOT NULL,
+  `Titulo` text CHARACTER SET latin1 NOT NULL,
+  `Descripcion` text CHARACTER SET latin1 NOT NULL,
   `Fecha` date DEFAULT NULL,
   `Pais` int(11) DEFAULT NULL,
   `Usuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `albumes`
@@ -44,7 +44,8 @@ INSERT INTO `albumes` (`IdAlbum`, `Titulo`, `Descripcion`, `Fecha`, `Pais`, `Usu
 (2, 'Album 2', 'Album de ejemplo 2', '2016-11-02', 2, 2),
 (3, 'Album 3', 'Album de ejemplo 3', '2016-11-03', 3, 3),
 (4, 'Album 4', 'Album de ejemplo 4', '2016-11-04', 4, 1),
-(5, 'Album 5', 'Album de ejemplo  5', '2016-11-05', 1, 1);
+(5, 'Album 5', 'Album de ejemplo  5', '2016-11-05', 1, 1),
+(36, 'asdasd', '', '2016-12-01', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -54,14 +55,14 @@ INSERT INTO `albumes` (`IdAlbum`, `Titulo`, `Descripcion`, `Fecha`, `Pais`, `Usu
 
 CREATE TABLE `fotos` (
   `idFoto` int(11) NOT NULL,
-  `titulo` text NOT NULL,
-  `descripcion` text NOT NULL,
+  `titulo` text CHARACTER SET latin1 NOT NULL,
+  `descripcion` text CHARACTER SET latin1 NOT NULL,
   `fecha` date NOT NULL,
   `pais` int(11) NOT NULL,
   `album` int(11) DEFAULT NULL,
-  `fichero` text NOT NULL,
-  `fRegistro` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fichero` text CHARACTER SET latin1 NOT NULL,
+  `fRegistro` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `fotos`
@@ -71,7 +72,13 @@ INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`
 (1, 'selfie', 'Una foto que me saqué en la boda de mi hermana', '2015-03-14', 1, 2, 'img/te_fo.jpg', '2016-11-23 00:00:00'),
 (3, 'party with my work mates!', 'A picture with my friends at the party of our aunt Mary Sunshine :D', '2015-02-15', 3, 3, 'img/si_o_que.jpg', '0000-00-00 00:00:00'),
 (5, 'yo guapo', 'Miradme', '2015-04-03', 1, 0, 'img/tio_maquina.jpg', '2016-11-24 00:00:00'),
-(6, 'my son''s first draw', 'Very porud of him! :)D', '2014-02-14', 2, 4, 'img/lacara.png', '2016-11-09 00:00:00');
+(6, 'my son''s first draw', 'Very porud of him! :)D', '2014-02-14', 2, 4, 'img/lacara.png', '2016-11-09 00:00:00'),
+(7, 'fgh', 'La buena foto', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
+(8, 'fgh', 'La buena foto', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
+(9, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
+(10, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
+(11, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
+(12, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -82,7 +89,7 @@ INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`
 CREATE TABLE `paises` (
   `IdPais` int(11) NOT NULL,
   `NomPais` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `paises`
@@ -92,7 +99,8 @@ INSERT INTO `paises` (`IdPais`, `NomPais`) VALUES
 (1, 'España'),
 (2, 'Argentina'),
 (3, 'Francia'),
-(4, 'Alemania');
+(4, 'Alemania'),
+(5, 'Italia');
 
 -- --------------------------------------------------------
 
@@ -103,19 +111,31 @@ INSERT INTO `paises` (`IdPais`, `NomPais`) VALUES
 CREATE TABLE `solicitudes` (
   `IdSolicitud` int(11) NOT NULL,
   `Album` int(11) NOT NULL,
-  `Nombre` text NOT NULL,
-  `Titulo` text NOT NULL,
-  `Descripcion` text NOT NULL,
-  `Email` text NOT NULL,
-  `Direccion` text NOT NULL,
-  `Color` text NOT NULL,
+  `Nombre` text CHARACTER SET latin1 NOT NULL,
+  `Titulo` text CHARACTER SET latin1 NOT NULL,
+  `Descripcion` text CHARACTER SET latin1 NOT NULL,
+  `Email` text CHARACTER SET latin1 NOT NULL,
+  `Direccion` text CHARACTER SET latin1 NOT NULL,
+  `Color` text CHARACTER SET latin1 NOT NULL,
   `Copias` int(11) NOT NULL,
   `Resolucion` int(11) NOT NULL,
   `Fecha` date NOT NULL,
   `IColor` tinyint(1) NOT NULL,
   `FRegistro` datetime NOT NULL,
   `Coste` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `solicitudes`
+--
+
+INSERT INTO `solicitudes` (`IdSolicitud`, `Album`, `Nombre`, `Titulo`, `Descripcion`, `Email`, `Direccion`, `Color`, `Copias`, `Resolucion`, `Fecha`, `IColor`, `FRegistro`, `Coste`) VALUES
+(1, 1, 'asdasd', 'asdasd', 'asdasdasdasd', 'asdasd@asdasd.com', 'asdasd', '#ff8040', 3, 150, '0000-00-00', 0, '0000-00-00 00:00:00', 2.048),
+(2, 1, 'asdasd', 'asdasd', 'asdasdasdasd', 'asdasd@asdasd.com', 'asdasd', '#ff8040', 3, 150, '0000-00-00', 0, '0000-00-00 00:00:00', 2.048),
+(3, 1, 'sdfsdf', 'sdfsdf', 'sdfsdf', 'sdf@sdf.com', 'df', '#000000', 1, 150, '0000-00-00', 1, '0000-00-00 00:00:00', 2.016),
+(4, 1, 'sdfsdf', 'sdfsdf', 'sdfsdf', 'sdf@sdf.com', 'df', '#000000', 1, 150, '0000-00-00', 1, '0000-00-00 00:00:00', 2.016),
+(5, 1, 'sdfsdf', 'sdfsdf', 'sdfsdf', 'sdf@sdf.com', 'df', '#000000', 1, 150, '0000-00-00', 1, '0000-00-00 00:00:00', 2.016),
+(6, 1, 'sdfsdf', 'sdfsdf', 'sdfsdf', 'sdf@sdf.com', 'df', '#000000', 1, 150, '0000-00-00', 1, '0000-00-00 00:00:00', 2.016);
 
 -- --------------------------------------------------------
 
@@ -125,25 +145,26 @@ CREATE TABLE `solicitudes` (
 
 CREATE TABLE `usuarios` (
   `IdUsuario` int(11) NOT NULL,
-  `NomUsuario` text NOT NULL,
-  `Clave` text NOT NULL,
-  `Email` text NOT NULL,
+  `NomUsuario` text CHARACTER SET latin1 NOT NULL,
+  `Clave` text CHARACTER SET latin1 NOT NULL,
+  `Email` text CHARACTER SET latin1 NOT NULL,
   `Sexo` smallint(6) NOT NULL,
   `FNacimiento` date NOT NULL,
-  `Ciudad` text NOT NULL,
+  `Ciudad` text CHARACTER SET latin1,
   `Pais` int(11) NOT NULL,
-  `Foto` text NOT NULL,
+  `Foto` text CHARACTER SET latin1 NOT NULL,
   `FRegistro` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `Clave`, `Email`, `Sexo`, `FNacimiento`, `Ciudad`, `Pais`, `Foto`, `FRegistro`) VALUES
-(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 'Alicante', 1, '''/img/photo1.png''', '2016-11-15 00:00:00'),
-(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 'Priscilla city', 2, '''/img/lavida.png''', '2016-11-01 00:00:00'),
-(3, 'Julieta', 'julia123', 'julio@gmail.com', 1, '2015-09-15', 'Samba land', 1, '''/img/photo1.png''', '2016-11-15 00:00:00');
+(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 'valencia', 1, 'img/photo1.jpg', '2016-11-15 00:00:00'),
+(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 'Priscilla city', 2, 'img/photo3.jpg', '2016-11-01 00:00:00'),
+(4, 'Julieta', 'julia123', 'julia@gmail.com', 1, '2015-08-18', 'Valencia', 4, 'img/photo2.jpg', '2016-11-22 08:08:04'),
+(5, 'Pablo', 'pablija12', 'pablo@gmail.com', 2, '2016-12-11', 'Barcelona', 3, 'img/photo4.jpg', '2016-09-05 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -188,12 +209,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `albumes`
 --
 ALTER TABLE `albumes`
-  MODIFY `IdAlbum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `IdAlbum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `paises`
 --
@@ -203,12 +224,12 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  MODIFY `IdSolicitud` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

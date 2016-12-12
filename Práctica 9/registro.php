@@ -40,13 +40,13 @@
 				<input class="formInput" type="text" name="nomUser" id="nomReg" required>
                 <br>
                 <label class="labelForm" for="passReg">Contraseña</label>
-				<input class="formInput" type="password" name="Contraseña" id="passReg" required>
+				<input class="formInput" type="password" name="pass" id="passReg" required>
                 <br>
                 <label class="labelForm" for="passReg2">Repetir contraseña</label>
-				<input class="formInput" type="password" name="repContraseña" id="passReg2" required>
+				<input class="formInput" type="password" name="repPass" id="passReg2" required>
                 <br>
                 <label class="labelForm" for="emailReg">Correo electrónico</label>
-				<input class="formInput" type="email" name="Correo" id="emailReg" required>
+				<input class="formInput" type="email" name="correo" id="emailReg" required>
                 <br>
                 <label class="labelForm" for="sexReg">Sexo</label>
                     <input type="radio" name="sexo" value="1" id="sexReg" checked> Hombre
@@ -54,6 +54,8 @@
                     <input type="radio" name="sexo" value="2"> Mujer
                     <br>
                 <br>
+				<label class="labelForm" for="ciudadReg">Ciudad</label>
+				<input class="formInput" type="text" name="ciudad" id="ciudadReg">
                 <label class="labelForm" for="naciReg">Fecha de nacimiento</label>
 				<input class="formInput" type="date" name="fecha"  id="naciReg" required>
 				<label class="labelForm" for="paisReg">País</label>

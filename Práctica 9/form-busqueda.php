@@ -15,15 +15,30 @@
 
 <body>
 	<?php
-		include("header.php");
+		$desactiva=0;
+		if(isset($_GET["desactiva"])){
+			setcookie("nombre","",time()-37000000);
+			setcookie("contra","",time()-37000000);
+			setcookie("fecha","",time()-37000000);
+			setcookie("hora","",time()-37000000);
+			$host = $_SERVER['HTTP_HOST'];
+			$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+			$pag = 'index.php?popen=no';
+			header("Location: http://$host$uri/$pag"); 
+			session_destroy();
+		}
+		if(isset($_SESSION["nombre"])){
+			include("header2.php");
+		}else{
+			include("header.php");
+		}
 		if(isset($_GET["popen"])){
 			if($_GET["popen"]=="si"){
-				echo '<div >
+				echo '<div class="alert">
 					Usuario y/o contraseña incorrectos
 					</div>';
 			}
 		}
-		
 	?>
 	<main>
 		<form action="result-busqueda.php" method="POST" class="album-form">

@@ -19,16 +19,14 @@
 	?>
 	<hr>
 	<main class="perfil">
-        
+        <form class="album-form">
         <legend>Datos personales:</legend>
         <img src="img/lacara.png">
         <p>
         <b>Editar foto de perfil:</b>
-		</p>
-		<form class="album-form">
-			<input class="botonOcultable" name="imagen" type="file" />
+            <input class="botonOcultable" name="imagen" type="file" />
 			<input type="submit" value="subir">
-		</form>
+		</p>
 		<p>
         <b>Nombre:</b> Pepito Morales
 		</p>
@@ -54,6 +52,7 @@
         <b>Edad:</b> 43
 		</p>
         </form>
+        
         <form class="album-form">
         <legend>Últimas fotos:</legend>
 		<p>

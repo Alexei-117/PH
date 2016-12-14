@@ -46,8 +46,7 @@
 			}
 		
 		}else{
-			$error=true;
-			$msgError.="<p>Debe de poner su fecha de nacimiento</p>";
+			$fecha=null;
 		}
 		
 		$titulo=$_POST["name_foto"];
@@ -55,12 +54,18 @@
 		
 		$fecha=$_POST["date_foto"];
 		
+
 		$pais=$_POST["pais_foto"];
 		
 		$foto=$_POST["foto_foto"];
 		
-		$album=$_POST["album_foto"];
-		filter_var($album, FILTER_SANITIZE_STRING);
+		if(isset($_POST["album_foto"])){
+			$album=$_POST["album_foto"];
+			filter_var($album, FILTER_SANITIZE_STRING);
+		}else{
+			$album="No está en un álbum";
+		}
+
 		
 		$descripcion=$_POST["desc_foto"];
 		filter_var($descripcion, FILTER_SANITIZE_STRING);

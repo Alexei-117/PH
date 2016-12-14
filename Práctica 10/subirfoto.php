@@ -32,9 +32,13 @@
     <main>
         <?php
         if(isset($_SESSION["nombre"])){
-            $sentencia ='SELECT * FROM albumes a, usuarios u WHERE a.Usuario="'.$_SESSION['id'].'" ORDER BY a.IdAlbum';
+            $sentencia ='SELECT * FROM albumes a, usuarios u WHERE a.Usuario='.$_SESSION['id'].' ORDER BY a.IdAlbum';
             $resultado= mysqli_query($conexion,$sentencia);
             $contador = mysqli_num_rows($resultado);
+			
+			while($fila=mysqli_fetch_assoc($resultado)){
+				$albumes[''.$fila["IdAlbum"].''] = $fila["Titulo"];
+			}
             if($contador==0){
                 echo '
                 <form class="article-form">
@@ -60,14 +64,16 @@
                     <label class="labelForm" for="paisFoto">
 					Pais:</label>
 					 ';
+					include("conexion.php");
 					$sentencia ='SELECT * FROM paises';
-					$resultado2= mysqli_query($conexion,$sentencia);
+					$resultado= mysqli_query($conexion,$sentencia);
 						
 				echo '
 					<select id="paisFoto" class="formInput" type="text" name="pais_foto" autofocus required />';
-						while($fila2=mysqli_fetch_assoc($resultado2)){
+						while($fila2=mysqli_fetch_assoc($resultado)){
                             echo '<option value="'.$fila2['IdPais'].'">'.$fila2['NomPais'].'</option>';
                         }
+						echo '<option value="0">Ninguno</option>';
 				echo'
 					</select>
                     <br>
@@ -77,8 +83,8 @@
                     <label class="labelForm" for="albumFoto">
 					Album:</label>';
                     echo '<select id="albumFoto" class="formInput" name="album_foto">';
-					while($fila=mysqli_fetch_assoc($resultado)){
-                        echo '<option value="'.$fila['IdAlbum'].'">'.$fila['Titulo'].'</option>';
+					foreach($albumes as $x => $x_nom){
+                        echo '<option value="'.$x.'">'.$x_nom.'</option>';
                     }
                     echo '</select>
                     <br>
@@ -91,8 +97,8 @@
         ?>
 	</main>
 	<?php include("footer.html");
-	mysqli_free_result($resultado);
-    mysqli_close($conexion);
+		mysqli_free_result($resultado);
+		mysqli_close($conexion);
     ?>
 </body>
 </html>

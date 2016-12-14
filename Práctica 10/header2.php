@@ -1,0 +1,35 @@
+<header><?php
+			if(isset($_SESSION["nombre"])){
+				echo "<ol><li class='boton-menu2' >hola $_SESSION[nombre]</li></ol>";
+			}
+			?>
+  <ol>
+		<li class="li2">
+			<a href="index.php" class="boton-menu2" >Inicio</a>
+		</li>
+		<li class="li2">
+			<a href="subirfoto.php" class="boton-menu2">Subir foto</a>
+		</li>
+		<li class="li2">
+			<a href="misalbumes.php" class="boton-menu2">Mis Álbumes</a>
+		</li >
+		<li class="li2">
+			<a href="crearAlbum.php" class="boton-menu2">Crear Álbum</a>
+		</li>
+		<li class="li2">
+			<a href="solicitar_album.php" class="boton-menu2">Solicitar Álbum</a>
+		</li>
+		<li class="li-logo">
+			<div id="logo-U">
+			</div>
+			<img class="logo2" alt="logo" src="img/logo.png">
+		</li>
+			<li class="li2">
+				<a href="perfil.php" class="boton-menu2">Ir a perfil</a>
+			</li>
+			<li class="li2">
+				<a href="index.php?desactiva=1" class="boton-menu2">Cerrar sesión</a>
+			</li>
+		</li>
+	</ol>
+</header>

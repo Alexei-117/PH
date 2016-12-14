@@ -48,6 +48,7 @@
 						}
 						mysqli_free_result($resultado);
 					?>
+					<option value="0">Ninguno</option>
                 </select>
 				<br>
 				<label class="labelForm" for="descAlbum">Descripción</label>

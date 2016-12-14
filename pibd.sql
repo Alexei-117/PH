@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2016 a las 23:16:36
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.24
+-- Tiempo de generación: 14-12-2016 a las 18:13:59
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -45,7 +45,7 @@ INSERT INTO `albumes` (`IdAlbum`, `Titulo`, `Descripcion`, `Fecha`, `Pais`, `Usu
 (3, 'Album 3', 'Album de ejemplo 3', '2016-11-03', 3, 3),
 (4, 'Album 4', 'Album de ejemplo 4', '2016-11-04', 4, 1),
 (5, 'Album 5', 'Album de ejemplo  5', '2016-11-05', 1, 1),
-(36, 'asdasd', '', '2016-12-01', 1, 0);
+(63, 'Asdasd', '', '2016-12-08', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -57,8 +57,8 @@ CREATE TABLE `fotos` (
   `idFoto` int(11) NOT NULL,
   `titulo` text CHARACTER SET latin1 NOT NULL,
   `descripcion` text CHARACTER SET latin1 NOT NULL,
-  `fecha` date NOT NULL,
-  `pais` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `pais` int(11) DEFAULT NULL,
   `album` int(11) DEFAULT NULL,
   `fichero` text CHARACTER SET latin1 NOT NULL,
   `fRegistro` datetime DEFAULT NULL
@@ -78,7 +78,15 @@ INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`
 (9, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
 (10, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
 (11, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
-(12, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00');
+(12, 'fgh', 'Sin descripciÃ³n', '2016-12-13', 1, 4, 'ghj', '2016-12-01 00:00:00'),
+(13, 'asdasd', 'Sin descripción', '2016-12-01', 1, 1, 'img/soy_guapa.jpg', '2016-12-01 00:00:00'),
+(14, 'asdasd', 'Sin descripción', '2016-12-01', 1, 1, 'img/soy_guapa.jpeg', '2016-12-01 00:00:00'),
+(15, 'asdasd', 'Sin descripción', '2016-12-02', 1, 1, 'img/soy_guapa.jpeg', '2016-12-01 00:00:00'),
+(16, 'asdasd', 'Sin descripción', '2016-12-02', 1, 1, 'img/soy_guapa.jpeg', '2016-12-01 00:00:00'),
+(17, 'asdasd', 'Sin descripción', '2016-12-16', 3, 4, 'img/lacara.png', '2016-12-01 00:00:00'),
+(18, 'asdasd', 'Sin descripción', '2016-12-16', 3, 4, 'img/lacara.png', '2016-12-01 00:00:00'),
+(19, 'asdad', 'Sin descripción', '2016-12-16', 1, 1, 'img/lacara.png', '2016-12-01 00:00:00'),
+(20, 'hola', '', '2016-12-08', 1, 63, 'img/soy_guapa.jpg', '2016-12-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -99,8 +107,7 @@ INSERT INTO `paises` (`IdPais`, `NomPais`) VALUES
 (1, 'España'),
 (2, 'Argentina'),
 (3, 'Francia'),
-(4, 'Alemania'),
-(5, 'Italia');
+(4, 'Alemania');
 
 -- --------------------------------------------------------
 
@@ -161,10 +168,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `Clave`, `Email`, `Sexo`, `FNacimiento`, `Ciudad`, `Pais`, `Foto`, `FRegistro`) VALUES
-(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 'valencia', 1, 'img/photo1.jpg', '2016-11-15 00:00:00'),
-(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 'Priscilla city', 2, 'img/photo3.jpg', '2016-11-01 00:00:00'),
-(4, 'Julieta', 'julia123', 'julia@gmail.com', 1, '2015-08-18', 'Valencia', 4, 'img/photo2.jpg', '2016-11-22 08:08:04'),
-(5, 'Pablo', 'pablija12', 'pablo@gmail.com', 2, '2016-12-11', 'Barcelona', 3, 'img/photo4.jpg', '2016-09-05 00:00:00');
+(1, 'Julian', 'murray50', 'julio@gmail.com', 1, '2015-09-15', 'Alicante', 1, '/img/photo1.png', '2016-11-15 00:00:00'),
+(2, 'Alexis', 'alexeis12', 'alexiselmejor@gmail.com', 2, '2015-10-12', 'Priscilla city', 2, '/img/lavida.png', '2016-11-01 00:00:00'),
+(3, 'Julieta', 'julia123', 'julio@gmail.com', 1, '2015-09-15', 'Samba land', 1, '/img/photo1.png', '2016-11-15 00:00:00'),
+(27, 'Asd', 'Asdasd123', 'asdasd@gmail.com', 0, '2016-12-08', 'hola', 1, 'img/lacara.png', '2016-12-04 00:00:00'),
+(29, 'Asd2', 'Asdasd123', 'asdasd@gmail.com', 0, '2016-12-08', 'hola', 1, 'img/lacara.png', '2016-12-04 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -209,17 +217,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `albumes`
 --
 ALTER TABLE `albumes`
-  MODIFY `IdAlbum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `IdAlbum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `paises`
 --
 ALTER TABLE `paises`
-  MODIFY `IdPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IdPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
@@ -229,7 +237,7 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -13,18 +13,21 @@
 			$existe=false;
 			$nombre=null;
 			$pass=null;
+			$id=null;
 			while($fila=mysqli_fetch_assoc($resultado)){
 				if(isset($_COOKIE["nombre"])){
 					if(strcmp($_COOKIE["nombre"],$fila["NomUsuario"])==0 && strcmp($_COOKIE["contra"],$fila["Clave"])==0){
 						$existe=true;
 						$nombre=$fila["NomUsuario"];
 						$pass=$fila["Clave"];
+						$id=$fila["IdUsuario"];
 					}
 				}
 				if(strcmp($_POST["name"],$fila["NomUsuario"])==0 && strcmp($_POST["password"],$fila["Clave"])==0){
 					$existe=true;
 					$nombre=$fila["NomUsuario"];
 					$pass=$fila["Clave"];
+					$id=$fila["IdUsuario"];
 				}
 			}
 			
@@ -33,9 +36,11 @@
 						if(isset($_POST["recordar"])){
 							setcookie("nombre",$nombre,time()+3600*24*30);
 							setcookie("contra",$pass,time()+3600*24*30);
+							setcookie("id",$id,time()+3600*24*30);
 							setcookie("fecha",date("d.m.y"),time()+3600*24*30);
 							setcookie("hora",date("H:i:s"),time()+3600*24*30);
 						}
+						$_SESSION["id"]=$id;
 						$_SESSION["nombre"]=$nombre;
 						$host = $_SERVER['HTTP_HOST'];
 						$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
@@ -44,6 +49,7 @@
 				}else{
 						setcookie("nombre","",time()-3700000);
 						setcookie("contra","",time()-37000000);
+						setcookie("id","",time()-37000000);
 						setcookie("fecha","",time()-37000000);
 						setcookie("hora","",time()-3700000);
 						$host = $_SERVER['HTTP_HOST'];

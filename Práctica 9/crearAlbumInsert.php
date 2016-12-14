@@ -47,14 +47,20 @@
 			}
 		
 		}else{
-			$error=true;
-			$msgError.="<p>Debe de poner su fecha de nacimiento</p>";
+			$fecha=null;
 		}
 		
 		$album=$_POST["nomAlbum"];
+		filter_var($album,FILTER_SANITIZE_STRING);
+		
 		$fecha=$_POST["fechaAlbum"];
 		$pais=$_POST["paisAlbum"];
-		$descripcion=$_POST["descAlbum"];
+		if(isset($_POST["descAlbum"])){
+			$descripcion=$_POST["descAlbum"];
+			filter_var($descripcion,FILTER_SANITIZE_STRING);
+		}else{
+			$descripcion="Sin descripción";
+		}
 		
 		if(!$error){
 			$sentencia ='SELECT * FROM paises p WHERE p.IdPais='.$pais;
@@ -63,7 +69,7 @@
 				$paisNom=$fila["NomPais"];
 			}
 			mysqli_free_result($resultado);
-			$sentencia= "INSERT INTO albumes VALUES (null,'".$album."','".$descripcion."','".$fecha."','".$pais."','1')";
+			$sentencia= "INSERT INTO albumes VALUES (null,'".$album."','".$descripcion."','".$fecha."','".$pais."','".$_SESSION['id']."')";
 			$error=false;
 			if(!mysqli_query($conexion, $sentencia)){
 				$error=true;

@@ -22,7 +22,7 @@
 			include("header.php");
 			echo '
 			<div class="alert">
-				Debe identificarse antes para poder acceder al detalle de los albumes
+				Debe identificarse antes para poder acceder al detalle de los álbumes
 			</div>';
 			include("ultimasFotos.php");
 		}
@@ -51,11 +51,20 @@
 		}
 		
 		$titulo=$_POST["name_foto"];
+		filter_var($titulo, FILTER_SANITIZE_STRING);
+		
 		$fecha=$_POST["date_foto"];
+		
 		$pais=$_POST["pais_foto"];
+		
 		$foto=$_POST["foto_foto"];
+		
 		$album=$_POST["album_foto"];
+		filter_var($album, FILTER_SANITIZE_STRING);
+		
 		$descripcion=$_POST["desc_foto"];
+		filter_var($descripcion, FILTER_SANITIZE_STRING);
+		
 		if(!$error){
 			$sentencia ='SELECT * FROM albumes a, paises p WHERE a.IdAlbum='.$album.' AND p.IdPais='.$pais.' ORDER BY a.IdAlbum';
 			$resultado= mysqli_query($conexion,$sentencia);

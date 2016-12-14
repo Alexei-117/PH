@@ -19,6 +19,7 @@
 		if(isset($_GET["desactiva"])){
 			setcookie("nombre","",time()-37000000);
 			setcookie("contra","",time()-37000000);
+			setcookie("id","",time()-37000000);
 			setcookie("fecha","",time()-37000000);
 			setcookie("hora","",time()-37000000);
 			$host = $_SERVER['HTTP_HOST'];

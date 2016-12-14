@@ -81,7 +81,7 @@
                         <p>
                         <b>Edad:</b> '.$fila['NomUsuario'].'
                         </p>
-                        <a href="cambiarFoto.php"><p class="botonJulian">Cambiar foto de perfil</p></a>
+                        
                         <a href="perfilrespuesta.php"><p class="botonJulian">Modificar datos</p></a>
                         <a href="perfilbaja.php" ><p class="botonJulian">Borrar perfil</p></a>
                         

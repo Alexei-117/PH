@@ -43,16 +43,16 @@
                 </form>';
             }
             else{
-                echo '<form class="table-form">';
-                echo '<table><tr>';
+       
+                echo '<table class="table-form"><tr>';
                 echo '<th>Titulo</th><th>Descripcion</th><th>Fecha</th><th>Pais</th>';
                 while($fila=mysqli_fetch_assoc($resultado)){
                     $almacen=$fila['IdAlbum'];
                     echo '<tr>';
                     echo '<td>';
-                    echo '<a href="ver_album.php?album='.$almacen.'">';
+                    echo '<a href="ver_album.php?album='.$almacen.'"><p class="botonJulian">';
                     echo $fila['Titulo'];
-                    echo '</td>';
+                    echo '</p></a></td>';
                     echo '<td>'.$fila['Descripcion'].'</td>';
                     echo '<td>'.$fila['Fecha'].'</td>';
                     echo '<td>'.$fila['NomPais'].'</td>';
@@ -60,7 +60,7 @@
                 }
             }
             echo '</table>';
-            echo '</form>';
+            
             mysqli_free_result($resultado);
             //mysqli_close($conexion);
         }

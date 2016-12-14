@@ -32,12 +32,12 @@
 	<main class="perfil">
         <?php
         if(isset($_SESSION["nombre"])){
-            echo '<form class="album-form">';
-            echo '<legend>Baja de usuario</legend>';
+            echo '<div class="divPerfil">';
+            echo '<p class="tituloPerfil">Baja de usuario</p>';
             echo '<p>¡CUIDADO! Estas a punto de borrar su cuenta ¿Está seguro?</p>';
-            echo '<p><a class="botonJulian" href="perfildelete.php">Confirmar</a>
-                    <a class="botonJulian" href="index.php">Cancelar</a></p>';
-            echo '</form>';
+            echo '<a href="perfildelete.php"><p class="botonJulian">Confirmar</p></a>
+                    <a href="index.php"><p class="botonJulian">Cancelar</p></a>';
+            echo '</div>';
         }
         ?>
 	</main>

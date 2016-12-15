@@ -50,7 +50,7 @@
                     $almacen=$fila['IdAlbum'];
                     echo '<tr>';
                     echo '<td>';
-                    echo '<a href="ver_album.php?album='.$almacen.'"><p class="botonJulian">';
+                    echo '<a href="ver_album.php?album='.$almacen.'"><p class="botonJulian2">';
                     echo $fila['Titulo'];
                     echo '</p></a></td>';
                     echo '<td>'.$fila['Descripcion'].'</td>';

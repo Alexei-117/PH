@@ -21,29 +21,83 @@
 	<hr>
 	<main>
 		<?php
-		$nombre = $_POST["nomUser"];
-		$pass = $_POST["Contraseña"];
-		$email = $_POST["Correo"];
+		$error=false;
+		$msgError="";
+		if(isset($_POST["fecha"])){
+			$fecha=explode("-",$_POST["fecha"]);
+			if(sizeof($fecha)==3){
+				$newFecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+				$expreg="/(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/";
+				if(!preg_match($expreg,$newFecha)){
+					$error=true;
+					$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
+				}
+			}else{
+				$error=true;
+				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
+			}
+		
+		}else{
+			$fecha=null;
+		}
+		
+		$expregNom="/^([0-9]|[a-z]|[A-Z]){3,15}$/";
+		if(!preg_match($expregNom,$_POST["nomUser"])){
+			$error=true;
+			$msgError.="<p>El usuario debe de tener solamente letras mayúsculas, minúsculas y números. Además de ser entre 3 y 15 caracteres.</p>";
+		}else{
+			$nombre = $_POST["nomUser"];
+		}
+		
+		$expregPass="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])([0-9]|[a-z]|[A-Z]|_){6,15}$/";
+		if(!preg_match($expregNom,$_POST["pass"])){
+			$error=true;
+			$msgError.="<p>La contraseña debe de tener solamente letras mayúsculas, minúsculas y números. Además de ser entre 6 y 15 caracteres.
+			Debe de contener al menos una letra minúscula, una mayúscula y un número.</p>";
+		}else{
+			$pass = $_POST["pass"];
+		}
+		
+		if($_POST["pass"] == $_POST["repPass"]){
+			$pass = $_POST["pass"];
+		}else{
+			$error=true;
+			$msgError.="<p>La contraseña no se ha repetido correctamente</p>";
+		}
+		
+		$email = $_POST["correo"];
 		$sexo = $_POST["sexo"];
 		$fecha = $_POST["fecha"];
 		$pais = $_POST["paisRegis"];
-		$sentencia= "INSERT INTO usuarios VALUES (null,'".$nombre."','".$pass."','".$email."','".$sexo."','".$fecha."','Alicante','".$pais."','img/lacara.png','2016-12-12')";
-		$error=false;
+		
+		$sentencia="SELECT * from nothing";
+		if(!$error){
+			$sentencia= "INSERT INTO usuarios VALUES (null,'".$nombre."','".$pass."','".$email."','".$sexo."','".$newFecha."','Alicante','".$pais."','img/lacara.png','2016-12-12')";
+		}
+	
 		if(!mysqli_query($conexion, $sentencia)){
 			$error=true;
+			$msgError.="<p>No se ha podido crear su cuenta de usuario en la base de datos.</p>";
 		}
 		if($error){
 			echo '<div class="alert">
-					No se ha podido crear su cuenta de usuario en la base de datos.
+					'.$msgError.'
 			</div>';
 		}else{
 			echo "
 			<article class='confirmar'>
 				<h4>Confirma los datos de la petición</h4>
 				<p><b>Nombre:</b>$_POST[nomUser]</p>
-				<p><b>Contraseña:</b> $_POST[Contraseña]</p>
-				<p><b>Correo electrónico:</b> $_POST[Correo]</p>
-				<p><b>Sexo:</b> $_POST[sexo]</p>
+				<p><b>Contraseña:</b> $_POST[pass]</p>
+				<p><b>Correo electrónico:</b> $_POST[correo]</p>
+				";
+				if($_POST['sexo']==1){
+                    $sexo="Hombre";
+                }
+                else{
+                    $sexo="Mujer";
+                }
+			echo"<p><b>Sexo:".$sexo."</b></p>
 				<p><b>Fecha de nacimiento:</b> $_POST[fecha]</p>
 				<p><b>País:</b> $_POST[paisRegis]</p>
 				<p><b>Foto de perfil</b> <img src='img/lacara.png'</p>

@@ -35,8 +35,8 @@
 			$fecha=explode("-",$_POST["date_foto"]);
 			if(sizeof($fecha)==3){
 				$newFecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
-				$expreg="/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/";
-				if(preg_match($expreg,'04-12-2014')){
+				$expreg="/(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/";
+				if(!preg_match($expreg,$newFecha)){
 					$error=true;
 					$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
 				}
@@ -73,7 +73,7 @@
 		if(!$error){
 			$sentencia ='SELECT * FROM albumes a, paises p WHERE a.IdAlbum='.$album.' AND p.IdPais='.$pais.' ORDER BY a.IdAlbum';
 			$resultado= mysqli_query($conexion,$sentencia);
-			$sentencia= "INSERT INTO fotos VALUES (null,'".$titulo."','".$descripcion."','".$fecha."','".$pais."','".$album."','".$foto."','2016-12-01')";
+			$sentencia= "INSERT INTO fotos VALUES (null,'".$titulo."','".$descripcion."','".$newFecha."','".$pais."','".$album."','".$foto."','2016-12-01')";
 			$error=false;
 			if(!mysqli_query($conexion, $sentencia)){
 				$error=true;

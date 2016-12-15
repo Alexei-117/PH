@@ -42,7 +42,11 @@
 		if(isset($_POST["color_control2"])){
 			$text = $_POST["color_control2"];
 			$multiplicador=0.5;
-		}	
+		}
+		filter_var($_POST['name_control'],FILTER_SANITIZE_STRING);
+		filter_var($_POST['title_control'],FILTER_SANITIZE_STRING);
+		filter_var($_POST['text_control'],FILTER_SANITIZE_STRING);
+		
         $sentencia ='INSERT INTO solicitudes VALUES(null,"'.$_POST['album_control'].'","'
             .$_POST['name_control'].'","'.$_POST['title_control'].'","'.
             $_POST['text_control'].'","'.$_POST['email_control'].'","'.
@@ -70,7 +74,6 @@
                     <label class='labelForm'>Dirección:</label><p class='fotoin'>".$_POST['direction_control']."</p>
                     <label class='labelForm'>Teléfono:</label><p class='fotoin'>".$_POST['tel_control']."</p>
                     <label class='labelForm'>Color de portada:</label><p class='fotoin'>".$_POST['color_control']."</p>
-                    <label class='labelForm'>Fecha:</label><p class='fotoin'>".$_POST['date_control']."</p>
                     <label class='labelForm'>Número de copias:</label><p class='fotoin'>".$_POST['number_control']."</p>
                     <label class='labelForm'>Resolución:</label><p class='fotoin'>".$_POST['resolution_control']."</p>
                     <label class='labelForm'>Álbum de fotos:</label><p class='fotoin'>".$_POST['album_control']."</p>

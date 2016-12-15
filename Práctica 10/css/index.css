@@ -155,15 +155,33 @@ footer{;
     border:0;
     padding: 1em;
     text-decoration-line: none;
-    margin:0;
+    margin: 2px;
 }
-
 .botonJulian:hover{
 	background:linear-gradient(#D7DF01, #FFFF00);
     text-decoration-line: none;
-    border: 3px solid black;
+    border: 2px solid black;
+    margin:-2px;
+    
+}
+.botonJulian2{
+    background:linear-gradient(#FFFF00, #D7DF01);
+    color:black;
+	text-decoration:none;
+    font-weight:bold;
+    border:0;
+    padding: 1em;
+    text-decoration-line: none;
+    margin:0;
 }
 
+.botonJulian2:hover{
+	background:linear-gradient(#D7DF01, #FFFF00);
+    text-decoration-line: none;
+    border: 2px solid black;
+    margin: -2px;
+    
+}
 
 /*FORMULARIO_ALBUM_y_REGISTRO*/
 .album-form {
@@ -175,6 +193,7 @@ footer{;
 	position:relative;
 	margin: 0 auto;
 	margin-top:2.5%;
+    margin-bottom: 2px;
 	padding: 0.5em;
 	text-align: center;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -227,17 +246,19 @@ footer{;
 .formSubmit{
     font-weight:bold;
 	background:linear-gradient(#FFFF00, #D7DF01);
-	margin:0 auto;
-	margin-top:2%;
+	
+	margin-top:5px;
 	color:black;
-    border:0;
+    border: 0;
     min-width: 400px;
     padding: 1em;
+    margin:0;
 }
 
 .formSubmit:hover{
 	background:linear-gradient(#D7DF01, #FFFF00);
-    border: 3px solid black;
+    border: 2px solid black;
+    margin:-2px;
 }
 
 .formFile{

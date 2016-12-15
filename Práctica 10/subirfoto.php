@@ -49,7 +49,7 @@
             }
             else{
                 echo '
-                <form class="album-form" action="subirfotoInsert.php" method="POST">
+                <form class="album-form" action="subirfotoInsert.php" method="POST"  enctype="multipart/form-data">
                     <fieldset>
                     <legend class="legend-form">Subir foto</legend>
                     <label class="labelForm" for="nameFoto">
@@ -78,7 +78,7 @@
 					</select>
                     <br>
                     <label class="labelForm" for="fotoFoto">
-					Foto:</label><input id="fotoFoto" class="formInput" type="text" name="foto_foto" autofocus required />
+					Foto:</label><input id="fotoFoto" class="formInput" type="file" name="ruta" autofocus required />
                     <br>
                     <label class="labelForm" for="albumFoto">
 					Album:</label>';

@@ -38,30 +38,43 @@
             }
             else{
                 $dir_subida='perfiles/';
-                $sentencia ='UPDATE usuarios SET Foto="'.$dir_subida.$_SESSION['nombre'].$_FILES['fotoUsuario']['name'].'" WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
-                $resultado = mysqli_query($conexion,$sentencia);
-                $error=false;
-                if(!mysqli_query($conexion, $sentencia)){
-                    $error=true;
-                }
-                if($error){
-                    $desc_error=mysqli_error($conexion);
-                    echo '<div class="alert">
-                            No se ha podido acceder a los datos de perfil, debes iniciar sesion.'.$desc_error.'
-                    </div>';
-                }else{
-                
-                
-                /*if(file_exists($dir_subida.$_SESSION['nombre'].$_FILES['fotoUsuario']['name'])){
-                    echo '';
-                }*/
-                /*else{*/
+                $foto=$_FILES['fotoUsuario']["tmp_name"];
+                $uniq = strtotime(date("Y-m-d H:i:s"));
+                $ruta=$dir_subida.$uniq.$_FILES['fotoUsuario']["name"];
+                if($_FILES['fotoUsuario']["type"] == ("image/jpeg")
+                    || $_FILES['fotoUsuario']["type"] ==("image/gif")
+                    || $_FILES['fotoUsuario']["type"] ==("image/png")
+                    || $_FILES['fotoUsuario']["type"] == ("image/bmp")
+                    || $_FILES['fotoUsuario']["type"] ==("image/vnd.microsoft.icon")
+                    || $_FILES['fotoUsuario']["type"] ==("image/tiff")
+                    || $_FILES['fotoUsuario']["type"] ==("image/svg+xml")
+                    ){
+                    $sentencia ='UPDATE usuarios SET Foto="'.$dir_subida.$_SESSION['nombre'].$_FILES['fotoUsuario']['name'].'" WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
+                    $resultado = mysqli_query($conexion,$sentencia);
+                    $error=false;
+                    if(!mysqli_query($conexion, $sentencia)){
+                        $error=true;
+                    }
+                    if($error){
+                        $desc_error=mysqli_error($conexion);
+                        echo '<div class="alert">
+                                No se ha podido acceder a los datos de perfil, debes iniciar sesion.'.$desc_error.'
+                        </div>';
+                    }else{
+                        if(file_exists($dir_subida.$_SESSION['nombre'].$_FILES['fotoUsuario']['name'])){
+                        unlink($dir_subida.$_SESSION['nombre'].$_FILES['fotoUsuario']['name']);
+                    }
                     move_uploaded_file($_FILES['fotoUsuario']['tmp_name'], $dir_subida.$_SESSION['nombre'].$_FILES['fotoUsuario']['name']);
                     echo '<div class="divPerfil">';
                     echo '<p class="tituloPerfil">Cambio realizado</p>';
                     echo '<p>Su foto de perfil ha sido actualizada</p>';
                     echo '<a href="perfil.php"><p class="botonJulian">Volver a perfil</p></a>';
-                /*}*/
+                    }
+                }
+                else{
+                    echo '<div class="alert">
+                        Error al subir la foto.
+                    </div>';
                 }
             }
         }

@@ -25,7 +25,8 @@ header{
 	
 	border-bottom:dotted;
 	border-bottom-color:rgba(66,176,244,0.3);
-	background:#e6e6ff;
+	background:#A4A4A4;
+    
 }
 ol{
 	width:100%;
@@ -47,10 +48,13 @@ article{
 	font-size:0.7em;
 	text-overflow:hidden;
 	
-	border:solid green;
+	border:solid #000000;
 	border-width:2px;
 	border-radius:10px 0px 0px 0px;
-	
+    
+    font-size: 14px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    
 	width:20%;
 	min-width:220px;
 	height:320px;
@@ -75,7 +79,7 @@ article a{
 	border-radius:10px 0px 10px 0px;
 	background-color:rgba(76,175,80,0.1);
 	
-	color:green;
+	color:#000000;
 	text-decoration:none;
 }
 article p{
@@ -162,6 +166,7 @@ footer{;
     text-decoration-line: none;
     border: 2px solid black;
     margin:-2px;
+    
     
 }
 .botonJulian2{
@@ -309,7 +314,12 @@ legend {
 	font-family: "Roboto", sans-serif;
 	outline: 0;
 	background: #F3F781;
-	color:#4CAF50;
+    border: 2px solid black;
+    margin:-2px;
+    
+    
+    
+    color:#000000;
 	width: 100%;
 	border: 0;
 	margin: 0 0 15px;
@@ -318,22 +328,26 @@ legend {
 	font-size: 14px;
 }
 ::-webkit-input-placeholder {
-	color: #4CAF50;
+	color: #FFFF00;
+    border: 2px solid black;
+    margin: -2px;
 }
 .ini-form button {
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background: #FFFF00;
 	width: 100%;
 	border: 0;
 	padding: 10px;
-	color: #FFFFFF;
+	color: #000000;
 	font-size: 14px;
 	cursor: pointer;
 }
 .ini-form button:hover,.form button:active,.form button:focus {
-	background: #43A047;
+	background:linear-gradient(#FFFF00, #D7DF01);
+    border: 2px solid black;
+    margin: -2px;
 }
 .ini-form .mensaje {
 	margin: 15px 0 0;
@@ -382,8 +396,8 @@ legend {
 .bus-form input {
 	font-family: "Roboto", sans-serif;
 	outline: 0;
-	background: #ddccff;
-	color:#4CAF50;
+	background: #F3F781;
+	color: black;
 	width: 66%;
 	border: 0;
 	margin: 0 0 15px;
@@ -397,16 +411,19 @@ legend {
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background:linear-gradient(#FFFF00, #D7DF01);
 	width: 30%;
 	border: 0;
 	padding: 15px 5px;
-	color: #FFFFFF;
+	color: #000000;
 	font-size: 14px;
 	cursor: pointer;
+    font-weight:bold;
 }
 .bus-form button:hover,.form button:active,.form button:focus {
-	background: #43A047;
+	background:linear-gradient(#D7DF01, #FFFF00);
+    border: 2px solid black;
+    margin:-2px;
 }
 /*buscador avanzado*/
 .bus-form-a {
@@ -685,8 +702,10 @@ tr:hover {
 
 /*resto*/
 .boton-menu{
+    background:linear-gradient(#FFFF00, #D7DF01);
+    color:black;
+	
     
-    background:linear-gradient(#9F0AFB, #480075);
     
     padding:0.2em 0.2em 0.2em 0.2em ;
 	float:left;
@@ -696,13 +715,16 @@ tr:hover {
 	
 	border-color: #A889BB;
 	
-    color:aliceblue;
+    
 	text-decoration:none;
 	font-size:1.2em;
 
 }
 .boton-menu:hover{
-    background:linear-gradient(#480075,#9F0AFB);
+    background:linear-gradient(#D7DF01,#FFFF00);
+    border: 2px solid black;
+    
+    
 }
 
 .logo{ 
@@ -714,7 +736,10 @@ tr:hover {
 
 .boton-menu2{
     
-    background:linear-gradient(#9F0AFB, #480075);
+    
+    background:linear-gradient(#FFFF00, #D7DF01);
+    color:black;
+	
     
 	float:left;
 	margin:0 auto;
@@ -723,13 +748,16 @@ tr:hover {
 	
 	border-color: #A889BB;
 	
-    color:aliceblue;
+    
 	text-decoration:none;
 	font-size:1.2em;
 
 }
 .boton-menu2:hover{
-     background:linear-gradient(#480075,#9F0AFB);
+    background:linear-gradient(#D7DF01,#FFFF00);
+    border: 2px solid black;
+    
+    
 }
 .li2{
 	width:110px;
@@ -756,10 +784,11 @@ tr:hover {
 	margin-left:-20px;
 	position:relative;
 	float:left;
-    border-top-color:#4CAF50;
-    border-left-color:mediumpurple;
-    border-right-color:mediumpurple;
-    border-bottom-color:#4CAF50;
+    
+    border-top-color:#FFFF00;
+    border-left-color:#000000;
+    border-right-color:#000000;
+    border-bottom-color:#FFFF00;
 	border-radius:100%;
     border-width:10px;
     border-style: solid;

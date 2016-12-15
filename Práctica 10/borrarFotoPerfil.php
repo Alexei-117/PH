@@ -33,14 +33,11 @@
         <?php
         if(isset($_SESSION["nombre"])){
                 
-                echo '<form class="album-form" action="confirmarFoto.php" method="POST" enctype="multipart/form-data">';
-                echo '<p class="tituloPerfil">Cambiar foto de perfil</p>';
-                echo '<label class="labelForm" for="fotoReg">Seleccionar</label>';
-                echo '<input class="formFile" type="file" name="fotoUsuario" id="elemFile">';
-                echo '<input class="formSubmit" type="submit" name="submitFile" id="subPerf" value="Modificar"/>';
-                echo '</form>';
+                echo '<div class="divPerfil">';
+                echo '<p class="tituloPerfil">Confirmación</p>';
+                echo '<p>¿Desea borrar su foto de perfil?</p>';
+                echo '<a href="confirmarBorrarFotoPerfil.php"><p class="botonJulian">Confirmar</p></a>';
                        
-            
         }
         ?>
 	</main>

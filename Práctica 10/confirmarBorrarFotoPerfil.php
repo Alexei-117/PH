@@ -32,15 +32,23 @@
 	<main class="perfil">
         <?php
         if(isset($_SESSION["nombre"])){
-                
-                echo '<form class="album-form" action="confirmarFoto.php" method="POST" enctype="multipart/form-data">';
-                echo '<p class="tituloPerfil">Cambiar foto de perfil</p>';
-                echo '<label class="labelForm" for="fotoReg">Seleccionar</label>';
-                echo '<input class="formFile" type="file" name="fotoUsuario" id="elemFile">';
-                echo '<input class="formSubmit" type="submit" name="submitFile" id="subPerf" value="Modificar"/>';
-                echo '</form>';
-                       
-            
+            $sentencia ='UPDATE usuarios SET Foto="img/lacara.png" WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
+            $resultado = mysqli_query($conexion,$sentencia);
+            $error=false;
+            if(!mysqli_query($conexion, $sentencia)){
+                $error=true;
+            }
+            if($error){
+                $desc_error=mysqli_error($conexion);
+                echo '<div class="alert">
+                        No se ha podido acceder a los datos de perfil, debes iniciar sesion.'.$desc_error.'
+                </div>';
+            }else{
+                echo '<div class="divPerfil">';
+                echo '<p class="tituloPerfil">Cambio realizado</p>';
+                echo '<p>Su foto de perfil ha sido borrada.</p>';
+                echo '<a href="perfil.php"><p class="botonJulian">Volver a perfil</p></a>';
+            }
         }
         ?>
 	</main>

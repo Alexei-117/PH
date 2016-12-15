@@ -33,48 +33,47 @@
 	?>
 	<hr>
 	<main>
-		<form class="album-form" action="registroConfirmar.php" method="POST">
-                <fieldset>
-                <legend>Formulario de registro</legend>
-                <label class="labelForm" for="nomReg">Usuario</label>
-				<input class="formInput" type="text" name="nomUser" id="nomReg" required>
-                <br>
-                <label class="labelForm" for="passReg">Contraseña</label>
-				<input class="formInput" type="password" name="pass" id="passReg" required>
-                <br>
-                <label class="labelForm" for="passReg2">Repetir contraseña</label>
-				<input class="formInput" type="password" name="repPass" id="passReg2" required>
-                <br>
-                <label class="labelForm" for="emailReg">Correo electrónico</label>
-				<input class="formInput" type="email" name="correo" id="emailReg" required>
-                <br>
-                <label class="labelForm" for="sexReg">Sexo</label>
-                    <input type="radio" name="sexo" value="1" id="sexReg" checked> Hombre
-                    <br>
-                    <input type="radio" name="sexo" value="2"> Mujer
-                    <br>
-                <br>
-				<label class="labelForm" for="ciudadReg">Ciudad</label>
-				<input class="formInput" type="text" name="ciudad" id="ciudadReg">
-                <label class="labelForm" for="naciReg">Fecha de nacimiento</label>
-				<input class="formInput" type="date" name="fecha"  id="naciReg" required>
-				<label class="labelForm" for="paisReg">País</label>
-                <select class="formInput" name="paisRegis" id="paisReg">
-					<?php
-						$sentencia= 'SELECT * FROM paises';
-						$resultado = mysqli_query($conexion, $sentencia);
-						while($fila=mysqli_fetch_assoc($resultado)){
-							echo "<option value=".$fila['IdPais'].">".$fila['NomPais']."</option>";
-						}
-						mysqli_free_result($resultado);
-					?>
-                </select>
-                <label class="labelForm" for="fotoReg">Foto de perfil</label>
-				<input class="formFile" type="file" name="fotoUsuario" id="fotoReg">
-                </fieldset>
-			 	<label for="subReg"></label>
-				<input class="formSubmit" type="submit" name="submit_reg" id="subReg" value="Registrarse" />
-                
+		<form class="album-form" action="registroConfirmar.php" method="POST" enctype="multipart/form-data">
+			<fieldset>
+			<legend>Formulario de registro</legend>
+			<label class="labelForm" for="nomReg">Usuario</label>
+			<input class="formInput" type="text" name="nomUser" id="nomReg" required>
+			<br>
+			<label class="labelForm" for="passReg">Contraseña</label>
+			<input class="formInput" type="password" name="pass" id="passReg" required>
+			<br>
+			<label class="labelForm" for="passReg2">Repetir contraseña</label>
+			<input class="formInput" type="password" name="repPass" id="passReg2" required>
+			<br>
+			<label class="labelForm" for="emailReg">Correo electrónico</label>
+			<input class="formInput" type="email" name="correo" id="emailReg" required>
+			<br>
+			<label class="labelForm" for="sexReg">Sexo</label>
+				<input type="radio" name="sexo" value="1" id="sexReg" checked> Hombre
+				<br>
+				<input type="radio" name="sexo" value="2"> Mujer
+				<br>
+			<br>
+			<label class="labelForm" for="ciudadReg">Ciudad</label>
+			<input class="formInput" type="text" name="ciudad" id="ciudadReg">
+			<label class="labelForm" for="naciReg">Fecha de nacimiento</label>
+			<input class="formInput" type="date" name="fecha"  id="naciReg" required>
+			<label class="labelForm" for="paisReg">País</label>
+			<select class="formInput" name="paisRegis" id="paisReg">
+				<?php
+					$sentencia= 'SELECT * FROM paises';
+					$resultado = mysqli_query($conexion, $sentencia);
+					while($fila=mysqli_fetch_assoc($resultado)){
+						echo "<option value=".$fila['IdPais'].">".$fila['NomPais']."</option>";
+					}
+					mysqli_free_result($resultado);
+				?>
+			</select>
+			<label class="labelForm" for="fotoReg">Foto de perfil</label>
+			<input class="formFile" type="file" name="ruta" id="fotoReg">
+			</fieldset>
+			<label for="subReg"></label>
+			<input class="formSubmit" type="submit" name="submit_reg" id="subReg" value="Registrarse" /> 
 		</form>
 	</main>
 

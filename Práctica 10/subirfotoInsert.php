@@ -93,7 +93,7 @@
 			}
 			
 		}else{
-			$msgError=$_FILES["ruta"]["error"];
+			$msgError.=$errorSubida[$_FILES["ruta"]["error"]];
 		}
 		
 		if(isset($_POST["album_foto"])){

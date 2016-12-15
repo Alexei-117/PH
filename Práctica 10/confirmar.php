@@ -42,7 +42,11 @@
 		if(isset($_POST["color_control2"])){
 			$text = $_POST["color_control2"];
 			$multiplicador=0.5;
-		}	
+		}
+		filter_var($_POST['name_control'],FILTER_SANITIZE_STRING);
+		filter_var($_POST['title_control'],FILTER_SANITIZE_STRING);
+		filter_var($_POST['text_control'],FILTER_SANITIZE_STRING);
+		
         $sentencia ='INSERT INTO solicitudes VALUES(null,"'.$_POST['album_control'].'","'
             .$_POST['name_control'].'","'.$_POST['title_control'].'","'.
             $_POST['text_control'].'","'.$_POST['email_control'].'","'.

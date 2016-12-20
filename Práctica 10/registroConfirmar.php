@@ -75,28 +75,11 @@
 		
 		//Comprobación de fecha
 		if(isset($_POST["fecha"])){
-			/*if(strpos($_POST["fecha"],"-") !== false){
-				$fecha=explode("-",$_POST["fecha"]);
-			}
-			if(strpos($_POST["fecha"],"//") !== false){
-				$fecha=explode("//",$_POST["fecha"]);
-			}
-			if(sizeof($fecha)==3){
-				$newFecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
-				$expreg="/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/";
-				if(preg_match($expreg,$newFecha)){
-					$error=true;
-					$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
-				}
-			}else{
-				$error=true;
-				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
-			}*/
 			if(($fecha= strtotime($_POST["fecha"]))===false){
 				$error=true;
-				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
+				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa. Entre 1900 y 2038.</p>";
 			}else{
-                $fecha=date("Y:m:d",$_POST["fecha"]);
+                $fecha=date("Y:m:d",strtotime($_POST["fecha"]));
             }
 		}else{
 			$fecha=null;
@@ -146,7 +129,7 @@
 		}
 
 		
-		//Asignación de variables restantes
+		//Comprobación de correo
 		if(isset($_POST["correo"])){
 			$expregEmail="/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})$/";
 			if(!preg_match($expregEmail,$_POST["correo"])){
@@ -160,6 +143,7 @@
 			$msgError.="<p>Debes de escribir una cuenta de correo para que se te pueda identificar.</p>";
 		}
 
+		//Resto de asignaciones
 		$email = $_POST["correo"];
 		$sexo = $_POST["sexo"];
 		$pais = $_POST["paisRegis"];

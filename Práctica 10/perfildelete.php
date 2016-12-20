@@ -25,7 +25,6 @@
             <div class="alert">
                 Debe identificarse antes para poder acceder al detalle de perfil.
             </div>';
-            include("ultimasFotos.php");
         }
 	?>
 	<hr>
@@ -46,8 +45,10 @@
         }
         ?>
 	</main>
-
-	<?php include("footer.html");?>
+	<?php 
+		mysqli_close($conexion);
+		include("footer.html");
+	?>
 
 </body>
 </html>

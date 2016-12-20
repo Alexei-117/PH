@@ -69,7 +69,7 @@
                     <br>
                     <label class="labelForm" for="resInput">Resolución:</label><input id="resInput" class="formInput" type="number" name="resolution_control" min="150" max="900" step="150" value="150" required/>
                     <br>
-                    <label class="labelForm" for="albumInput">Album:</label>
+                    <label class="labelForm" for="albumInput">Álbum:</label>
                     <select id="albumInput" class="formInput" name="album_control">';
                 
                     while($fila=mysqli_fetch_assoc($resultado)){

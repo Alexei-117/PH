@@ -1,6 +1,9 @@
 		<?php
 			session_start();
 			include("conexion.php");
+			
+			//Asignamos el nombre
+			$nombre=null;
 			if(isset($_COOKIE["nombre"])){
 				$nombre=$_COOKIE["nombre"];
 			}else{
@@ -8,29 +11,47 @@
 					$nombre=$_POST["name"];
 				}
 			}
-			$sentencia= 'SELECT * FROM usuarios where usuarios.NomUsuario="'.$nombre.'"';
-			$resultado = mysqli_query($conexion, $sentencia);
-			$existe=false;
-			$nombre=null;
-			$pass=null;
-			$id=null;
-			while($fila=mysqli_fetch_assoc($resultado)){
-				if(isset($_COOKIE["nombre"])){
-					if(strcmp($_COOKIE["nombre"],$fila["NomUsuario"])==0 && strcmp($_COOKIE["contra"],$fila["Clave"])==0){
+			
+			//Verificamos que sea correcto
+			if($nombre!=null){
+				$expregNom="/^([0-9]|[a-z]|[A-Z]){3,15}$/";
+				if(!preg_match($expregNom,$nombre)){
+					$error=true;
+					$msgError.="<p>El usuario debe de tener solamente letras mayúsculas, minúsculas y números. Además de ser entre 3 y 15 caracteres.</p>";
+				}
+			}else{
+				$error=true;
+				$msgError.="<p>Debes de escribir un nombre de usuario.</p>";
+			}
+			
+			//Buscamos el usuario si no hay error
+			if(!$error){	
+				$sentencia= 'SELECT * FROM usuarios where usuarios.NomUsuario="'.$nombre.'"';
+				$resultado = mysqli_query($conexion, $sentencia);
+				$existe=false;
+				$nombre=null;
+				$pass=null;
+				$id=null;
+				while($fila=mysqli_fetch_assoc($resultado)){
+					if(isset($_COOKIE["nombre"])){
+						if(strcmp($_COOKIE["nombre"],$fila["NomUsuario"])==0 && strcmp($_COOKIE["contra"],$fila["Clave"])==0){
+							$existe=true;
+							$nombre=$fila["NomUsuario"];
+							$pass=$fila["Clave"];
+							$id=$fila["IdUsuario"];
+						}
+					}
+					if(strcmp($_POST["name"],$fila["NomUsuario"])==0 && strcmp($_POST["password"],$fila["Clave"])==0){
 						$existe=true;
 						$nombre=$fila["NomUsuario"];
 						$pass=$fila["Clave"];
 						$id=$fila["IdUsuario"];
 					}
 				}
-				if(strcmp($_POST["name"],$fila["NomUsuario"])==0 && strcmp($_POST["password"],$fila["Clave"])==0){
-					$existe=true;
-					$nombre=$fila["NomUsuario"];
-					$pass=$fila["Clave"];
-					$id=$fila["IdUsuario"];
-				}
+			}else{
+				$existe=false;
 			}
-			
+			//Si existe creamos cookie
 			if($existe){
 				if(isset($_POST["submit"])){
 						if(isset($_POST["recordar"])){

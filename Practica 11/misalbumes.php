@@ -62,7 +62,6 @@
             echo '</table>';
            
             mysqli_free_result($resultado);
-            //mysqli_close($conexion);
         }
         ?>
 	</main>

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Universal Images - Insert de Crear Album</title>
+    <title>Universal Images - Insert de Crear álbum</title>
     <meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="css/index.css" title="Versión normal">
 	<link rel="alternate stylesheet" type="text/css" href="css/acc.css" title="Estilo accesible">
@@ -22,7 +22,7 @@
 			include("header.php");
 			echo '
 			<div class="alert">
-				Debe identificarse antes para poder acceder al detalle de los albumes
+				Debe identificarse antes para poder acceder al detalle de los álbumes.
 			</div>';
 			include("ultimasFotos.php");
 		}
@@ -32,20 +32,15 @@
 	<?php
 		$error=false;
 		$msgError="";
-		if(isset($_POST["fechaAlbum"])){
-			$fecha=explode("-",$_POST["fechaAlbum"]);
-			if(sizeof($fecha)==3){
-				$newFecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
-				$expreg="/(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/";
-				if(preg_match($expreg,$newFecha)){
-					$error=true;
-					$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
-				}
-			}else{
-				$error=true;
-				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
-			}
 		
+		//Comprobación de fecha
+		if(isset($_POST["fechaAlbum"])){
+			if(($fecha= strtotime($_POST["fechaAlbum"]))===false){
+				$error=true;
+				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa. Entre 1900 y 2038. </p>";
+			}else{
+                $fecha=date("Y:m:d",strtotime($_POST["fechaAlbum"]));
+            }
 		}else{
 			$fecha=null;
 		}
@@ -53,7 +48,6 @@
 		$album=$_POST["nomAlbum"];
 		filter_var($album,FILTER_SANITIZE_STRING);
 		
-		$fecha=$_POST["fechaAlbum"];
 		$pais=$_POST["paisAlbum"];
 		if(isset($_POST["descAlbum"])){
 			$descripcion=$_POST["descAlbum"];
@@ -69,7 +63,7 @@
 				$paisNom=$fila["NomPais"];
 			}
 			mysqli_free_result($resultado);
-			$sentencia= "INSERT INTO albumes VALUES (null,'".$album."','".$descripcion."','".$newFecha."','".$pais."','".$_SESSION['id']."')";
+			$sentencia= "INSERT INTO albumes VALUES (null,'".$album."','".$descripcion."','".$fecha."','".$pais."','".$_SESSION['id']."')";
 			$error=false;
 			if(!mysqli_query($conexion, $sentencia)){
 				$error=true;
@@ -80,7 +74,7 @@
 				</div>';
 			}else{
 				echo "<article class='detalle'>
-						<h3>Inserción realizada, el nuevo album es</h3>
+						<h3>Inserción realizada, el nuevo álbum es</h3>
 						<p>
 							<b>Titulo: ".$album."</b>
 						</p>

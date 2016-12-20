@@ -25,7 +25,6 @@
             <div class="alert">
                 Debe identificarse antes de poder editar sus datos de perfil.
             </div>';
-            include("ultimasFotos.php");
         }
 	?>
 	<hr>
@@ -72,7 +71,11 @@
         ?>
 	</main>
 
-	<?php include("footer.html");?>
+	<?php 
+		mysqli_free_result($resultado);
+		mysqli_close($conexion);
+		include("footer.html");
+	?>
 
 </body>
 </html>

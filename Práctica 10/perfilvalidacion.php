@@ -55,13 +55,9 @@
             }
             if(isset($_POST['ciudad_control'])){
                 $ciudad=$_POST['ciudad_control'];
-                if(!filter_var($ciudad, FILTER_SANITIZE_STRING)){
-                    $error2=1;
-                }
-                else{
-                    if(strcmp($ciudad, $fila['Ciudad'])!=0){
-                        $cambio2=1;
-                    }
+				filter_var($ciudad, FILTER_SANITIZE_STRING);
+                if(strcmp($ciudad, $fila['Ciudad'])!=0){
+                    $cambio2=1;
                 }
             }
             if((isset($_POST['pass_control']) && isset($_POST['pass_control2'])) && $_POST['pass_control']!=null && $_POST['pass_control2']!=null) {
@@ -89,23 +85,25 @@
                 else{
                     echo '<form class="album-form">';
                     echo '<legend>Modificaciones:</legend>';
+					$sentencia2='UPDATE usuarios SET';
                     if($cambio1==1){
                         echo '<p>Nuevo e-mail: '.$email.'</p>';
-                        $sentencia2='UPDATE usuarios SET Email="'.$email.'" WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
+                        $sentencia2.=' Email="'.$email.'"';
                         mysqli_query($conexion,$sentencia2);
                     }
                     if($cambio2==1){
                         echo '<p>Nueva ciudad: '.$ciudad.'</p>';
-                        $sentencia2='UPDATE usuarios SET Ciudad="'.$ciudad.'" WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
+                        $sentencia2=' Ciudad="'.$ciudad.'"';
                         mysqli_query($conexion,$sentencia2);
                     }
                     if($cambio3==1){
                         echo '<p>Nueva contraseña: '.$pass.'</p>';
-                        $sentencia2='UPDATE usuarios SET Clave="'.$pass.'" WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
+                        $sentencia2=' Clave="'.$pass.'" ';
                         mysqli_query($conexion,$sentencia2);
                     }
-                    echo '<p><a class="botonJulian" href="perfilrespuesta.php">Confirmar</a><a class="botonJulian" href="index.php">Cancelar</a></p>';
+                    echo '<p><a class="botonJulian" href="perfil.php">Volver</a></p>';
                     echo '</form>';
+					$sentencia2.=' WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
                 }
             }
             else{
@@ -124,7 +122,7 @@
                 if($error4==1){
                     echo '
                     <div class="alert">
-                        Las contraseñas deben coincidir(2).
+                        Las contraseñas deben coincidir.
                     </div>';
                 }
             }
@@ -132,7 +130,10 @@
         ?>
 	</main>
 
-	<?php include("footer.html");?>
+	<?php
+		mysqli_close($conexion);
+		include("footer.html");
+	?>
 
 </body>
 </html>

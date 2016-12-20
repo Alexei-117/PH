@@ -23,7 +23,7 @@
             include("header.php");
             echo '
             <div class="alert">
-                Debe identificarse antes para poder acceder al detalle de los albumes
+                Debe identificarse antes para poder acceder al detalle de los álbumes.
             </div>';
             include("ultimasFotos.php");
         }
@@ -58,28 +58,28 @@
                         <img class="ifoto-perfil" src="'.$fila['Foto'].'">
                         <p>
                         
-                        <b>Nombre:</b>'.$fila['NomUsuario'].'
+                        <b>Nombre: </b>'.$fila['NomUsuario'].'
                         </p>
                         <p>
-                        <b>Correo electrónico:</b>'.$fila['Email'].'
+                        <b>Correo electrónico: </b>'.$fila['Email'].'
                         </p>
                         <p>
-                        <b>Edad:</b> '.$fila['NomUsuario'].'
+                        <b>Edad: </b> '.$fila['NomUsuario'].'
                         </p>
                         <p>
-                        <b>Pais:</b> '.$fila['NomPais'].'
+                        <b>País: </b> '.$fila['NomPais'].'
                         </p>
                         <p>
-                        <b>Ciudad:</b> '.$fila['Ciudad'].'
+                        <b>Ciudad: </b> '.$fila['Ciudad'].'
                         </p>
                         <p>
-                        <b>Sexo:</b> '.$sexo.'
+                        <b>Sexo: </b> '.$sexo.'
                         </p>
                         <p>
-                        <b>Nacimiento:</b> '.$fila['FNacimiento'].'
+                        <b>Nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
                         <p>
-                        <b>Edad:</b> '.$fila['NomUsuario'].'
+                        <b>Fecha de nacimiento: </b> '.$fila['NomUsuario'].'
                         </p>
                         <a href="cambiarFoto.php"><p class="botonJulian">Cambiar foto de perfil</p></a>
                         <a href="perfilrespuesta.php"><p class="botonJulian">Modificar datos</p></a>
@@ -93,7 +93,11 @@
         ?>
 	</main>
 
-	<?php include("footer.html");?>
+	<?php 
+		mysqli_free_result($resultado);
+		mysqli_close($conexion);
+		include("footer.html");
+	?>
 
 </body>
 </html>

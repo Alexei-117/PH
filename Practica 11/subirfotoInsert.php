@@ -31,6 +31,7 @@
 	<main>
 	<?php
 		$error=false;
+		$msgError="";
 		$errorSubida = array(0 => "No hay error, el fichero se subió con éxito",
 		1 => "El tamaño del fichero supera la directiva upload_max_filesize el php.ini",
 		2 => "El tamaño del fichero supera la directiva MAX_FILE_SIZE especificada en el formulario HTML",
@@ -41,31 +42,23 @@
 		8 => "La subida del fichero fue detenida por la extensión");
 
 		if(isset($_POST["date_foto"])){
-			$fecha=explode("-",$_POST["date_foto"]);
-			if(sizeof($fecha)==3){
-				$newFecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
-				$expreg="/(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/";
-				if(preg_match(!$expreg,$newFecha)){
-					$error=true;
-					$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
-				}
-			}else{
+			if(($fecha= strtotime($_POST["date_foto"]))===false){
 				$error=true;
 				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
-			}
-		
+			}else{
+                $fecha=date("Y:m:d",strtotime($_POST["date_foto"]));
+            }
 		}else{
 			$fecha=null;
 		}
 		
+		
 		$titulo=$_POST["name_foto"];
 		filter_var($titulo, FILTER_SANITIZE_STRING);
 		
-		$fecha=$_POST["date_foto"];
-		
 		$pais=$_POST["pais_foto"];
 		
-		
+		$ruta="img/photo1.jpg";
 		if($_FILES["ruta"]["error"] == 0){
 			$foto=$_FILES["ruta"]["tmp_name"];
 			$uniq = strtotime(date("Y-m-d H:i:s"));
@@ -93,6 +86,7 @@
 			}
 			
 		}else{
+			$error=true;
 			$msgError.=$errorSubida[$_FILES["ruta"]["error"]];
 		}
 		
@@ -112,7 +106,7 @@
 		if(!$error){
 			$sentencia ='SELECT * FROM albumes a, paises p WHERE a.IdAlbum='.$album.' AND p.IdPais='.$pais.' ORDER BY a.IdAlbum';
 			$resultado= mysqli_query($conexion,$sentencia);
-			$sentencia= "INSERT INTO fotos VALUES (null,'".$titulo."','".$descripcion."','".$newFecha."','".$pais."','".$album."','".$ruta."','".$fregistro."')";
+			$sentencia= "INSERT INTO fotos VALUES (null,'".$titulo."','".$descripcion."','".$fecha."','".$pais."','".$album."','".$ruta."','".$fregistro."')";
 			$error=false;
 			if(!mysqli_query($conexion, $sentencia)){
 				$error=true;

@@ -41,7 +41,7 @@
             if($error){
                 $desc_error=mysqli_error($conexion);
                 echo '<div class="alert">
-                        No se ha podido acceder a los datos de perfil, debes iniciar sesion.'.$desc_error.'
+                        No se ha podido acceder a los datos de perfil, debes iniciar sesión.'.$desc_error.'
                 </div>';
             }else{
                 echo '<div class="divPerfil">';

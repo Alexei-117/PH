@@ -48,27 +48,40 @@
 		<hr>
 				<h4>Resultado de la búsqueda</h4>
 		<?php 
+		$errorFecha=false;
+		
 		$sentencia= 'SELECT * FROM fotos,paises WHERE fotos.pais=paises.IdPais';
 
 		if(isset($_POST["buscar"]) && strcmp($_POST["buscar"],"")!=0){
-				$sentencia.=" AND fotos.titulo LIKE '%".$_POST['buscar']."%'";
-			
+            filter_var($_POST["buscar"],FILTER_SANITIZE_STRING);
+            $sentencia.=" AND fotos.titulo LIKE '%".$_POST['buscar']."%'";
 		}
 		if(isset($_POST["Titulo"]) && strcmp($_POST["Titulo"],"")!=0){
+			filter_var($_POST["Titulo"],FILTER_SANITIZE_STRING);
 			$sentencia.=" AND fotos.titulo LIKE '%".$_POST['Titulo']."%' ";
 			
 		}
 		
 		$FechaInicio=false;
 		if(isset($_POST["Fecha_inicio"]) && strcmp($_POST["Fecha_inicio"],"")!=0){
-			$FechaInicio=true;
-			$sentencia.=" AND (fotos.fecha BETWEEN '".$_POST['Fecha_inicio']."' AND ";
+			if(($fecha= strtotime($_POST["Fecha_inicio"]))===false){
+				$errorFecha=true;
+			}else{
+				$FechaInicio=true;
+				$fecha=date("Y:m:d",strtotime($_POST["Fecha_inicio"]));
+				$sentencia.=" AND (fotos.fecha BETWEEN '".$fecha."' AND ";
+			}
 		}
 		
 		if($FechaInicio){
 			if(isset($_POST["Fecha_final"])){
 				if(strcmp($_POST["Fecha_final"],"")!=0 && strtotime($_POST["Fecha_final"])>=strtotime($_POST["Fecha_inicio"])){
-					$sentencia.=" '".$_POST["Fecha_final"]."')";
+					if(($fecha2= strtotime($_POST["Fecha_final"]))===false){
+						$errorFecha=true;
+					}else{
+						$fecha2=date("Y:m:d",strtotime($_POST["Fecha_final"]));
+						$sentencia.=" '".$_POST["Fecha_final"]."')";
+					}
 				}else{
 					$time=time();
 					$sentencia.=" '".$time."')";
@@ -91,24 +104,30 @@
 				}
 				if(isset($_POST["Titulo"]) && strcmp($_POST["Titulo"],"")!=0){
 					if(!$puesto){
-						echo "<div class='alert2'>";
+						echo "<div class='alert2'>
+							Has buscado el título: $_POST[Titulo]";
 						$puesto=true;
+					}else{
+						echo "Has buscado el título: $_POST[Titulo]";
 					}
-					echo "Has buscado el título: $_POST[Titulo]";
 				}
 				if(isset($_POST["Pais"]) && strcmp($_POST["Pais"],"")!=0){
 					if(!$puesto){
-						echo "<div class='alert2'>";
+						echo "<div class='alert2'>
+								En el país: ".$fila['NomPais'];
 						$puesto=true;
+					}else {
+						echo "<br>En el país: ".$fila['NomPais'];
 					}
-					echo "<br>En el país: ".$fila['NomPais'];
 				}
 				if(isset($_POST["Fecha_inicio"]) && strcmp($_POST["Fecha_inicio"],"")!=0){
 					if(!$puesto){
-						echo "<div class='alert2'>";
+						echo "<div class='alert2'>
+							Entre las fechas: $_POST[Fecha_inicio]";
 						$puesto=true;
+					}else{
+						echo "<br>Entre las fechas: $_POST[Fecha_inicio]";
 					}
-					echo "<br>Entre las fechas: $_POST[Fecha_inicio]";
 				}
 				if($FechaInicio){
 					if(isset($_POST["Fecha_final"]) && strcmp($_POST["Fecha_final"],"")!=0){
@@ -146,8 +165,11 @@
 		}
 		if(!$puesto){
 			echo "<div class='alert'>
-				No se han encontrado resultados
-			</div>";
+				No se han encontrado resultados.";
+				if($errorFecha){
+					echo " Inserta la fecha en un formato correcto (dd/mm/yyyy).";
+				}
+			echo "</div>";
 		}
 		mysqli_free_result($resultado);
 	?>

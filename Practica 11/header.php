@@ -1,19 +1,18 @@
-	
-	
-	
-	
-	<header>
-		<ol>
-			<li>
-				<a href="index.php" class="boton-menu" >Inicio</a>
-			</li>
-			<li>
-				<div id="logo-U">
-				</div>
-				<img class="logo" alt="logo" src="img/logo.png">
-			</li>
-			<li >
-				<div class="boton-ini" >Entrar
+<header>
+        <!--*<div class="logoJulian">
+        
+        <div class="logo"><img  alt="logo" src="img/logo.png"></div> 
+        <div class="logo"><div id="logo-U"></div></div>
+<table class="logo"><tr><td>Universal Images</td><td><div id="logo-U"></div></td></tr></table>
+        </div>-->
+		<div class="logoJulian"><table class="logo"><tr><td>Universal Images</td><td><div id="logo-U"></div></td></tr></table></div>		
+			
+		<ul class="menuJulian">
+			<li style="float:left" class="menuBloque">
+				<a class="menuEnlace" href="index.php" >Inicio</a>
+            </li>
+			<li style="float:right" class="menuBloque">
+				<div class="boton-ini">Entrar
 					<?php
 						if(isSet($_COOKIE["nombre"])){
 						$text=$_COOKIE["nombre"];
@@ -39,11 +38,13 @@
 							<input type='checkbox' name='recordar' checked='checked'/>
 						  </fieldset>
 						  <button name='submit' >Iniciar sesión</button>
-						  <p class='mensaje'>¿No está registrado? <a href='registro.php'>¡Regístrate!</a></p>
+						  <p class='mensaje'>¿No está registrado? 
+                          <br>
+                          <a href='registro.php'>¡Click aquí!</a></p>
 						</form>";
 					}
 					?>
 				</div>
 			</li>
-		</ol>
-	</header>
+		</ul>
+</header>

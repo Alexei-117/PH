@@ -1,35 +1,45 @@
-<header><?php
+<header>
+    <!--<li style="float:right" class="li-logo">
+			<div id="logo-U">
+                
+			</div>
+            <img class="logo2" alt="logo" src="img/logo.png">
+			-->
+    
+        <div class="logoJulian"><table class="logo"><tr><td>Universal Images</td><td><div id="logo-U"></div></td></tr></table></div>	
+        
+        <?php
 			if(isset($_SESSION["nombre"])){
-				echo "<ol><li class='boton-menu2' >hola $_SESSION[nombre]</li></ol>";
+				echo "<p class='saludo'>Hola ". $_SESSION['nombre']." </p>";
 			}
 			?>
-  <ol>
-		<li class="li2">
-			<a href="index.php" class="boton-menu2" >Inicio</a>
+    <ul class="menuJulian">
+            
+        
+  
+		<li class="menuBloque">
+			<a class="menuEnlace" href="index.php"  >Inicio</a>
 		</li>
-		<li class="li2">
-			<a href="subirfoto.php" class="boton-menu2">Subir foto</a>
+		<li class="menuBloque">
+			<a class="menuEnlace" href="subirfoto.php" >Subir foto</a>
 		</li>
-		<li class="li2">
-			<a href="misalbumes.php" class="boton-menu2">Mis Álbumes</a>
+		<li class="menuBloque">
+			<a class="menuEnlace" href="misalbumes.php" >Mis Álbumes</a>
 		</li >
-		<li class="li2">
-			<a href="crearAlbum.php" class="boton-menu2">Crear Álbum</a>
+		<li class="menuBloque">
+			<a class="menuEnlace" href="crearAlbum.php" >Crear Álbum</a>
 		</li>
-		<li class="li2">
-			<a href="solicitar_album.php" class="boton-menu2">Solicitar Álbum</a>
+		<li class="menuBloque">
+			<a class="menuEnlace" href="solicitar_album.php" >Solicitar Álbum</a>
 		</li>
-		<li class="li-logo">
-			<div id="logo-U">
-			</div>
-			<img class="logo2" alt="logo" src="img/logo.png">
-		</li>
-			<li class="li2">
-				<a href="perfil.php" class="boton-menu2">Ir a perfil</a>
+		
+		
+			<li class="menuBloque">
+				<a class="menuEnlace" href="perfil.php" >Ir a perfil</a>
 			</li>
-			<li class="li2">
-				<a href="index.php?desactiva=1" class="boton-menu2">Cerrar sesión</a>
+			<li class="menuBloque">
+				<a class="menuEnlace" href="index.php?desactiva=1" >Cerrar sesión</a>
 			</li>
-		</li>
-	</ol>
+		
+	</ul>
 </header>

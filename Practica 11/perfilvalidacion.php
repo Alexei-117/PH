@@ -89,21 +89,19 @@
                     if($cambio1==1){
                         echo '<p>Nuevo e-mail: '.$email.'</p>';
                         $sentencia2.=' Email="'.$email.'"';
-                        mysqli_query($conexion,$sentencia2);
                     }
                     if($cambio2==1){
                         echo '<p>Nueva ciudad: '.$ciudad.'</p>';
                         $sentencia2=' Ciudad="'.$ciudad.'"';
-                        mysqli_query($conexion,$sentencia2);
                     }
                     if($cambio3==1){
                         echo '<p>Nueva contraseña: '.$pass.'</p>';
                         $sentencia2=' Clave="'.$pass.'" ';
-                        mysqli_query($conexion,$sentencia2);
                     }
                     echo '<p><a class="botonJulian" href="perfil.php">Volver</a></p>';
                     echo '</form>';
 					$sentencia2.=' WHERE usuarios.NomUsuario="'.$_SESSION['nombre'].'"';
+					mysqli_query($conexion,$sentencia2);
                 }
             }
             else{

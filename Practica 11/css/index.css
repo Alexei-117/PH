@@ -312,7 +312,7 @@ legend {
 	background: #F3F781;
     /*border: 2px solid black;
     margin:-2px;*/
-    box-shadow: 0 0 5px 5px #333, 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    
     
     
     color:#000000;
@@ -720,7 +720,7 @@ article p{
     padding: 15px;
     overflow: hidden;
     background-color: #424242;
-   min-width: 770px;
+    min-width: 770px;
     font-size: 14px;
 }
 

@@ -37,7 +37,7 @@
 			if(sizeof($fecha)==3){
 				$newFecha=$fecha[2]."-".$fecha[1]."-".$fecha[0];
 				$expreg="/(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/";
-				if(!preg_match($expreg,$newFecha)){
+				if(preg_match($expreg,$newFecha)){
 					$error=true;
 					$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
 				}

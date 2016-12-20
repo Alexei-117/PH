@@ -95,7 +95,9 @@
 			if(($fecha= strtotime($_POST["fecha"]))===false){
 				$error=true;
 				$msgError.="<p>La fecha debe de ser del tipo dd/mm/aaaa o dd-mm-aaaa</p>";
-			}
+			}else{
+                $fecha=date("Y:m:d",$_POST["fecha"]);
+            }
 		}else{
 			$fecha=null;
 		}
@@ -211,7 +213,7 @@
                 else{
                     $sexo="Mujer";
                 }
-			echo "<p><b>Sexo: ".$sexo."</b></p>
+			echo "<p><b>Sexo:</b> ".$sexo."</p>
 				<p><b>Fecha de nacimiento: </b> $_POST[fecha]</p>
 				";
 				while($fila=mysqli_fetch_assoc($resultado)){

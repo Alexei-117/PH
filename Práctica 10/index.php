@@ -47,6 +47,7 @@
 	</main>
 
 	<?php 
+        include("fotoSeleccionada.php");
 		include("footer.html");
 		mysqli_close($conexion);
 	?>

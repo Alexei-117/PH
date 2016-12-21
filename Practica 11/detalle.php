@@ -58,18 +58,15 @@
 								<b>Fecha: ".$fila['fecha']."</b>
 							</p>
 							<p>
-								<a href='ver_album.php?album=".$fila['IdAlbum'].
-								"'>Album: ".$fila['Titulo']."</a>
+								<a href='ver_album.php?album=".$fila['IdAlbum']."'>Album: ".$fila['Titulo']."</a>
 							</p>
 							<p>";
 					if($_GET["id"]==$_SESSION["id"]){
-						echo	"<a href='perfil.php?user=".$fila['IdUsuario'];
+						echo	"<a href='perfil.php?user=".$_GET['id']."'>Usuario: ".$fila['NomUsuario']."</a>";
 					}else{
-						echo	"<a href='perfilOtro.php?user=".$fila['IdUsuario'];
+						echo	"<a href='perfilOtro.php?user=".$fila['IdUsuario']."'>Usuario: ".$fila['NomUsuario']."</a>";
 					}
-								"'>Usuario: ".$fila['NomUsuario']."</a>
-							</p>
-						</article>";
+						echo "</p></article>";
 				}
 			mysqli_free_result($resultado);
 			}else{

@@ -37,8 +37,11 @@
 		// Create image and define colors
 		$image=imagecreate($width, $height);
 		
-		$tamanyoColumna = $width/ count($valores);
-		
+		if(count($valores!=0)){
+			$tamanyoColumna = $width/ count($valores);
+		}else{
+			$tamanyoColumna = $width/7;
+		}
 		//Colores que va a admitir
 		$colorWhite=imagecolorallocate($image, 255, 255, 255);
 		$colorGrey=imagecolorallocate($image, 192, 192, 192);
@@ -89,7 +92,6 @@
 		
 		ob_end_clean();
 		imagedestroy($image);
-		
 		return $img_src;
 	}
 ?>

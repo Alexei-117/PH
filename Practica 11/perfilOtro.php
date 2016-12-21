@@ -33,7 +33,7 @@
         <?php
         if(isset($_GET["user"])){
             
-            $sentencia ='SELECT * FROM usuarios u, paises p WHERE u.IdUsuario="'.$GET['user'].'" AND u.Pais=p.IdPais';
+            $sentencia ='SELECT * FROM usuarios u, paises p WHERE u.IdUsuario="'.$_GET['user'].'" AND u.Pais=p.IdPais';
             $resultado = mysqli_query($conexion,$sentencia);
             $error=false;
             if(!mysqli_query($conexion, $sentencia)){
@@ -75,7 +75,6 @@
                         <p>
                         <b>Nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
-                        <a href="ver_fotos.php?user='.$_GET["user"].'"><p class="botonJulian">Sus fotos</p></a>
                         <a href="misalbumes.php?user='.$_GET["user"].'"><p class="botonJulian">Sus álbumes</p></a>
                         </div>';
                        

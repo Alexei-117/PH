@@ -30,7 +30,7 @@
 	<hr>
 	<main>
 		<?php
-		if(null!=$_GET){
+		if(isset($_GET["id"]])){
 			if(isset($_SESSION["nombre"])){
 			$sentencia= "SELECT * FROM fotos as f,paises,albumes as a, usuarios as u 
 							WHERE f.pais=paises.IdPais 
@@ -61,7 +61,7 @@
 								<a href='ver_album.php?album=".$fila['IdAlbum']."'>Album: ".$fila['Titulo']."</a>
 							</p>
 							<p>";
-					if($_GET["id"]==$_SESSION["id"]){
+					if($fila['IdUsuario']==$_SESSION["id"]){
 						echo	"<a href='perfil.php?user=".$_GET['id']."'>Usuario: ".$fila['NomUsuario']."</a>";
 					}else{
 						echo	"<a href='perfilOtro.php?user=".$fila['IdUsuario']."'>Usuario: ".$fila['NomUsuario']."</a>";

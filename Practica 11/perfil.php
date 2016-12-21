@@ -73,7 +73,7 @@
                         <b>Sexo: </b> '.$sexo.'
                         </p>
                         <p>
-                        <b>Fecha de nacimiento: </b> '.$fila['NomUsuario'].'
+                        <b>Fecha de nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
                         <a href="cambiarFoto.php"><p class="botonJulian">Cambiar foto de perfil</p></a>
                         <a href="perfilrespuesta.php"><p class="botonJulian">Modificar datos</p></a>

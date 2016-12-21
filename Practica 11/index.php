@@ -42,6 +42,7 @@
 		}
 	?>
 	<main>
+		<?php include("graficos.php");?>
 		<?php include("buscador.html");?>
         <?php include("ultimasFotos.php");?>
 	</main>

@@ -75,6 +75,7 @@
                         <p>
                         <b>Fecha de nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
+						<a href="misalbumes.php?user='.$_SESSION["id"].'"><p class="botonJulian">Mis álbumes</p></a>
                         <a href="cambiarFoto.php"><p class="botonJulian">Cambiar foto de perfil</p></a>
                         <a href="perfilrespuesta.php"><p class="botonJulian">Modificar datos</p></a>
                         <a href="borrarFotoPerfil.php" ><p class="botonJulian">Borrar foto perfil</p></a>

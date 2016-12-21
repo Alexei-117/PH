@@ -22,7 +22,7 @@
         include("header.php");
         echo '
         <div class="alert">
-            Debe identificarse antes para poder acceder al detalle de los álbumes.
+            Debe identificarse antes para poder acceder a la lista de las fotos de un usuario.
         </div>';
         include("ultimasFotos.php");
     }
@@ -32,8 +32,8 @@
     <main>
     <?php
         
-        if(isset($_SESSION["nombre"]) && isset($_GET["album"])){
-            $num=$_GET["album"];
+        if(isset($_SESSION["nombre"])){
+            $num=$_GET["usuario"];
             $sentencia ='SELECT * FROM fotos WHERE fotos.album='.$num;
             $resultado = mysqli_query($conexion,$sentencia);
             $contador = mysqli_num_rows($resultado);
@@ -41,7 +41,7 @@
                 echo '
                 <form class="article-form">
                 <fieldset>
-                <legend class="legend-article">Aviso</legend>El album está actualmente vacio, debes insertar fotos mediante la opcion "Añadir foto a album".
+                <legend class="legend-article">Aviso</legend>Este usuario no tiene fotos.
                 </fieldset>
                 </form>';
             }
@@ -53,13 +53,7 @@
                 
                 echo '<fieldset>';
                 echo '<figure>';
-				echo "<a href=";
-					if(isset($_SESSION["nombre"])){
-						echo "detalle.php?id=".$fila['idFoto'];
-					}else{
-						echo "";
-					}
-				echo "><img alt=".$fila['titulo']." src='".$fila['fichero']."' /></a>";
+                echo '<img src="'.$fila['fichero'].'" height=200px width=80%>';
                 echo '</figure>';
                 //echo '<legend class="legend-foto">Datos</legend>';
                     echo '<label class="labelForm">Título: </label>';

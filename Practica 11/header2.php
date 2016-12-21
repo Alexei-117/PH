@@ -24,7 +24,7 @@
 			<a class="menuEnlace" href="subirfoto.php" >Subir foto</a>
 		</li>
 		<li class="menuBloque">
-			<a class="menuEnlace" href="misalbumes.php" >Mis Álbumes</a>
+			<a class="menuEnlace" href="misalbumes.php?user=<?php echo "'".$_SESSION["id"]."'"?>" >Mis Álbumes</a>
 		</li >
 		<li class="menuBloque">
 			<a class="menuEnlace" href="crearAlbum.php" >Crear Álbum</a>

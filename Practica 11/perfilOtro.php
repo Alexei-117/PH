@@ -31,9 +31,9 @@
 	<hr>
 	<main class="perfil">
         <?php
-        if(isset($_SESSION["nombre"])){
+        if(isset($_GET["user"])){
             
-            $sentencia ='SELECT * FROM usuarios u, paises p WHERE u.NomUsuario="'.$_SESSION['nombre'].'" AND u.Pais=p.IdPais';
+            $sentencia ='SELECT * FROM usuarios u, paises p WHERE u.IdUsuario="'.$GET['user'].'" AND u.Pais=p.IdPais';
             $resultado = mysqli_query($conexion,$sentencia);
             $error=false;
             if(!mysqli_query($conexion, $sentencia)){
@@ -42,7 +42,7 @@
             if($error){
                 $desc_error=mysqli_error($conexion);
                 echo '<div class="alert">
-                        No se ha podido acceder a los datos de perfil, debes iniciar sesion.'.$desc_error.'
+                        No se ha podido acceder a los datos del perfil ajeno.'.$desc_error.'
                 </div>';
             }else{
                 $fila=mysqli_fetch_assoc($resultado);
@@ -64,9 +64,6 @@
                         <b>Correo electrónico: </b>'.$fila['Email'].'
                         </p>
                         <p>
-                        <b>Edad: </b> '.$fila['NomUsuario'].'
-                        </p>
-                        <p>
                         <b>País: </b> '.$fila['NomPais'].'
                         </p>
                         <p>
@@ -78,14 +75,8 @@
                         <p>
                         <b>Nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
-                        <p>
-                        <b>Fecha de nacimiento: </b> '.$fila['NomUsuario'].'
-                        </p>
-                        <a href="cambiarFoto.php"><p class="botonJulian">Cambiar foto de perfil</p></a>
-                        <a href="perfilrespuesta.php"><p class="botonJulian">Modificar datos</p></a>
-                        <a href="borrarFotoPerfil.php" ><p class="botonJulian">Borrar foto perfil</p></a>
-                        <a href="perfilbaja.php" ><p class="botonJulian">Borrar perfil</p></a>
-                        
+                        <a href="ver_fotos.php?user'.$_GET["user"].'"><p class="botonJulian">Sus fotos</p></a>
+                        <a href="misalbumes.php?php"><p class="botonJulian">Sus álbumes</p></a>
                         </div>';
                        
             }

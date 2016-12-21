@@ -21,17 +21,16 @@
         include("header.php");
         echo '
         <div class="alert">
-            Debe identificarse antes para poder acceder a sus albumes
+            Debe identificarse antes para poder acceder a los álbumes, tanto suyos como de otros.
         </div>';
-        include("ultimasFotos.php");
     }
     ?>
 <body>
 	
     <main>
     <?php
-        if(isset($_SESSION["nombre"])){
-            $sentencia ='SELECT a.IdAlbum, a.Titulo, a.Descripcion, a.Fecha, p.NomPais FROM albumes a, paises p, usuarios u WHERE a.Pais=p.IdPais AND a.Usuario=u.IdUsuario AND u.NomUsuario="'.$_SESSION['nombre'].'" ORDER BY a.IdAlbum';
+        if(isset($_GET["user"]) && isset($_SESSION["nombre"])){
+            $sentencia ='SELECT a.IdAlbum, a.Titulo, a.Descripcion, a.Fecha, p.NomPais FROM albumes a, paises p, usuarios u WHERE a.Pais=p.IdPais AND a.Usuario=u.IdUsuario AND u.IdUsuario ='.$_GET['user'].' ORDER BY a.IdAlbum';
             $resultado= mysqli_query($conexion,$sentencia);
             $contador = mysqli_num_rows($resultado);
             if($contador==0){

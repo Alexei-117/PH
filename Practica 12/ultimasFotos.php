@@ -1,5 +1,5 @@
 <?php
-	$sentencia= 'SELECT * FROM fotos,paises WHERE fotos.pais=paises.IdPais GROUP BY FRegistro ASC limit 5';
+	$sentencia= 'SELECT * FROM fotos,paises WHERE fotos.pais=paises.IdPais ORDER BY FRegistro DESC limit 5';
 	$resultado = mysqli_query($conexion, $sentencia);
 	while($fila=mysqli_fetch_assoc($resultado)){
 		echo "<article>

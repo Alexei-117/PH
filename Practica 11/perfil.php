@@ -64,9 +64,6 @@
                         <b>Correo electrónico: </b>'.$fila['Email'].'
                         </p>
                         <p>
-                        <b>Edad: </b> '.$fila['NomUsuario'].'
-                        </p>
-                        <p>
                         <b>País: </b> '.$fila['NomPais'].'
                         </p>
                         <p>
@@ -74,9 +71,6 @@
                         </p>
                         <p>
                         <b>Sexo: </b> '.$sexo.'
-                        </p>
-                        <p>
-                        <b>Nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
                         <p>
                         <b>Fecha de nacimiento: </b> '.$fila['NomUsuario'].'

@@ -32,9 +32,9 @@
     <main>
     <?php
         
-        if(isset($_SESSION["nombre"])){
+        if(isset($_SESSION["nombre"]) && isset($_GET["user"])){
             $num=$_GET["usuario"];
-            $sentencia ='SELECT * FROM fotos WHERE fotos.album='.$num;
+            $sentencia ='SELECT * FROM fotos,albumes WHERE fotos.album='.$num.' AND album.Usuario='.$_GET["user"].'';
             $resultado = mysqli_query($conexion,$sentencia);
             $contador = mysqli_num_rows($resultado);
             if($contador==0){

@@ -75,8 +75,8 @@
                         <p>
                         <b>Nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
-                        <a href="ver_fotos.php?user'.$_GET["user"].'"><p class="botonJulian">Sus fotos</p></a>
-                        <a href="misalbumes.php?php"><p class="botonJulian">Sus álbumes</p></a>
+                        <a href="ver_fotos.php?user='.$_GET["user"].'"><p class="botonJulian">Sus fotos</p></a>
+                        <a href="misalbumes.php?user='.$_GET["user"].'"><p class="botonJulian">Sus álbumes</p></a>
                         </div>';
                        
             }

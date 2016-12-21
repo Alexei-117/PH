@@ -36,7 +36,7 @@
 							WHERE f.pais=paises.IdPais 
 							AND ".$_GET['id']."=f.idFoto
 							AND f.album=a.IdAlbum
-							AND a.IdAlbum=u.IdUsuario
+							AND a.Usuario=u.IdUsuario
 							";
 			$resultado = mysqli_query($conexion, $sentencia);
 				while($fila=mysqli_fetch_assoc($resultado)){
@@ -59,10 +59,14 @@
 							</p>
 							<p>
 								<a href='ver_album.php?album=".$fila['IdAlbum'].
-								"'>Album: ".$fila['IdAlbum']."</a>
+								"'>Album: ".$fila['Titulo']."</a>
 							</p>
-							<p>
-								<a href='perfil.php?user=".$fila['IdUsuario'].
+							<p>";
+					if($_GET["id"]==$_SESSION["id"]){
+						echo	"<a href='perfil.php?user=".$fila['IdUsuario'];
+					}else{
+						echo	"<a href='perfilOtro.php?user=".$fila['IdUsuario'];
+					}
 								"'>Usuario: ".$fila['NomUsuario']."</a>
 							</p>
 						</article>";

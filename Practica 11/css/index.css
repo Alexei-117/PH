@@ -774,6 +774,46 @@ legend {
 
 
 /*Ligera adaptación para resoluciones bajas*/
+@media (max-width:1000px) and (min-width:701px){
+	body{
+		width:100%;
+		line-height: 1;
+		padding:0px;
+		
+		font-size:1em;
+	}
+	ul .menuJulian{
+        font-size: 8px;
+		width:100%;
+        min-width: 700px;
+		
+    }
+	header{
+		margin:0px;
+		padding:0px;
+		min-width:700px;
+		text-align:left;
+
+	}
+	div .logoJulian{
+        font-size:10px;
+		width:50px;
+        min-width: 700px;
+		margin:0px;
+		padding:0px;
+		float:left;
+    }
+    p .saludo{
+        font-size: 10px;
+		width:700px;
+		margin:100px;
+        min-width: 700px;
+		float:left;
+    }
+	.logo{
+		margin-left:5%;
+	}
+}
 @media (max-width:700px){
     .menuBloque{
         min-width: 100px;
@@ -784,7 +824,8 @@ legend {
     }
     .menuJulian{
         font-size: 10px;
-        min-width: 570px;
+		width:100%;
+        min-width: 300px;
     }
     .logoJulian{
         font-size:10px;
@@ -816,11 +857,11 @@ legend {
 	header{
 		margin:0px;
 		padding:0px;
+		width:100%;
 	}
 	main{
 		text-align:center;
 		margin:0px;
-		width:90%;
 		height:100%;
 		padding:0px;
 	}
@@ -828,7 +869,7 @@ legend {
 		font-size:1em;
 		text-overflow:hidden;
 		
-		border:solid green;
+		border:solid black;
 		border-width:4px;
 		border-radius:10px 0px 10px 0px;
 		

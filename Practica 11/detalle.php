@@ -27,10 +27,10 @@
 			include("ultimasFotos.php");
 		}
 	?>
-	<hr>
-	<main>
+	
+	<main >
 		<?php
-		if(isset($_GET["id"]])){
+		if(isset($_GET["id"])){
 			if(isset($_SESSION["nombre"])){
 			$sentencia= "SELECT * FROM fotos as f,paises,albumes as a, usuarios as u 
 							WHERE f.pais=paises.IdPais 
@@ -58,13 +58,13 @@
 								<b>Fecha: ".$fila['fecha']."</b>
 							</p>
 							<p>
-								<a href='ver_album.php?album=".$fila['IdAlbum']."'>Album: ".$fila['Titulo']."</a>
+								<a style='color:#D7DF01;' href='ver_album.php?album=".$fila['IdAlbum']."'>Album: ".$fila['Titulo']."</a>
 							</p>
 							<p>";
 					if($fila['IdUsuario']==$_SESSION["id"]){
-						echo	"<a href='perfil.php?user=".$_GET['id']."'>Usuario: ".$fila['NomUsuario']."</a>";
+						echo	"<a style='color:#D7DF01;' href='perfil.php?user=".$_GET['id']."'>Usuario: ".$fila['NomUsuario']."</a>";
 					}else{
-						echo	"<a href='perfilOtro.php?user=".$fila['IdUsuario']."'>Usuario: ".$fila['NomUsuario']."</a>";
+						echo	"<a style='color:#D7DF01;' href='perfilOtro.php?user=".$fila['IdUsuario']."'>Usuario: ".$fila['NomUsuario']."</a>";
 					}
 						echo "</p></article>";
 				}

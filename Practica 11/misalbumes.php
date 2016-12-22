@@ -47,15 +47,18 @@
             else{
 				include("miniAlbum.php");
                 echo '<table class="table-form"><tr>';
-                echo '<th>Titulo</th><th>Descripcion</th><th>Fecha</th><th>Pais</th>';
+                echo '<th>Icono</th><th>Titulo</th><th>Descripcion</th><th>Fecha</th><th>Pais</th>';
                 while($fila=mysqli_fetch_assoc($resultado)){
                     $almacen=$fila['IdAlbum'];
 					
 					$miniAlbum=creaMiniatura($fila['fichero']);
                     echo '<tr>';
                     echo '<td>';
+                    echo '<img class="miniAlbum" src='.$miniAlbum.' alt="Miniatura de álbum" >';
+                    echo '</td>';
+                    echo '<td >';
                     echo '<a class="botonJulian2" href="ver_album.php?album='.$almacen.'">';
-					echo '<img class="miniAlbum" src='.$miniAlbum.' alt="Miniatura de álbum" >';
+					
                     echo $fila['Titulo'];
                     echo '</a></td>';
                     echo '<td>'.$fila['Descripcion'].'</td>';

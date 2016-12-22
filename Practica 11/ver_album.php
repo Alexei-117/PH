@@ -46,19 +46,41 @@
                 </form>';
             }
             else{
-                
-
+                mysqli_free_result($resultado);
+				if(!isset($_GET["pag"])){
+					$sentencia ='SELECT * FROM fotos WHERE fotos.album='.$num.' LIMIT 0,10';
+				}else{
+					if($contador>$_GET["pag"]*10){
+						$sentencia ='SELECT * FROM fotos WHERE fotos.album='.$num.' LIMIT '.($_GET["pag"]*10).','.($_GET["pag"]*10+10).'';
+					}else{
+						    echo '
+							<form class="article-form">
+							<fieldset>
+							<legend class="legend-article">Aviso</legend>No hay tantas fotos como para alcanzar esta página, retroceda.
+							</fieldset>
+							</form>';
+					}
+				}
+				 $resultado = mysqli_query($conexion,$sentencia);
                 include("miniAlbum.php");
                 while($fila=mysqli_fetch_assoc($resultado)){
-                $miniAlbum=creaMiniatura($fila['fichero']);
-                echo '<a  href="';
-                    if(isset($_SESSION["nombre"])){
-						echo "detalle.php?id=".$fila['idFoto'];
-					}else{
-						echo "";
+					$miniAlbum=creaMiniatura($fila['fichero']);
+					echo '<a  href="';
+						if(isset($_SESSION["nombre"])){
+							echo "detalle.php?id=".$fila['idFoto'];
+						}else{
+							echo "";
+						}
+					echo '"><img style="box-shadow: 0 0 5px 5px #333, 0 5px 5px 0 rgba(0, 0, 0, 0.24);padding:5px;margin-left:6px;margin-right:6px;margin-top:6px;" class="miniAlbum" src='.$miniAlbum.' alt="Miniatura de álbum" ></a>';
+                }
+				if($contador>10){
+					echo "<footer class='menuJulian'><ol class='menuBloque'>";
+					for($i=0;$i<$contador;$i=$i+10){
+						echo "<a class='menuEnlace' href='ver_album.php?album=".$num."&pag=".ceil($i/10)."'>".ceil(($i+1)/10)."</a>";
 					}
-                echo '"><img style="box-shadow: 0 0 5px 5px #333, 0 5px 5px 0 rgba(0, 0, 0, 0.24);padding:5px;margin-left:6px;margin-right:6px;margin-top:6px;" class="miniAlbum" src='.$miniAlbum.' alt="Miniatura de álbum" ></a>';
-                /*
+					echo "</ol></footer>";
+				}
+				/*
                 echo '<form class="album-form">';
                 echo '<fieldset>';
                 echo '<figure >';
@@ -83,13 +105,13 @@
                 echo '</fieldset>';
                     echo '</form>';
                     */
-                }
             }
 
         }
         ?>
 	</main>
-	<?php include("footer.html");
+	<?php 
+		include("footer.html");
         mysqli_close($conexion);
     ?>
 </body>

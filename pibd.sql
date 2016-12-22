@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2016 a las 21:33:26
+-- Tiempo de generación: 22-12-2016 a las 03:10:39
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -74,13 +74,14 @@ CREATE TABLE `fotos` (
 
 INSERT INTO `fotos` (`idFoto`, `titulo`, `descripcion`, `fecha`, `pais`, `album`, `fichero`, `fRegistro`) VALUES
 (1, 'selfie', 'Una foto que me saqué en la boda de mi hermana', '2015-03-14', 1, 2, 'img/te_fo.jpg', '2016-11-23 00:00:00'),
-(3, 'party with my work mates!', 'A picture with my friends at the party of our aunt Mary Sunshine :D', '2015-02-15', 3, 3, 'img/si_o_que.jpg', '0000-00-00 00:00:00'),
-(5, 'yo guapo', 'Miradme', '2015-04-03', 1, 0, 'img/tio_maquina.jpg', '2016-11-24 00:00:00'),
+(3, 'party with my work mates!', 'A picture with my friends at the party of our aunt Mary Sunshine :D', '2015-02-15', 3, 3, 'img/si_o_que.jpg', '2016-12-20 00:00:00'),
+(5, 'yo guapo', 'Miradme', '2015-04-03', 1, 0, 'img/tio_maquina.jpg', '2016-12-19 00:00:00'),
 (6, 'my son''s first draw', 'Very porud of him! :)D', '2014-02-14', 2, 4, 'img/lacara.png', '2016-11-09 00:00:00'),
 (7, 'Hola', 'Loquesea', '1995-12-22', 1, 16, 'img/1481795867Herrero.jpg', '2016-12-15 10:57:47'),
 (8, 'Jaja', 'asd', '2015-12-16', 1, 17, 'img/14823331604e61a071f83f558d255d27f619e86ea8-d64mi81.jpg', '2016-12-21 16:12:40'),
 (9, 'Me encanta', 'pero que', '2016-12-17', 1, 17, 'img/148233318982FF72081.jpg', '2016-12-21 16:13:09'),
-(10, 'Familiariedad', 'Jeje', '2016-12-21', 1, 17, 'img/148233321387C8D8AD1.jpg', '2016-12-21 16:13:33');
+(10, 'Familiariedad', 'Jeje', '2016-12-21', 1, 17, 'img/148233321387C8D8AD1.jpg', '2016-12-21 16:13:33'),
+(11, 'Loquesea', 'me encanta', '2016-12-20', 1, 18, 'img/1482359337Budgie270810-8293.jpg', '2016-12-21 23:28:57');
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ ALTER TABLE `albumes`
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `paises`
 --

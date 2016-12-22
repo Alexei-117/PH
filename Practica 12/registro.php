@@ -70,7 +70,7 @@
 				?>
 			</select>
 			<label class="labelForm" for="fotoReg">Foto de perfil</label>
-			<input class="formFile" type="file" name="ruta" id="fotoReg">
+                <div class="fileSubir" style="float:left;width: 157px;height:57px;background:url(img/upload.png);"><input class="formFile" type="file" name="ruta" id="fotoReg"></div>
 			</fieldset>
 			<label for="subReg"></label>
 			<input class="formSubmit" type="submit" name="submit_reg" id="subReg" value="Registrarse" /> 

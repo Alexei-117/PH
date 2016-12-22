@@ -88,15 +88,22 @@
 					$sentencia2='UPDATE usuarios SET';
                     if($cambio1==1){
                         echo '<p>Nuevo e-mail: '.$email.'</p>';
-                        $sentencia2.=' Email="'.$email.'"';
+                        $sentencia2.=' Email="'.$email.'" ';
+						if($cambio2==1 || $cambio3==1){
+							$sentencia2.=", ";
+						}
                     }
                     if($cambio2==1){
+
                         echo '<p>Nueva ciudad: '.$ciudad.'</p>';
-                        $sentencia2=' Ciudad="'.$ciudad.'"';
+                        $sentencia2.=' Ciudad="'.$ciudad.'" ';
+						if($cambio3==1){
+							$sentencia2.= ", ";
+						}
                     }
                     if($cambio3==1){
                         echo '<p>Nueva contraseña: '.$pass.'</p>';
-                        $sentencia2=' Clave="'.$pass.'" ';
+                        $sentencia2.=' Clave="'.$pass.'" ';
                     }
                     echo '<p><a class="botonJulian" href="perfil.php">Volver</a></p>';
                     echo '</form>';

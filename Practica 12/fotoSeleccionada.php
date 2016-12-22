@@ -1,6 +1,6 @@
 <?php 
 
-    echo "<main><h1>Fotos seleccionadas de la semana</h1>";
+    echo "<main>";
     if(($fichero=file("fotosSeleccion.ini"))==false){
         echo "<div class='alert'> No se puede acceder al fichero de fotos seleccionadas</div>";
     }else{

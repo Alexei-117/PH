@@ -28,7 +28,7 @@
             include("ultimasFotos.php");
         }
 	?>
-	<hr>
+
 	<main class="perfil">
         <?php
         if(isset($_SESSION["nombre"])){

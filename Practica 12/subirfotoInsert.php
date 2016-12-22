@@ -119,7 +119,7 @@
 				echo "<article class='detalle'>
 						<h3>Inserción realizada, la nueva foto es</h3>
 						<figure>
-							<a href=''";
+							<a href='index.php'";
 				echo "		><img alt=".$titulo." src='".$ruta."'/></a>
 						</figure>
 						<p>

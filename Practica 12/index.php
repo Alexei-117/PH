@@ -48,7 +48,7 @@
 		
 		include("graficos.php");
 		$src = creaImagen();
-		echo "<h1>Gráfico con las subidas de foto de la última semana</h1>";
+		echo "<h3>Fotos subidas esta semana</h3>";
 		echo "<img class='grafico' src='".$src."' alt='Gráficos del Nº de fotos subidas la última semana' />";
 		include("conexion.php");
 		include("buscador.html");

@@ -74,11 +74,26 @@
 					echo '"><img style="box-shadow: 0 0 5px 5px #333, 0 5px 5px 0 rgba(0, 0, 0, 0.24);padding:5px;margin-left:6px;margin-right:6px;margin-top:6px;" class="miniAlbum" src='.$miniAlbum.' alt="Miniatura de álbum" ></a>';
                 }
 				if($contador>10){
-					echo "<footer class='menuJulian'><ol class='menuBloque'>";
+					/*<ul class="menuJulian">
+					<li class="menuBloque">
+					<a class="menuEnlace" href="">Contacto</a>
+					</li>
+					<li class="menuBloque">
+					<a class="menuEnlace" href="">Ayuda</a>
+					</li>
+					<li class="menuBloque">
+					<a class="menuEnlace" href="">Idioma</a>
+					</li >
+					<li class="menuBloque">
+					<a class="menuEnlace" href="feed.php?type=rss"><img style="height:20px;width:20px" src="img/rss.gif"> </a>
+					</li>
+					<a class="menuEnlace" href="feed.php=type=atom"><img style="height:20px;width:20px" src="img/atom.png"></a>
+					</ul>*/
+					echo "<footer ><ul class='menuJulian'>";
 					for($i=0;$i<$contador;$i=$i+10){
 						echo "<a class='menuEnlace' href='ver_album.php?album=".$num."&pag=".ceil($i/10)."'>".ceil(($i+1)/10)."</a>";
 					}
-					echo "</ol></footer>";
+					echo "</ul></footer>";
 				}
 				/*
                 echo '<form class="album-form">';

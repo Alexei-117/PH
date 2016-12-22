@@ -16,11 +16,11 @@
 		mysqli_close($conexion);*/
 		
 		//Array de valores
-		// Definir imagen png, reduciendo el tamaÒo original
+		// Definir imagen png, reduciendo el tama√±o original
 		list($width,$height) = getimagesize($src);
 		
-		$newWidth=300;
-		$newHeight=200;
+		$newWidth=$width*0.2;
+		$newHeight=$height*0.2;
 		$space=5;
 		$spaceH=20;
 		// Create image and define colors
@@ -44,7 +44,7 @@
 		imagecopyresized($image,$fuente,0,0,0,0,$newWidth,$newHeight,$width,$height);
 		
 		//Activar almacenamiento en buffer
-		//header("Content-type: image/png"); Solo lo necesitaremos si la p·gina entera es png
+		//header("Content-type: image/png"); Solo lo necesitaremos si la p√°gina entera es png
 		ob_start();
 		imagepng($image);
 		//Coger lo del buffer

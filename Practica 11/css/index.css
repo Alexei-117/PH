@@ -29,8 +29,6 @@ header{
     
 }
 
-
-
 main{
 	text-align:center;
 	margin-left:0%;
@@ -500,28 +498,6 @@ legend {
 }
 
 /*detalle*/
-article img{
-	width:100%;
-	height:auto;
-	margin:0 auto;
-	margin-left:-15px;
-	padding:0;
-}
-article a{
-	margin:1em;
-	
-	padding:2px;
-	border-radius:10px 0px 10px 0px;
-	background-color:rgba(76,175,80,0.1);
-	
-	color:green;
-	text-decoration:none;
-}
-article p{
-	text-align:left;
-	text-indent:1em;
-	width:90%;
-}
 .detalle{
 	text-align:center;
 	font-size:1.2em;
@@ -531,7 +507,7 @@ article p{
 	min-width:220px;
 	height:100%;
     margin:1.5em 0.5%;
-	margin-left:10%;
+	margin-left:30%;
 	
 	position:relative;
 	float:center;
@@ -558,12 +534,10 @@ article p{
 }
 .detalle a{
 	margin:0.5em;
-	
 	padding:2px;
 	border-radius:10px 0px 10px 0px;
-	background-color:rgba(76,175,80,0.1);
-	
-	color:green;
+	background-color:#333;
+
 	text-decoration:none;
 	font-size:100%;
 	text-overflow:hidden;
@@ -579,6 +553,7 @@ article p{
 
 /*TABLAS MIS ALBUMES*/
 .table-form {
+    min-width: 800px;
     font-size: 14px;
 	float:bottom;
 	z-index: 3;

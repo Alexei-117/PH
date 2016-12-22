@@ -46,20 +46,29 @@
                 </form>';
             }
             else{
-                echo '<form class="table-form">';
+                
 
-                
+                include("miniAlbum.php");
                 while($fila=mysqli_fetch_assoc($resultado)){
-                
+                $miniAlbum=creaMiniatura($fila['fichero']);
+                echo '<a  href="';
+                    if(isset($_SESSION["nombre"])){
+						echo "detalle.php?id=".$fila['idFoto'];
+					}else{
+						echo "";
+					}
+                echo '"><img style="box-shadow: 0 0 5px 5px #333, 0 5px 5px 0 rgba(0, 0, 0, 0.24);padding:5px;margin-left:6px;margin-right:6px;margin-top:6px;" class="miniAlbum" src='.$miniAlbum.' alt="Miniatura de álbum" ></a>';
+                /*
+                echo '<form class="album-form">';
                 echo '<fieldset>';
-                echo '<figure>';
+                echo '<figure >';
 				echo "<a href=";
 					if(isset($_SESSION["nombre"])){
 						echo "detalle.php?id=".$fila['idFoto'];
 					}else{
 						echo "";
 					}
-				echo "><img alt=".$fila['titulo']." src='".$fila['fichero']."' /></a>";
+				echo "><img style='height:200px;width:300px;' alt=".$fila['titulo']." src='".$fila['fichero']."' /></a>";
                 echo '</figure>';
                 //echo '<legend class="legend-foto">Datos</legend>';
                     echo '<label class="labelForm">Título: </label>';
@@ -72,9 +81,9 @@
                 echo '<p class="fotodesc">'.$fila['descripcion'].'</p>';
 
                 echo '</fieldset>';
+                    echo '</form>';
+                    */
                 }
-
-                echo '</form>';
             }
 
         }

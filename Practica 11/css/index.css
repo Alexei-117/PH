@@ -56,7 +56,6 @@ article{
 	display:block;
 	padding:0;
 }
-
 article img{
 	width:100%;
 	height:auto;
@@ -64,8 +63,6 @@ article img{
 	margin-left:-15px;
 	padding:0;
 }
-
-
 article a{
 	margin:1em;
 	
@@ -692,7 +689,6 @@ legend {
     padding:0.2em 0.2em 0.2em 0.2em ;
 	float:left;
 	margin:0 auto;
-	margin-top:10px;
 	margin-left:-20px;
 	border-color: #A889BB;
 	text-decoration:none;

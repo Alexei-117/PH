@@ -42,7 +42,7 @@
 			}
 		}
 	?>
-
+	<hr>
 	<main>
 		<?php include("buscador.html");?>
 		<hr>

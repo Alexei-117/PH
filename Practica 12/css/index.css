@@ -29,6 +29,8 @@ header{
     
 }
 
+
+
 main{
 	text-align:center;
 	margin-left:0%;
@@ -47,7 +49,7 @@ article{
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     
 	width:23.5%;
-	
+	min-width:220px;
 	height:320px;
 	
 	position:relative;
@@ -144,10 +146,6 @@ footer{;
     padding: 10px;
     
 }
-/*VER ALBUM*/
-.fotoAlbum{
-    
-}
 /*BOTON JULIAN*/
 .botonJulian{
     background:linear-gradient(#FFFF00, #D7DF01);
@@ -157,7 +155,7 @@ footer{;
     border:0;
     padding: 1em;
     text-decoration-line: none;
-    margin: 5px;
+    margin: 2px;
 }
 .botonJulian:hover{
 	background:linear-gradient(#D7DF01, #FFFF00);
@@ -270,9 +268,6 @@ footer{;
     height: 40px !important;
     opacity: 0 !important;
 }
-.fileSubir:hover{
-   /* box-shadow: 0 0 5px 5px #333, 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
-}
 legend {
     font-weight:bold;
     background:linear-gradient(#2E2E2E, #424242);
@@ -317,7 +312,7 @@ legend {
 	background: #F3F781;
     /*border: 2px solid black;
     margin:-2px;*/
-    
+    box-shadow: 0 0 5px 5px #333, 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     
     
     color:#000000;
@@ -341,8 +336,6 @@ legend {
 	background: #FFFF00;
 	width: 100%;
 	border: 0;
-    margin-top: 4px;
-    margin-bottom: 4px;
 	padding: 10px;
 	color: #000000;
 	font-size: 14px;
@@ -498,28 +491,46 @@ legend {
 }
 
 /*detalle*/
+article img{
+	width:100%;
+	height:auto;
+	margin:0 auto;
+	margin-left:-15px;
+	padding:0;
+}
+article a{
+	margin:1em;
+	
+	padding:2px;
+	border-radius:10px 0px 10px 0px;
+	background-color:rgba(76,175,80,0.1);
+	
+	color:green;
+	text-decoration:none;
+}
+article p{
+	text-align:left;
+	text-indent:1em;
+	width:90%;
+}
 .detalle{
 	text-align:center;
 	font-size:1.2em;
 	text-overflow:hidden;
 	
+	border:solid green;
+	border-width:2px;
+	border-radius:10px 0px 0px 0px;
+	
 	width:40%;
 	min-width:220px;
 	height:100%;
-    margin:1.5em 0.5%;
-	margin-left:30%;
+	margin-left:10%;
 	
 	position:relative;
-	float:center;
+	float:left;
 	display:block;
 	padding:0;
-	
-	
-	border:solid #000000;
-	border-width:2px;
-	border-radius:10px 0px 0px 0px;
-    
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .detalle figure{
 	margin:0px;
@@ -534,10 +545,12 @@ legend {
 }
 .detalle a{
 	margin:0.5em;
+	
 	padding:2px;
 	border-radius:10px 0px 10px 0px;
-	background-color:#333;
-
+	background-color:rgba(76,175,80,0.1);
+	
+	color:green;
 	text-decoration:none;
 	font-size:100%;
 	text-overflow:hidden;
@@ -553,12 +566,11 @@ legend {
 
 /*TABLAS MIS ALBUMES*/
 .table-form {
-    min-width: 800px;
     font-size: 14px;
 	float:bottom;
 	z-index: 3;
 	background: #FFFFFF;
-    width:100%;
+    width:50%;
 	position:relative;
 	margin: 0 auto;
 	margin-top:2.5%;
@@ -579,17 +591,16 @@ legend {
 }
 .table-form th {
     height: 60px;
-    
     background: linear-gradient(#2E2E2E, #424242);
     color: white;
     border-bottom: 1px solid #ddd;
     
 }
 .table-form tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2
 }
 .table-form tr:hover {
-    background-color: #BDBDBD;
+    background-color: #f5f5f5
 }
 /*ARTICLE*/
 .article-form {
@@ -709,7 +720,7 @@ legend {
     padding: 15px;
     overflow: hidden;
     background-color: #424242;
-    min-width: 770px;
+   min-width: 770px;
     font-size: 14px;
 }
 
@@ -778,46 +789,6 @@ legend {
 
 
 /*Ligera adaptación para resoluciones bajas*/
-@media (max-width:1000px) and (min-width:701px){
-	body{
-		width:100%;
-		line-height: 1;
-		padding:0px;
-		
-		font-size:1em;
-	}
-	ul .menuJulian{
-        font-size: 8px;
-		width:100%;
-        min-width: 700px;
-		
-    }
-	header{
-		margin:0px;
-		padding:0px;
-		min-width:700px;
-		text-align:left;
-
-	}
-	div .logoJulian{
-        font-size:10px;
-		width:50px;
-        min-width: 700px;
-		margin:0px;
-		padding:0px;
-		float:left;
-    }
-    p .saludo{
-        font-size: 10px;
-		width:700px;
-		margin:100px;
-        min-width: 700px;
-		float:left;
-    }
-	.logo{
-		margin-left:5%;
-	}
-}
 @media (max-width:700px){
     .menuBloque{
         min-width: 100px;
@@ -828,8 +799,7 @@ legend {
     }
     .menuJulian{
         font-size: 10px;
-		width:100%;
-        min-width: 300px;
+        min-width: 570px;
     }
     .logoJulian{
         font-size:10px;
@@ -861,11 +831,11 @@ legend {
 	header{
 		margin:0px;
 		padding:0px;
-		width:100%;
 	}
 	main{
 		text-align:center;
 		margin:0px;
+		width:90%;
 		height:100%;
 		padding:0px;
 	}
@@ -873,7 +843,7 @@ legend {
 		font-size:1em;
 		text-overflow:hidden;
 		
-		border:solid black;
+		border:solid green;
 		border-width:4px;
 		border-radius:10px 0px 10px 0px;
 		

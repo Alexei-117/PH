@@ -27,6 +27,7 @@
 			include("ultimasFotos.php");
 		}
     ?>
+	<hr>
 	<main>
 		<form class="album-form" action="crearAlbumInsert.php" method='POST'>
                 <fieldset>

@@ -27,16 +27,16 @@
 			include("ultimasFotos.php");
 		}
 	?>
-	
-	<main >
+	<hr>
+	<main>
 		<?php
-		if(isset($_GET["id"])){
+		if(null!=$_GET){
 			if(isset($_SESSION["nombre"])){
 			$sentencia= "SELECT * FROM fotos as f,paises,albumes as a, usuarios as u 
 							WHERE f.pais=paises.IdPais 
 							AND ".$_GET['id']."=f.idFoto
 							AND f.album=a.IdAlbum
-							AND a.Usuario=u.IdUsuario
+							AND a.IdAlbum=u.IdUsuario
 							";
 			$resultado = mysqli_query($conexion, $sentencia);
 				while($fila=mysqli_fetch_assoc($resultado)){
@@ -58,15 +58,14 @@
 								<b>Fecha: ".$fila['fecha']."</b>
 							</p>
 							<p>
-								<a style='color:#D7DF01;' href='ver_album.php?album=".$fila['IdAlbum']."'>Album: ".$fila['Titulo']."</a>
+								<a href='ver_album.php?album=".$fila['IdAlbum'].
+								"'>Album: ".$fila['IdAlbum']."</a>
 							</p>
-							<p>";
-					if($fila['IdUsuario']==$_SESSION["id"]){
-						echo	"<a style='color:#D7DF01;' href='perfil.php?user=".$_GET['id']."'>Usuario: ".$fila['NomUsuario']."</a>";
-					}else{
-						echo	"<a style='color:#D7DF01;' href='perfilOtro.php?user=".$fila['IdUsuario']."'>Usuario: ".$fila['NomUsuario']."</a>";
-					}
-						echo "</p></article>";
+							<p>
+								<a href='perfil.php?user=".$fila['IdUsuario'].
+								"'>Usuario: ".$fila['NomUsuario']."</a>
+							</p>
+						</article>";
 				}
 			mysqli_free_result($resultado);
 			}else{

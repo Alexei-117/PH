@@ -1,5 +1,6 @@
 <?php 
 
+    echo "<main>";
     if(($fichero=file("fotosSeleccion.ini"))==false){
         echo "<div class='alert'> No se puede acceder al fichero de fotos seleccionadas</div>";
     }else{
@@ -37,6 +38,7 @@
                     <b>Comentario: ".$contenido[2]."</b>
                 </p>
             </article>";
+            echo "</main>";
         }
     }
     mysqli_free_result($resultado2);

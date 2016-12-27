@@ -36,7 +36,7 @@
                 echo '<form class="album-form" action="confirmarFoto.php" method="POST" enctype="multipart/form-data">';
                 echo '<p class="tituloPerfil">Cambiar foto de perfil</p>';
                 echo '<label class="labelForm" for="fotoReg">Seleccionar</label>';
-                echo '<input class="formFile" type="file" name="fotoUsuario" id="elemFile">';
+                echo '<div class="fileSubir" style="margin-left:50px;float:left;width: 157px;height:57px;background:url(img/upload.png);"><input class="formFile" type="file" name="fotoUsuario" id="elemFile"></div>';
                 echo '<input class="formSubmit" type="submit" name="submitFile" id="subPerf" value="Modificar"/>';
                 echo '</form>';
                        

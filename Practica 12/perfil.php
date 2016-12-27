@@ -23,12 +23,12 @@
             include("header.php");
             echo '
             <div class="alert">
-                Debe identificarse antes para poder acceder al detalle de los álbumes.
+                Debe identificarse antes para poder acceder al perfil de otra persona.
             </div>';
             include("ultimasFotos.php");
         }
 	?>
-	<hr>
+
 	<main class="perfil">
         <?php
         if(isset($_SESSION["nombre"])){
@@ -64,9 +64,6 @@
                         <b>Correo electrónico: </b>'.$fila['Email'].'
                         </p>
                         <p>
-                        <b>Edad: </b> '.$fila['NomUsuario'].'
-                        </p>
-                        <p>
                         <b>País: </b> '.$fila['NomPais'].'
                         </p>
                         <p>
@@ -76,11 +73,9 @@
                         <b>Sexo: </b> '.$sexo.'
                         </p>
                         <p>
-                        <b>Nacimiento: </b> '.$fila['FNacimiento'].'
+                        <b>Fecha de nacimiento: </b> '.$fila['FNacimiento'].'
                         </p>
-                        <p>
-                        <b>Fecha de nacimiento: </b> '.$fila['NomUsuario'].'
-                        </p>
+						<a href="misalbumes.php?user='.$_SESSION["id"].'"><p class="botonJulian">Mis álbumes</p></a>
                         <a href="cambiarFoto.php"><p class="botonJulian">Cambiar foto de perfil</p></a>
                         <a href="perfilrespuesta.php"><p class="botonJulian">Modificar datos</p></a>
                         <a href="borrarFotoPerfil.php" ><p class="botonJulian">Borrar foto perfil</p></a>

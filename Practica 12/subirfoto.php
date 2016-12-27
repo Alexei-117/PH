@@ -78,7 +78,7 @@
 					</select>
                     <br>
                     <label class="labelForm" for="fotoFoto">
-					Foto:</label><input id="fotoFoto" class="formInput" type="file" name="ruta" autofocus required />
+					Foto:</label><div class="fileSubir" style="float:left;width: 157px;height:57px;background:url(img/upload.png);"><input id="fotoFoto" class="formFile" type="file" name="ruta" autofocus required /></div>
                     <br>
                     <label class="labelForm" for="albumFoto">
 					Album:</label>';

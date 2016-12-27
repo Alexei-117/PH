@@ -21,17 +21,19 @@
         include("header.php");
         echo '
         <div class="alert">
-            Debe identificarse antes para poder acceder a sus albumes
+            Debe identificarse antes para poder acceder a los álbumes, tanto suyos como de otros.
         </div>';
-        include("ultimasFotos.php");
     }
     ?>
 <body>
 	
     <main>
     <?php
-        if(isset($_SESSION["nombre"])){
-            $sentencia ='SELECT a.IdAlbum, a.Titulo, a.Descripcion, a.Fecha, p.NomPais FROM albumes a, paises p, usuarios u WHERE a.Pais=p.IdPais AND a.Usuario=u.IdUsuario AND u.NomUsuario="'.$_SESSION['nombre'].'" ORDER BY a.IdAlbum';
+        if(isset($_GET["user"]) && isset($_SESSION["nombre"])){
+            $sentencia ='SELECT a.IdAlbum, a.Titulo, a.Descripcion, a.Fecha, p.NomPais, f.fichero
+						FROM albumes a, paises p, usuarios u, fotos f
+						WHERE f.album=a.IdAlbum AND a.Pais=p.IdPais AND a.Usuario=u.IdUsuario AND 
+						u.IdUsuario ='.$_GET['user'].' GROUP BY a.Titulo';
             $resultado= mysqli_query($conexion,$sentencia);
             $contador = mysqli_num_rows($resultado);
             if($contador==0){
@@ -43,16 +45,22 @@
                 </form>';
             }
             else{
-                
+				include("miniAlbum.php");
                 echo '<table class="table-form"><tr>';
-                echo '<th>Titulo</th><th>Descripcion</th><th>Fecha</th><th>Pais</th>';
+                echo '<th>Icono</th><th>Titulo</th><th>Descripcion</th><th>Fecha</th><th>Pais</th>';
                 while($fila=mysqli_fetch_assoc($resultado)){
                     $almacen=$fila['IdAlbum'];
+					
+					$miniAlbum=creaMiniatura($fila['fichero']);
                     echo '<tr>';
                     echo '<td>';
-                    echo '<a href="ver_album.php?album='.$almacen.'"><p class="botonJulian2">';
+                    echo '<img class="miniAlbum" src='.$miniAlbum.' alt="Miniatura de álbum" >';
+                    echo '</td>';
+                    echo '<td >';
+                    echo '<a class="botonJulian2" href="ver_album.php?album='.$almacen.'">';
+					
                     echo $fila['Titulo'];
-                    echo '</p></a></td>';
+                    echo '</a></td>';
                     echo '<td>'.$fila['Descripcion'].'</td>';
                     echo '<td>'.$fila['Fecha'].'</td>';
                     echo '<td>'.$fila['NomPais'].'</td>';

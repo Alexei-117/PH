@@ -28,7 +28,6 @@
 			include("ultimasFotos.php");
 		}
     ?>
-	<hr>
 	<main>
         <?php
 		
@@ -115,7 +114,9 @@
 
 
 						<label class='labelForm'>Precio final::</label><p class='fotoin'>".$price."€</p>
+						
 						</fieldset>
+						<a href='index.php'><p  class='botonJulian' >Volver</p></a>
 					</form>";
 			}
 		}else{

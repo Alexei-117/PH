@@ -42,8 +42,18 @@
 		}
 	?>
 	<main>
-		<?php include("buscador.html");?>
-        <?php include("ultimasFotos.php");?>
+	<?php 
+		mysqli_close($conexion);
+		
+		
+		include("graficos.php");
+		$src = creaImagen();
+		echo "<h3>Fotos subidas esta semana</h3>";
+		echo "<img class='grafico' src='".$src."' alt='Gráficos del Nº de fotos subidas la última semana' />";
+		include("conexion.php");
+		include("buscador.html");
+        include("ultimasFotos.php");
+	?>
 	</main>
 
 	<?php 

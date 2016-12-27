@@ -2,7 +2,7 @@
 	$sentencia= 'SELECT * FROM fotos,paises WHERE fotos.pais=paises.IdPais ORDER BY FRegistro DESC limit 5';
 	$resultado = mysqli_query($conexion, $sentencia);
 	while($fila=mysqli_fetch_assoc($resultado)){
-		echo "<article>
+		echo "<article class='fotoArticle'>
 				<figure>
 					<a href=";
 					if(isset($_SESSION["nombre"])){
